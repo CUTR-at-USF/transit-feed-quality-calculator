@@ -17,15 +17,18 @@ package edu.usf.cutr.transitfeedqualitycalculator;
 
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.security.NoSuchAlgorithmException;
 
 public class Main {
     /**
-     * Downloads and evaluates all GTFS-realtime feeds from TransitFeeds.com and outputs to the provided directory
+     * Downloads, validates, and analyzes all GTFS-realtime feeds from TransitFeeds.com and outputs to the provided directory
      *
      * @param args
      */
-    public static void main(String[] args) throws IOException {
-        TransitFeedQualityCalculator calculator = new TransitFeedQualityCalculator(Paths.get("feeds"));
+    public static void main(String[] args) throws IOException, NoSuchAlgorithmException {
+        String transitFeedsApiKey = "76edc18d-54d4-4132-9f53-e8e25be976e7";
+        String directoryName = "feeds";
+        TransitFeedQualityCalculator calculator = new TransitFeedQualityCalculator(Paths.get(directoryName), transitFeedsApiKey);
         calculator.calculate();
     }
 }

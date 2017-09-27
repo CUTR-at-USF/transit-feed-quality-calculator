@@ -18,6 +18,7 @@ package edu.usf.cutr.transitfeedqualitycalculator;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.security.NoSuchAlgorithmException;
 
 /**
  * A project that uses the gtfs-realtime-validator to assess the quality of a large number of transit feeds.
@@ -25,25 +26,55 @@ import java.nio.file.Path;
 public class TransitFeedQualityCalculator {
 
     private Path mPath;
+    private String mApiKey;
+    private boolean mDownloadFeeds = true;
+    private boolean mValidateFeeds = true;
 
     /**
      * Creates the feed quality calculated with the path to write the output files
      *
-     * @param mPath path in which to write the output files
+     * @param path path in which to write the output files
+     * @param apiKey API key to use with TransitFeeds.com API
      */
-    public TransitFeedQualityCalculator(Path mPath) throws IOException {
-        this.mPath = mPath;
-        Files.createDirectories(mPath);
+    public TransitFeedQualityCalculator(Path path, String apiKey) throws IOException {
+        mPath = path;
+        Files.createDirectories(path);
+        mApiKey = apiKey;
+    }
+
+    /**
+     * Sets if the calculator should download feeds (default), or if it should just process the feeds already on disk
+     *
+     * @param downloadFeeds true to download feeds again, or false if feeds should not be downloaded
+     */
+    public void setDownloadFeeds(boolean downloadFeeds) {
+        mDownloadFeeds = downloadFeeds;
+    }
+
+    /**
+     * Sets if the validator should validate feeds (default), or if it should just analyze the feeds that have already been validated on disk
+     *
+     * @param validateFeeds true to validate the feeds, or false if feeds should not be validated
+     */
+    public void setValidateFeeds(boolean validateFeeds) {
+        mValidateFeeds = validateFeeds;
     }
 
     /**
      * Run the feed quality calculations
      */
-    public void calculate() throws IOException {
-        String apiKey = "76edc18d-54d4-4132-9f53-e8e25be976e7";
-        FeedDownloader downloader = new FeedDownloader(mPath, apiKey);
-        downloader.downloadFeeds();
+    public void calculate() throws IOException, NoSuchAlgorithmException {
+        if (mDownloadFeeds) {
+            FeedDownloader downloader = new FeedDownloader(mPath, mApiKey);
+            downloader.downloadFeeds();
+        }
 
-        // TODO - Walk mPath and feed GTFS and GTFS-realtime feeds into BatchProcessor (GTFS-realtime feed validator)
+        if (mValidateFeeds) {
+            BulkFeedValidator validator = new BulkFeedValidator(mPath);
+            validator.validateFeeds();
+        }
+
+        ResultsAnalyzer analyzer = new ResultsAnalyzer(mPath);
+        analyzer.analyzeResults();
     }
 }

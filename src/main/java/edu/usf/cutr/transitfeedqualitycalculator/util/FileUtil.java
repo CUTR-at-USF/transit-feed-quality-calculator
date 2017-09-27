@@ -28,7 +28,7 @@ import java.nio.channels.FileChannel;
 public class FileUtil {
 
     private static final String GTFS_RT_FILE_EXTENSION = ".pb";
-    private static final String GTFS_FILE_NAME = "gtfs.zip";
+    public static final String GTFS_FILE_NAME = "gtfs.zip";
 
     /**
      * Writes the information from the provided URL to the provided fileName
@@ -75,6 +75,6 @@ public class FileUtil {
      * @return the file name to use for a GTFS file
      */
     public static String getGtfsFileName(Feed feed) {
-        return feed.getTitle() + "-" + GTFS_FILE_NAME;
+        return GTFS_FILE_NAME;
     }
 }
