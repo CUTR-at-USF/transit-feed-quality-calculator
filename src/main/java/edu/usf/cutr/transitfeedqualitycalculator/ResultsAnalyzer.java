@@ -64,10 +64,18 @@ public class ResultsAnalyzer {
                 allErrorLists = mapper.readValue(file.toFile(), ErrorListHelperModel[].class);
                 System.out.println("-------------------------");
                 System.out.println("Validation results for - " + file);
+                System.out.println(allErrorLists.length + " types of errors/warnings were detected");
 
                 // All rules, including a list of error occurrences for each rule
                 for (ErrorListHelperModel rule : allErrorLists) {
-                    System.out.println("Rule " + rule.getErrorMessage().getValidationRule().getErrorId() + " - " + rule.getErrorMessage().getValidationRule().getTitle() + ":");
+                    String errorText;
+                    if (rule.getErrorMessage().getValidationRule().getSeverity().equals("ERROR")) {
+                        errorText = " error";
+                    } else {
+                        errorText = " warning";
+                    }
+
+                    System.out.println(rule.getOccurrenceList().size() + errorText + " occurrence(s) for Rule " + rule.getErrorMessage().getValidationRule().getErrorId() + " - " + rule.getErrorMessage().getValidationRule().getTitle() + ":");
                     // All occurrences for a single rule
                     for (OccurrenceModel error : rule.getOccurrenceList()) {
                         System.out.println(error.getPrefix() + " " + rule.getErrorMessage().getValidationRule().getOccurrenceSuffix());
