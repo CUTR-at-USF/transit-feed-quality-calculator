@@ -31,7 +31,10 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-public class FeedDownloader {
+/**
+ * Downloads GTFS and GTFS-realtime files using URLs from TransitFeeds.com
+ */
+public class TransitFeedsDownloader {
 
     private Set<Integer> mGtfsRtLocationIds = new HashSet<>();
     private int mNumGtfsRtFeeds = 0;
@@ -40,12 +43,12 @@ public class FeedDownloader {
     private String mApiKey;
 
     /**
-     * Downloads GTFS and GTFS-realtime files using URLs from TransitFeeds.com to the provided Path
+     * Downloads GTFS and GTFS-realtime files using URLs from TransitFeeds.com to the provided Path when downloadFeeds() is called
      *
      * @param path   path in which to write the output files
      * @param apiKey API key to use with TransitFeeds.com API
      */
-    public FeedDownloader(Path path, String apiKey) throws IOException {
+    public TransitFeedsDownloader(Path path, String apiKey) throws IOException {
         mPath = path;
         Files.createDirectories(mPath);
         mApiKey = apiKey;

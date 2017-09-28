@@ -65,7 +65,7 @@ public class TransitFeedQualityCalculator {
      */
     public void calculate() throws IOException, NoSuchAlgorithmException {
         if (mDownloadFeeds) {
-            FeedDownloader downloader = new FeedDownloader(mPath, mApiKey);
+            TransitFeedsDownloader downloader = new TransitFeedsDownloader(mPath, mApiKey);
             downloader.downloadFeeds();
         }
 
