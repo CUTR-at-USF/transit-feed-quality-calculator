@@ -173,7 +173,7 @@ public class FeedDownloader {
                 try {
                     writeGtfsToFile(gtfsFeedUrl, feed);
                 } catch (IOException e) {
-                    System.err.println("Error reading GTFS-realtime feed '" + urlString + "' - " + e);
+                    System.err.println("Error reading GTFS feed '" + urlString + "' - " + e);
                     continue;
                 }
             }
