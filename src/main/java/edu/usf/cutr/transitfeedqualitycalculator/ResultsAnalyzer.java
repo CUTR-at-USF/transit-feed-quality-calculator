@@ -67,6 +67,7 @@ public class ResultsAnalyzer {
 
                 // All rules, including a list of error occurrences for each rule
                 for (ErrorListHelperModel rule : allErrorLists) {
+                    System.out.println("Rule " + rule.getErrorMessage().getValidationRule().getErrorId() + " - " + rule.getErrorMessage().getValidationRule().getTitle() + ":");
                     // All occurrences for a single rule
                     for (OccurrenceModel error : rule.getOccurrenceList()) {
                         System.out.println(error.getPrefix() + " " + rule.getErrorMessage().getValidationRule().getOccurrenceSuffix());
