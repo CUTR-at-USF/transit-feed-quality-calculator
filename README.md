@@ -48,7 +48,7 @@ This demonstrates the usage of the [`TransitFeedQualityCalculator`](https://gith
 1. **Validate** - Via [`BulkFeedValidator`](https://github.com/CUTR-at-USF/transit-feed-quality-calculator/blob/master/src/main/java/edu/usf/cutr/transitfeedqualitycalculator/BulkFeedValidator.java)
 1. **Analyze** - Via [`ResultsAnalyzer`](https://github.com/CUTR-at-USF/transit-feed-quality-calculator/blob/master/src/main/java/edu/usf/cutr/transitfeedqualitycalculator/ResultsAnalyzer.java)
 
-## Sample output
+### Sample output
 
 You'll see a lot of folders within the "feeds" directory, one for each transit agency:
 
