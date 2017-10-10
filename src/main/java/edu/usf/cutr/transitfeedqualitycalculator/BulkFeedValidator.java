@@ -56,6 +56,10 @@ public class BulkFeedValidator {
             BatchProcessor processor = new BatchProcessor.Builder(path + File.separator + FileUtil.GTFS_FILE_NAME, path.toString())
                     .setPlainTextExtension("txt")
                     .build();
+            if (path.toString().contains("Netherlands")) {
+                // Workaround to avoid OutOfMemoryErrors on the huge Netherlands feed - see https://github.com/CUTR-at-USF/transit-feed-quality-calculator/issues/1
+                processor.setIgnoreShapes(true);
+            }
             try {
                 processor.processFeeds();
             } catch (Exception e) {
