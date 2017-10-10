@@ -33,3 +33,17 @@ Managed via Maven:
 ### Run the project
 
 Run the [Main.main()](https://github.com/CUTR-at-USF/transit-feed-quality-calculator/blob/master/src/main/java/edu/usf/cutr/transitfeedqualitycalculator/Main.java) method.
+
+Here's what it looks like:
+
+~~~
+String transitFeedsApiKey = "YOUR_API_KEY_HERE";
+String directoryName = "feeds"; // Where feed subdirectories are created
+TransitFeedQualityCalculator calculator = new TransitFeedQualityCalculator(Paths.get(directoryName), transitFeedsApiKey);
+calculator.calculate();
+~~~
+
+This demonstrates the usage of the [`TransitFeedQualityCalculator`](https://github.com/CUTR-at-USF/transit-feed-quality-calculator/blob/master/src/main/java/edu/usf/cutr/transitfeedqualitycalculator/TransitFeedQualityCalculator.java), which performs the 3 steps outlined above:
+1. **Download** - Via [`TransitFeedsDownloader`](https://github.com/CUTR-at-USF/transit-feed-quality-calculator/blob/master/src/main/java/edu/usf/cutr/transitfeedqualitycalculator/TransitFeedsDownloader.java)
+1. **Validate** - Via [`BulkFeedValidator`](https://github.com/CUTR-at-USF/transit-feed-quality-calculator/blob/master/src/main/java/edu/usf/cutr/transitfeedqualitycalculator/BulkFeedValidator.java)
+1. **Analyze** - Via [`ResultsAnalyzer`](https://github.com/CUTR-at-USF/transit-feed-quality-calculator/blob/master/src/main/java/edu/usf/cutr/transitfeedqualitycalculator/ResultsAnalyzer.java)
