@@ -2,7 +2,7 @@
 A project that uses the [gtfs-realtime-validator](https://github.com/CUTR-at-USF/gtfs-realtime-validator) to assess the quality of a large number of transit feeds.
 
 When it runs, it:
-1. Fetches the URLs for all known GTFS-realtime feeds and corresponding GTFS data from the [TransitFeeds.com API](http://transitfeeds.com/api/) and downloads them each to a subdirectory
+1. Fetches the URLs for all known GTFS-realtime feeds and corresponding GTFS data from the [TransitFeeds.com GetFeeds API](http://transitfeeds.com/api/swagger/#!/default/getFeeds) and downloads them each to a subdirectory
 1. Runs the [gtfs-realtime-validator Batch Processor](https://github.com/CUTR-at-USF/gtfs-realtime-validator#batch-processing) on each of the subdirectories
 1. Produces summary statistics and graphs (*In progress - see [Issue #2](https://github.com/CUTR-at-USF/transit-feed-quality-calculator/issues/2) and [WIP Pull Request #3](https://github.com/CUTR-at-USF/transit-feed-quality-calculator/pull/3))*) 
 
@@ -22,7 +22,7 @@ To get started with this project, use a Git client to clone this repository to y
 
 Managed via Maven:
 
-* [**TransitFeeds.com Client Library**](https://github.com/CUTR-at-USF/transitfeeds-client-library) - For calling the TransitFeeds.com GetFeeds API
+* [**TransitFeeds.com Client Library**](https://github.com/CUTR-at-USF/transitfeeds-client-library) - For calling the [TransitFeeds.com GetFeeds API](http://transitfeeds.com/api/swagger/#!/default/getFeeds)
 * [**GTFS-realtime Validator**](https://github.com/CUTR-at-USF/gtfs-realtime-validator) - For identifying warnings and errors in GTFS-relatime feeds
 
 ### Build the project
