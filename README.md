@@ -38,7 +38,7 @@ Here's what it looks like:
 
 ~~~
 String transitFeedsApiKey = "YOUR_API_KEY_HERE";
-String directoryName = "feeds"; // Where feed subdirectories are created
+String directoryName = "feeds"; // New directory where feed subdirectories will be created
 TransitFeedQualityCalculator calculator = new TransitFeedQualityCalculator(Paths.get(directoryName), transitFeedsApiKey);
 calculator.calculate();
 ~~~
