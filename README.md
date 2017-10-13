@@ -18,7 +18,7 @@ Run the [Main.main()](https://github.com/CUTR-at-USF/transit-feed-quality-calcul
 
 ### Command line 
 
-* `mvn install`
+* `mvn package`
 * `java -jar target/transit-feed-quality-calculator-1.0.0-SNAPSHOT.jar`
 
 ## Sample output
