@@ -19,9 +19,9 @@ public class ExcelExporter {
     private AnalysisOutput mAnalysisOutput;
     private Workbook mWorkbook;
     private Sheet mDataSheet, mGraphSheet, mCountSheet, mHistogramSheet;
-    Integer mDataSheetRowIndex = 0, mGraphSheetRowIndex = 0, mCountSheetRowIndex = 0, mHistogramSheetRowIndex = 0;
-    Integer mTotalFeeds = 0, mFeedsWithErrors = 0, mFeedsWithWarnings = 0;
-    CellStyle mCellStyle;
+    private Integer mDataSheetRowIndex = 0, mGraphSheetRowIndex = 0, mCountSheetRowIndex = 0, mHistogramSheetRowIndex = 0;
+    private Integer mTotalFeeds = 0, mFeedsWithErrors = 0, mFeedsWithWarnings = 0;
+    private CellStyle mCellStyle;
 
     ExcelExporter(AnalysisOutput analysisOutput) throws IOException {
         mAnalysisOutput = analysisOutput;
