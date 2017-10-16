@@ -19,11 +19,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.usf.cutr.gtfsrtvalidator.api.model.OccurrenceModel;
 import edu.usf.cutr.gtfsrtvalidator.batch.BatchProcessor;
 import edu.usf.cutr.gtfsrtvalidator.helper.ErrorListHelperModel;
+import edu.usf.cutr.transitfeedqualitycalculator.model.Agency;
+import edu.usf.cutr.transitfeedqualitycalculator.model.Feed;
+import edu.usf.cutr.transitfeedqualitycalculator.model.OutputData;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class ResultsAnalyzer {
@@ -51,37 +54,103 @@ public class ResultsAnalyzer {
                 .collect(Collectors.toList());
         // First entry will be the main mPath folder itself, so remove that, and we will have only subdirectories
         subFolders.remove(0);
-
         ObjectMapper mapper = new ObjectMapper();
         ErrorListHelperModel[] allErrorLists;
-
+        OutputData output = new OutputData();
+        List<Agency> agencies = new ArrayList<>();
+        Map<String, List<Feed>> errorMap = new HashMap<>();
+        Map<String, List<Feed>> warningMap = new HashMap<>();
+        output.setAgencies(agencies);
+        output.setErrorMap(errorMap);
+        output.setWarningMap(warningMap);
         // For each feed subdirectory, analyze the results files
         for (Path path : subFolders) {
             List<Path> resultsFiles = Files.walk(path)
                     .filter(p -> p.toFile().isFile() && p.toString().endsWith(BatchProcessor.RESULTS_FILE_EXTENSION))
                     .collect(Collectors.toList());
-            for (Path file : resultsFiles) {
-                allErrorLists = mapper.readValue(file.toFile(), ErrorListHelperModel[].class);
-                System.out.println("-------------------------");
-                System.out.println("Validation results for - " + file);
-                System.out.println(allErrorLists.length + " types of errors/warnings were detected");
-
-                // All rules, including a list of error occurrences for each rule
-                for (ErrorListHelperModel rule : allErrorLists) {
-                    String errorText;
-                    if (rule.getErrorMessage().getValidationRule().getSeverity().equals("ERROR")) {
-                        errorText = " error";
-                    } else {
-                        errorText = " warning";
+            if (!resultsFiles.isEmpty()) {
+                int id = 0;
+                Agency agency = new Agency();
+                agencies.add(agency);
+                List<Feed> agencyFeeds = new ArrayList<>();
+                String agencyFullName = path.getFileName().toString();
+                agency.setId(Integer.parseInt(agencyFullName.split("-")[0].trim()));
+                agency.setLocation(agencyFullName.split("-")[1].trim());
+                agency.setFeedList(agencyFeeds);
+                for (Path file : resultsFiles) {
+                    Feed agencyFeed = new Feed();
+                    agencyFeed.setId(++id);
+                    agencyFeed.setName(file.getFileName().toString().split("-")[0].trim());
+                    List<ErrorListHelperModel> errorList = new ArrayList<>();
+                    List<ErrorListHelperModel> warningList = new ArrayList<>();
+                    String errors = "", warnings = "";
+                    agencyFeed.setErrorList(errorList);
+                    agencyFeed.setWarningList(warningList);
+                    agencyFeeds.add(agencyFeed);
+                    allErrorLists = mapper.readValue(file.toFile(), ErrorListHelperModel[].class);
+                    System.out.println("-------------------------");
+                    System.out.println("Validation results for - " + file);
+                    System.out.println(allErrorLists.length + " types of errors/warnings were detected");
+                    // All rules, including a list of error occurrences for each rule
+                    for (ErrorListHelperModel rule : allErrorLists) {
+                        String errorText;
+                        if (rule.getErrorMessage().getValidationRule().getSeverity().equals("ERROR")) {
+                            List<Feed> eList;
+                            errorText = " error";
+                            errorList.add(rule);
+                            errors = errors + " " + rule.getErrorMessage().getValidationRule().getErrorId();
+                            if (errorMap.containsKey(rule.getErrorMessage().getValidationRule().getErrorId())) {
+                                eList = errorMap.get(rule.getErrorMessage().getValidationRule().getErrorId());
+                                eList.add(agencyFeed);
+                                errorMap.replace(rule.getErrorMessage().getValidationRule().getErrorId(), eList);
+                            } else {
+                                eList = new ArrayList<>();
+                                eList.add(agencyFeed);
+                                errorMap.put(rule.getErrorMessage().getValidationRule().getErrorId(), eList);
+                            }
+                        } else {
+                            List<Feed> wList;
+                            errorText = " warning";
+                            warningList.add(rule);
+                            warnings = warnings + " " + rule.getErrorMessage().getValidationRule().getErrorId();
+                            if (warningMap.containsKey(rule.getErrorMessage().getValidationRule().getErrorId())) {
+                                wList = warningMap.get(rule.getErrorMessage().getValidationRule().getErrorId());
+                                wList.add(agencyFeed);
+                                errorMap.replace(rule.getErrorMessage().getValidationRule().getErrorId(), wList);
+                            } else {
+                                wList = new ArrayList<>();
+                                wList.add(agencyFeed);
+                                warningMap.put(rule.getErrorMessage().getValidationRule().getErrorId(), wList);
+                            }
+                        }
+                        System.out.println(rule.getOccurrenceList().size() + errorText + " occurrence(s) for Rule " + rule.getErrorMessage().getValidationRule().getErrorId() + " - " + rule.getErrorMessage().getValidationRule().getTitle() + ":");
+                        // All occurrences for a single rule
+                        for (OccurrenceModel error : rule.getOccurrenceList()) {
+                            System.out.println(error.getPrefix() + " " + rule.getErrorMessage().getValidationRule().getOccurrenceSuffix());
+                        }
                     }
-
-                    System.out.println(rule.getOccurrenceList().size() + errorText + " occurrence(s) for Rule " + rule.getErrorMessage().getValidationRule().getErrorId() + " - " + rule.getErrorMessage().getValidationRule().getTitle() + ":");
-                    // All occurrences for a single rule
-                    for (OccurrenceModel error : rule.getOccurrenceList()) {
-                        System.out.println(error.getPrefix() + " " + rule.getErrorMessage().getValidationRule().getOccurrenceSuffix());
-                    }
+                    agencyFeed.setErrors(errors);
+                    agencyFeed.setWarnings(warnings);
                 }
             }
         }
+        Iterator agencyIterator = agencies.iterator();
+        while (agencyIterator.hasNext()) {
+            boolean removeAgency = true;
+            Iterator feedIterator = ((Agency) agencyIterator.next()).getFeedList().iterator();
+            while (feedIterator.hasNext()) {
+                Feed feed = (Feed) feedIterator.next();
+                if (feed.getErrorList().isEmpty() && feed.getWarningList().isEmpty()) {
+                    feedIterator.remove();
+                } else {
+                    removeAgency = false;
+                }
+            }
+            if (removeAgency) {
+                agencyIterator.remove();
+            }
+        }
+        TransitFeedResultsExporter exporter = new TransitFeedResultsExporter(output);
+        exporter.createOutputExcel();
     }
 }
