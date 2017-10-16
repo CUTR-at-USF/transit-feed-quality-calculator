@@ -35,7 +35,7 @@ public class ExcelExporter {
         mCellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
     }
 
-    public void createOutputExcel() throws java.io.IOException, NoSuchFieldException, IllegalAccessException {
+    public void export() throws java.io.IOException, NoSuchFieldException, IllegalAccessException {
         fillDataSheet();
         fillGraphSheet();
         fillCountSheet();

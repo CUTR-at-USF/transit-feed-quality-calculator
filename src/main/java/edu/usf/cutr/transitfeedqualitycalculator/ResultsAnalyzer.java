@@ -149,6 +149,6 @@ public class ResultsAnalyzer {
             }
         }
         ExcelExporter exporter = new ExcelExporter(output);
-        exporter.createOutputExcel();
+        exporter.export();
     }
 }
