@@ -32,14 +32,19 @@ import java.util.stream.Collectors;
 public class ResultsAnalyzer {
 
     private Path mPath;
-
+    private List<String> rulesToIgnore;
+    private List<String> warningsToIgnore;
     /**
      * Analyzes the results files of the GTFS validator for all subfolders of the provided path when analyzeResults() is called
      *
      * @param path path which contains subfolders that each has results from the GTFS-realtime validator
      */
-    public ResultsAnalyzer(Path path) throws IOException {
+    public ResultsAnalyzer(Path path, String rulesToIgnore, String warningsToIgnore) throws IOException {
         mPath = path;
+        this.rulesToIgnore = new ArrayList<>();
+        Collections.addAll(this.rulesToIgnore, rulesToIgnore.split(","));
+        this.warningsToIgnore = new ArrayList<>();
+        Collections.addAll(this.warningsToIgnore, warningsToIgnore.split(","));
     }
 
     /**
@@ -47,7 +52,7 @@ public class ResultsAnalyzer {
      *
      * @throws IOException if reading from or writing to the path provided in the constructor fails
      */
-    public void analyzeResults() throws IOException {
+    public void analyzeResults() throws IOException, NoSuchFieldException, IllegalAccessException {
         // Get all the subfolders of mPath
         List<Path> subFolders = Files.walk(mPath, 1)
                 .filter(Files::isDirectory)
@@ -93,10 +98,10 @@ public class ResultsAnalyzer {
                     System.out.println(allErrorLists.length + " types of errors/warnings were detected");
                     // All rules, including a list of error occurrences for each rule
                     for (ErrorListHelperModel rule : allErrorLists) {
-                        String errorText;
-                        if (rule.getErrorMessage().getValidationRule().getSeverity().equals("ERROR")) {
+                        if (rule.getErrorMessage().getValidationRule().getSeverity().equals("ERROR") &&
+                                !rulesToIgnore.contains(rule.getErrorMessage().getValidationRule().getErrorId())) {
                             List<Feed> eList;
-                            errorText = " error";
+                            String errorText = " error";
                             errorList.add(rule);
                             errors = errors + " " + rule.getErrorMessage().getValidationRule().getErrorId();
                             if (errorMap.containsKey(rule.getErrorMessage().getValidationRule().getErrorId())) {
@@ -108,9 +113,15 @@ public class ResultsAnalyzer {
                                 eList.add(agencyFeed);
                                 errorMap.put(rule.getErrorMessage().getValidationRule().getErrorId(), eList);
                             }
-                        } else {
+                            System.out.println(rule.getOccurrenceList().size() + errorText + " occurrence(s) for Rule "
+                                    + rule.getErrorMessage().getValidationRule().getErrorId() + " - " + rule.getErrorMessage().getValidationRule().getTitle() + ":");
+                            // All occurrences for a single rule
+                            for (OccurrenceModel error : rule.getOccurrenceList()) {
+                                System.out.println(error.getPrefix() + " " + rule.getErrorMessage().getValidationRule().getOccurrenceSuffix());
+                            }
+                        } else if (!rulesToIgnore.contains(rule.getErrorMessage().getValidationRule().getErrorId())) {
                             List<Feed> wList;
-                            errorText = " warning";
+                            String errorText = " warning";
                             warningList.add(rule);
                             warnings = warnings + " " + rule.getErrorMessage().getValidationRule().getErrorId();
                             if (warningMap.containsKey(rule.getErrorMessage().getValidationRule().getErrorId())) {
@@ -122,11 +133,12 @@ public class ResultsAnalyzer {
                                 wList.add(agencyFeed);
                                 warningMap.put(rule.getErrorMessage().getValidationRule().getErrorId(), wList);
                             }
-                        }
-                        System.out.println(rule.getOccurrenceList().size() + errorText + " occurrence(s) for Rule " + rule.getErrorMessage().getValidationRule().getErrorId() + " - " + rule.getErrorMessage().getValidationRule().getTitle() + ":");
-                        // All occurrences for a single rule
-                        for (OccurrenceModel error : rule.getOccurrenceList()) {
-                            System.out.println(error.getPrefix() + " " + rule.getErrorMessage().getValidationRule().getOccurrenceSuffix());
+                            System.out.println(rule.getOccurrenceList().size() + errorText + " occurrence(s) for Rule "
+                                    + rule.getErrorMessage().getValidationRule().getErrorId() + " - " + rule.getErrorMessage().getValidationRule().getTitle() + ":");
+                            // All occurrences for a single rule
+                            for (OccurrenceModel error : rule.getOccurrenceList()) {
+                                System.out.println(error.getPrefix() + " " + rule.getErrorMessage().getValidationRule().getOccurrenceSuffix());
+                            }
                         }
                     }
                     agencyFeed.setErrors(errors);
@@ -135,21 +147,6 @@ public class ResultsAnalyzer {
             }
         }
         Iterator agencyIterator = agencies.iterator();
-        while (agencyIterator.hasNext()) {
-            boolean removeAgency = true;
-            Iterator feedIterator = ((Agency) agencyIterator.next()).getFeedList().iterator();
-            while (feedIterator.hasNext()) {
-                Feed feed = (Feed) feedIterator.next();
-                if (feed.getErrorList().isEmpty() && feed.getWarningList().isEmpty()) {
-                    feedIterator.remove();
-                } else {
-                    removeAgency = false;
-                }
-            }
-            if (removeAgency) {
-                agencyIterator.remove();
-            }
-        }
         TransitFeedResultsExporter exporter = new TransitFeedResultsExporter(output);
         exporter.createOutputExcel();
     }

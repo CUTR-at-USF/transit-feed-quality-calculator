@@ -25,7 +25,7 @@ public class Main {
      *
      * @param args
      */
-    public static void main(String[] args) throws IOException, NoSuchAlgorithmException {
+    public static void main(String[] args) throws IOException, NoSuchAlgorithmException, NoSuchFieldException, IllegalAccessException {
         String transitFeedsApiKey = "76edc18d-54d4-4132-9f53-e8e25be976e7";
         String directoryName = "feeds";
         TransitFeedQualityCalculator calculator = new TransitFeedQualityCalculator(Paths.get(directoryName), transitFeedsApiKey);
