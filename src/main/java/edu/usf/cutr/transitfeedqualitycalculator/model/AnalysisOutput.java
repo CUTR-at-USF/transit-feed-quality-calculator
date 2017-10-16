@@ -3,7 +3,7 @@ package edu.usf.cutr.transitfeedqualitycalculator.model;
 import java.util.List;
 import java.util.Map;
 
-public class OutputData {
+public class AnalysisOutput {
 
     List<Agency> agencies;
     Map<String, List<Feed>> errorMap;

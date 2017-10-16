@@ -29,8 +29,8 @@ public class TransitFeedQualityCalculator {
     private String mApiKey;
     private boolean mDownloadFeeds = true;
     private boolean mValidateFeeds = true;
-    private String rulesToIgnore = "E017"; //Comma separated string of rules to ignore
-    private String warningsToIgnore = ""; //Comma separated string of warnings to ignore
+    private String mErrorsToIgnore = "E017"; // Comma separated string of errors to ignore
+    private String mWarningsToIgnore = ""; // Comma separated string of warnings to ignore
 
     /**
      * Creates the feed quality calculated with the path to write the output files
@@ -76,7 +76,7 @@ public class TransitFeedQualityCalculator {
             validator.validateFeeds();
         }
 
-        ResultsAnalyzer analyzer = new ResultsAnalyzer(mPath, rulesToIgnore, warningsToIgnore);
+        ResultsAnalyzer analyzer = new ResultsAnalyzer(mPath, mErrorsToIgnore, mWarningsToIgnore);
         analyzer.analyzeResults();
     }
 }

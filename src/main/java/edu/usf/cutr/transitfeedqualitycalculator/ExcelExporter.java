@@ -5,34 +5,37 @@ import java.util.*;
 
 import edu.usf.cutr.transitfeedqualitycalculator.model.Agency;
 import edu.usf.cutr.transitfeedqualitycalculator.model.Feed;
-import edu.usf.cutr.transitfeedqualitycalculator.model.OutputData;
+import edu.usf.cutr.transitfeedqualitycalculator.model.AnalysisOutput;
 import edu.usf.cutr.transitfeedqualitycalculator.util.ErrorDescription;
 import edu.usf.cutr.transitfeedqualitycalculator.util.WarningDescription;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-public class TransitFeedResultsExporter {
+/**
+ * Exports a summary of the analysis to an Excel spreadsheet, using the provided tamplate.xlsx for graph formats
+ */
+public class ExcelExporter {
 
-    OutputData outputCollection;
-    Workbook workbook;
-    Sheet dataSheet, graphSheet, countSheet, histogramSheet;
-    Integer dataSheetRowIndex = 0, graphSheetRowIndex = 0, countSheetRowIndex = 0, histogramSheetRowIndex = 0;
-    Integer totalFeeds = 0, feedsWithErrors = 0, feedsWithWarnings = 0;
-    CellStyle cellStyle;
+    private AnalysisOutput mAnalysisOutput;
+    private Workbook mWorkbook;
+    private Sheet mDataSheet, mGraphSheet, mCountSheet, mHistogramSheet;
+    Integer mDataSheetRowIndex = 0, mGraphSheetRowIndex = 0, mCountSheetRowIndex = 0, mHistogramSheetRowIndex = 0;
+    Integer mTotalFeeds = 0, mFeedsWithErrors = 0, mFeedsWithWarnings = 0;
+    CellStyle mCellStyle;
 
-    TransitFeedResultsExporter(OutputData outputCollection) throws IOException {
-        this.outputCollection = outputCollection;
-        workbook = new XSSFWorkbook(new FileInputStream("template.xlsx") );
-        dataSheet = workbook.getSheet("1-Data");
-        graphSheet = workbook.getSheet("1-Error Frequency");
-        countSheet = workbook.getSheet("1-Error Count");
-        histogramSheet = workbook.getSheet("1-Histogram");
-        cellStyle = workbook.createCellStyle();
-        cellStyle.setFillForegroundColor(IndexedColors.AQUA.getIndex());
-        cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+    ExcelExporter(AnalysisOutput analysisOutput) throws IOException {
+        mAnalysisOutput = analysisOutput;
+        mWorkbook = new XSSFWorkbook(new FileInputStream("template.xlsx") );
+        mDataSheet = mWorkbook.getSheet("1-Data");
+        mGraphSheet = mWorkbook.getSheet("1-Error Frequency");
+        mCountSheet = mWorkbook.getSheet("1-Error Count");
+        mHistogramSheet = mWorkbook.getSheet("1-Histogram");
+        mCellStyle = mWorkbook.createCellStyle();
+        mCellStyle.setFillForegroundColor(IndexedColors.AQUA.getIndex());
+        mCellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
     }
 
-    public void createOutputExcel() throws java.io.FileNotFoundException, java.io.IOException, NoSuchFieldException, IllegalAccessException {
+    public void createOutputExcel() throws java.io.IOException, NoSuchFieldException, IllegalAccessException {
         fillDataSheet();
         fillGraphSheet();
         fillCountSheet();
@@ -41,40 +44,41 @@ public class TransitFeedResultsExporter {
     }
 
     private void fillHistogramSheet() {
+        final int HISTOGRAM_WIDTH = 8;
         int[] numberOfErrors = {0, 0, 0, 0, 0, 0, 0, 0};
         int[] numberOfWarnings = {0, 0, 0, 0, 0, 0, 0, 0};
         Row row;
         Cell cell;
-        row = histogramSheet.createRow(histogramSheetRowIndex++);
+        row = mHistogramSheet.createRow(mHistogramSheetRowIndex++);
         cell = row.createCell(0);
-        cell.setCellStyle(cellStyle);
+        cell.setCellStyle(mCellStyle);
         cell.setCellValue("Number of Errors");
         cell = row.createCell(1);
-        cell.setCellStyle(cellStyle);
+        cell.setCellStyle(mCellStyle);
         cell.setCellValue("Frequency");
 
-        Iterator it = outputCollection.getAgencies().iterator();
+        Iterator it = mAnalysisOutput.getAgencies().iterator();
         while (it.hasNext()) {
             Iterator i = ((Agency)it.next()).getFeedList().iterator();
             while (i.hasNext()) {
                 Feed f = (Feed) i.next();
-                if (f.getErrorList().size()>0 && f.getErrorList().size()<8) {
+                if (f.getErrorList().size() > 0 && f.getErrorList().size() < HISTOGRAM_WIDTH) {
                     numberOfErrors[f.getErrorList().size()]++;
                 }
-                if (f.getWarningList().size()>0 && f.getWarningList().size()<8) {
+                if (f.getWarningList().size() > 0 && f.getWarningList().size() < HISTOGRAM_WIDTH) {
                     numberOfWarnings[f.getWarningList().size()]++;
                 }
             }
         }
        for (int i = 0; i < numberOfErrors.length; i++) {
-            row = histogramSheet.createRow(histogramSheetRowIndex++);
+            row = mHistogramSheet.createRow(mHistogramSheetRowIndex++);
             cell = row.createCell(0);
             cell.setCellValue(i+1);
             cell = row.createCell(1);
             cell.setCellValue(numberOfErrors[i]);
         }
-        row = histogramSheet.createRow(histogramSheetRowIndex++);
-        row = histogramSheet.createRow(histogramSheetRowIndex++);
+        row = mHistogramSheet.createRow(mHistogramSheetRowIndex++);
+        row = mHistogramSheet.createRow(mHistogramSheetRowIndex++);
         cell = row.createCell(0);
         cell.setCellValue("Total");
         cell = row.createCell(1);
@@ -82,30 +86,31 @@ public class TransitFeedResultsExporter {
         for (int i : numberOfErrors)
             sum += i;
         cell.setCellValue(sum);
-        row = histogramSheet.createRow(histogramSheetRowIndex++);
+        row = mHistogramSheet.createRow(mHistogramSheetRowIndex++);
 
-        row = histogramSheet.createRow(histogramSheetRowIndex++);
+        row = mHistogramSheet.createRow(mHistogramSheetRowIndex++);
         cell = row.createCell(0);
-        cell.setCellStyle(cellStyle);
+        cell.setCellStyle(mCellStyle);
         cell.setCellValue("Number of Warnings");
         cell = row.createCell(1);
-        cell.setCellStyle(cellStyle);
+        cell.setCellStyle(mCellStyle);
         cell.setCellValue("Frequency");
         for (int i = 0; i < numberOfWarnings.length; i++) {
-            row = histogramSheet.createRow(histogramSheetRowIndex++);
+            row = mHistogramSheet.createRow(mHistogramSheetRowIndex++);
             cell = row.createCell(0);
             cell.setCellValue(i+1);
             cell = row.createCell(1);
             cell.setCellValue(numberOfWarnings[i]);
         }
-        row = histogramSheet.createRow(histogramSheetRowIndex++);
-        row = histogramSheet.createRow(histogramSheetRowIndex++);
+        row = mHistogramSheet.createRow(mHistogramSheetRowIndex++);
+        row = mHistogramSheet.createRow(mHistogramSheetRowIndex++);
         cell = row.createCell(0);
         cell.setCellValue("Total");
         cell = row.createCell(1);
         sum = 0;
-        for (int i : numberOfWarnings)
+        for (int i : numberOfWarnings) {
             sum += i;
+        }
         cell.setCellValue(sum);
         autosizeHistogramSheet();
     }
@@ -114,19 +119,19 @@ public class TransitFeedResultsExporter {
         Row row;
         Cell cell;
         Map<String, Integer> countMap;
-        for (int i = 0; i < totalFeeds; i++) {
-            row = countSheet.createRow(countSheetRowIndex++);
+        for (int i = 0; i < mTotalFeeds; i++) {
+            row = mCountSheet.createRow(mCountSheetRowIndex++);
         }
-        countSheetRowIndex = 0;
-        row = countSheet.createRow(countSheetRowIndex++);
+        mCountSheetRowIndex = 0;
+        row = mCountSheet.createRow(mCountSheetRowIndex++);
         cell = row.createCell(0);
-        cell.setCellStyle(cellStyle);
+        cell.setCellStyle(mCellStyle);
         cell.setCellValue("Error Count in Feeds");
         cell = row.createCell(1);
-        cell.setCellStyle(cellStyle);
+        cell.setCellStyle(mCellStyle);
         cell.setCellValue("Count");
 
-        Iterator it = outputCollection.getAgencies().iterator();
+        Iterator it = mAnalysisOutput.getAgencies().iterator();
         countMap = new HashMap<>();
         while (it.hasNext()) {
             Iterator i = ((Agency)it.next()).getFeedList().iterator();
@@ -138,18 +143,18 @@ public class TransitFeedResultsExporter {
             }
         }
         countMap = sortMap(countMap);
-        createCells(countMap, countSheetRowIndex, countSheet, 0);
+        createCells(countMap, mCountSheetRowIndex, mCountSheet, 0);
 
-        countSheetRowIndex = 0;
-        row = countSheet.getRow(countSheetRowIndex++);
+        mCountSheetRowIndex = 0;
+        row = mCountSheet.getRow(mCountSheetRowIndex++);
         cell = row.createCell(3);
-        cell.setCellStyle(cellStyle);
+        cell.setCellStyle(mCellStyle);
         cell.setCellValue("Warning Count in Feeds");
         cell = row.createCell(4);
-        cell.setCellStyle(cellStyle);
+        cell.setCellStyle(mCellStyle);
         cell.setCellValue("Count");
 
-        it = outputCollection.getAgencies().iterator();
+        it = mAnalysisOutput.getAgencies().iterator();
         countMap = new HashMap<>();
         while (it.hasNext()) {
             Iterator i = ((Agency)it.next()).getFeedList().iterator();
@@ -165,7 +170,7 @@ public class TransitFeedResultsExporter {
         while (it.hasNext()) {
             int cellIndex = 3;
             Map.Entry pair = (Map.Entry) it.next();
-            row = countSheet.getRow(countSheetRowIndex++);
+            row = mCountSheet.getRow(mCountSheetRowIndex++);
             cell = row.createCell(cellIndex++);
             cell.setCellValue(pair.getKey().toString());
             cell = row.createCell(cellIndex++);
@@ -179,14 +184,14 @@ public class TransitFeedResultsExporter {
         Cell cell;
         Map<String, Integer> countMap;
 
-        row = graphSheet.createRow(graphSheetRowIndex++);
+        row = mGraphSheet.createRow(mGraphSheetRowIndex++);
         cell = row.createCell(0);
-        cell.setCellStyle(cellStyle);
+        cell.setCellStyle(mCellStyle);
         cell.setCellValue("Most Frequent");
         cell = row.createCell(1);
-        cell.setCellStyle(cellStyle);
+        cell.setCellStyle(mCellStyle);
         cell.setCellValue("Count");
-        Iterator it = outputCollection.getErrorMap().entrySet().iterator();
+        Iterator it = mAnalysisOutput.getErrorMap().entrySet().iterator();
         countMap = new HashMap<>();
         int count = 0;
         while (it.hasNext() && count < 7) {
@@ -199,14 +204,14 @@ public class TransitFeedResultsExporter {
         while (it.hasNext()) {
             int cellIndex = 0;
             Map.Entry pair = (Map.Entry) it.next();
-            row = graphSheet.createRow(graphSheetRowIndex++);
+            row = mGraphSheet.createRow(mGraphSheetRowIndex++);
             cell = row.createCell(cellIndex++);
             cell.setCellValue(pair.getKey().toString());
             cell = row.createCell(cellIndex++);
             cell.setCellValue(Integer.parseInt(pair.getValue().toString()));
         }
 
-        it = outputCollection.getWarningMap().entrySet().iterator();
+        it = mAnalysisOutput.getWarningMap().entrySet().iterator();
         countMap = new HashMap<>();
         count = 0;
         while (it.hasNext() && count < 7) {
@@ -215,12 +220,11 @@ public class TransitFeedResultsExporter {
             count++;
         }
         countMap = sortMap(countMap);
-        //createCells(countMap, graphSheetRowIndex, graphSheet, 0);
         it = countMap.entrySet().iterator();
         while (it.hasNext()) {
             int cellIndex = 0;
             Map.Entry pair = (Map.Entry) it.next();
-            row = graphSheet.createRow(graphSheetRowIndex++);
+            row = mGraphSheet.createRow(mGraphSheetRowIndex++);
             cell = row.createCell(cellIndex++);
             cell.setCellValue(pair.getKey().toString());
             cell = row.createCell(cellIndex++);
@@ -238,8 +242,8 @@ public class TransitFeedResultsExporter {
             Integer v2 = e2.getValue();
             return v2.compareTo(v1);
         };
-        Collections.sort(listOfEntries, comparator);
-        LinkedHashMap<String, Integer> sortedByValue = new LinkedHashMap<String, Integer>(listOfEntries.size());
+        listOfEntries.sort(comparator);
+        LinkedHashMap<String, Integer> sortedByValue = new LinkedHashMap<>(listOfEntries.size());
         for (Map.Entry<String, Integer> entry : listOfEntries) {
             sortedByValue.put(entry.getKey(), entry.getValue());
         }
@@ -249,10 +253,9 @@ public class TransitFeedResultsExporter {
     private void createCells(Map<String, Integer> countMap, Integer rowIndex, Sheet sheet, Integer colStart) {
         Row row;
         Cell cell;
-        Iterator it = countMap.entrySet().iterator();
-        while (it.hasNext()) {
+        for (Object o : countMap.entrySet()) {
             int cellIndex = colStart;
-            Map.Entry pair = (Map.Entry) it.next();
+            Map.Entry pair = (Map.Entry) o;
             row = sheet.createRow(rowIndex++);
             cell = row.createCell(cellIndex++);
             cell.setCellValue(pair.getKey().toString());
@@ -263,10 +266,10 @@ public class TransitFeedResultsExporter {
 
     private void fillDataSheet() throws java.io.IOException {
         initalizeDataSheet();
-        for (Agency agency : outputCollection.getAgencies()) {
+        for (Agency agency : mAnalysisOutput.getAgencies()) {
             for (Feed feed : agency.getFeedList()) {
                 int cellIndex = 0;
-                Row row = dataSheet.createRow(dataSheetRowIndex++);
+                Row row = mDataSheet.createRow(mDataSheetRowIndex++);
                 Cell cell = row.createCell(cellIndex++);
                 cell.setCellValue(feed.getName());
                 cell = row.createCell(cellIndex++);
@@ -274,14 +277,14 @@ public class TransitFeedResultsExporter {
                 cell = row.createCell(cellIndex++);
                 cell.setCellValue(feed.getErrors().trim().replaceAll(" ", ", "));
                 if (!"".equals(feed.getErrors().trim().replaceAll(" ", ", "))) {
-                    feedsWithErrors++;
+                    mFeedsWithErrors++;
                 }
                 cell = row.createCell(cellIndex++);
                 cell.setCellValue(feed.getWarnings().trim().replaceAll(" ", ", "));
                 if (!"".equals(feed.getWarnings().trim().replaceAll(" ", ", "))) {
-                    feedsWithWarnings++;
+                    mFeedsWithWarnings++;
                 }
-                totalFeeds++;
+                mTotalFeeds++;
             }
         }
         fillChartData();
@@ -289,96 +292,96 @@ public class TransitFeedResultsExporter {
     }
 
     private void fillChartData() {
-        Row row = dataSheet.createRow(132);
+        Row row = mDataSheet.createRow(132);
         Cell cell = row.createCell(0);
         cell.setCellValue("Feeds with errors");
         cell = row.createCell(1);
         cell.setCellValue("Feeds without errors");
 
-        row = dataSheet.createRow(133);
+        row = mDataSheet.createRow(133);
         cell = row.createCell(0);
-        cell.setCellValue(feedsWithErrors);
+        cell.setCellValue(mFeedsWithErrors);
         cell = row.createCell(1);
-        cell.setCellValue(totalFeeds - feedsWithErrors);
+        cell.setCellValue(mTotalFeeds - mFeedsWithErrors);
 
-        row = dataSheet.createRow(135);
+        row = mDataSheet.createRow(135);
         cell = row.createCell(0);
         cell.setCellValue("Feeds with warnings");
         cell = row.createCell(1);
         cell.setCellValue("Feeds without warnings");
 
-        row = dataSheet.createRow(136);
+        row = mDataSheet.createRow(136);
         cell = row.createCell(0);
-        cell.setCellValue(feedsWithWarnings);
+        cell.setCellValue(mFeedsWithWarnings);
         cell = row.createCell(1);
-        cell.setCellValue(totalFeeds - feedsWithWarnings);
+        cell.setCellValue(mTotalFeeds - mFeedsWithWarnings);
 
-        row = dataSheet.createRow(143);
+        row = mDataSheet.createRow(143);
         cell = row.createCell(0);
         cell.setCellValue("Total feeds processed");
         cell = row.createCell(1);
-        cell.setCellValue(totalFeeds);
+        cell.setCellValue(mTotalFeeds);
 
-        row = dataSheet.createRow(144);
+        row = mDataSheet.createRow(144);
         cell = row.createCell(0);
         cell.setCellValue("Feeds with errors");
         cell = row.createCell(1);
-        cell.setCellValue(feedsWithErrors);
+        cell.setCellValue(mFeedsWithErrors);
 
-        row = dataSheet.createRow(145);
+        row = mDataSheet.createRow(145);
         cell = row.createCell(0);
         cell.setCellValue("Feeds with warnings");
         cell = row.createCell(1);
-        cell.setCellValue(feedsWithWarnings);
+        cell.setCellValue(mFeedsWithWarnings);
     }
 
     private void initalizeDataSheet() throws java.io.IOException {
         int cellIndex = 0;
-        Row row = dataSheet.createRow(dataSheetRowIndex++);
+        Row row = mDataSheet.createRow(mDataSheetRowIndex++);
         Cell cell = row.createCell(cellIndex++);
-        cell.setCellStyle(cellStyle);
+        cell.setCellStyle(mCellStyle);
         cell.setCellValue("FEED");
         cell = row.createCell(cellIndex++);
-        cell.setCellStyle(cellStyle);
+        cell.setCellStyle(mCellStyle);
         cell.setCellValue("LOCATION");
         cell = row.createCell(cellIndex++);
-        cell.setCellStyle(cellStyle);
+        cell.setCellStyle(mCellStyle);
         cell.setCellValue("ERRORS");
         cell = row.createCell(cellIndex++);
-        cell.setCellStyle(cellStyle);
+        cell.setCellStyle(mCellStyle);
         cell.setCellValue("WARNINGS");
-        dataSheet.autoSizeColumn(0);
+        mDataSheet.autoSizeColumn(0);
 
     }
 
     private void flushOutput() throws java.io.IOException {
         FileOutputStream fileOut = new FileOutputStream("graphs.xlsx");
-        workbook.write(fileOut);
+        mWorkbook.write(fileOut);
         fileOut.flush();
         fileOut.close();
     }
 
     private void autosizeDataSheet() {
-        dataSheet.autoSizeColumn(0);
-        dataSheet.autoSizeColumn(1);
-        dataSheet.autoSizeColumn(2);
-        dataSheet.autoSizeColumn(3);
+        mDataSheet.autoSizeColumn(0);
+        mDataSheet.autoSizeColumn(1);
+        mDataSheet.autoSizeColumn(2);
+        mDataSheet.autoSizeColumn(3);
     }
 
     private void autosizeGraphSheet() {
-        graphSheet.autoSizeColumn(0);
-        graphSheet.autoSizeColumn(1);
+        mGraphSheet.autoSizeColumn(0);
+        mGraphSheet.autoSizeColumn(1);
     }
 
     private void autosizeColumnSheet() {
-        countSheet.autoSizeColumn(0);
-        countSheet.autoSizeColumn(1);
-        countSheet.autoSizeColumn(3);
-        countSheet.autoSizeColumn(4);
+        mCountSheet.autoSizeColumn(0);
+        mCountSheet.autoSizeColumn(1);
+        mCountSheet.autoSizeColumn(3);
+        mCountSheet.autoSizeColumn(4);
     }
 
     private void autosizeHistogramSheet() {
-        histogramSheet.autoSizeColumn(0);
-        histogramSheet.autoSizeColumn(1);
+        mHistogramSheet.autoSizeColumn(0);
+        mHistogramSheet.autoSizeColumn(1);
     }
 }

@@ -21,7 +21,7 @@ import edu.usf.cutr.gtfsrtvalidator.batch.BatchProcessor;
 import edu.usf.cutr.gtfsrtvalidator.helper.ErrorListHelperModel;
 import edu.usf.cutr.transitfeedqualitycalculator.model.Agency;
 import edu.usf.cutr.transitfeedqualitycalculator.model.Feed;
-import edu.usf.cutr.transitfeedqualitycalculator.model.OutputData;
+import edu.usf.cutr.transitfeedqualitycalculator.model.AnalysisOutput;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -32,19 +32,21 @@ import java.util.stream.Collectors;
 public class ResultsAnalyzer {
 
     private Path mPath;
-    private List<String> rulesToIgnore;
-    private List<String> warningsToIgnore;
+    private List<String> mErrorsToIgnore;
+    private List<String> mWarningsToIgnore;
     /**
      * Analyzes the results files of the GTFS validator for all subfolders of the provided path when analyzeResults() is called
      *
      * @param path path which contains subfolders that each has results from the GTFS-realtime validator
+     * @param errorsToIgnore a comma-delimited list of error IDs for errors that the results analyzer should ignore when computing results
+     * @param warningsToIgnore a comma-delimited list of error IDs for warnings that the results analyzer should ignore when computing results
      */
-    public ResultsAnalyzer(Path path, String rulesToIgnore, String warningsToIgnore) throws IOException {
+    public ResultsAnalyzer(Path path, String errorsToIgnore, String warningsToIgnore) throws IOException {
         mPath = path;
-        this.rulesToIgnore = new ArrayList<>();
-        Collections.addAll(this.rulesToIgnore, rulesToIgnore.split(","));
-        this.warningsToIgnore = new ArrayList<>();
-        Collections.addAll(this.warningsToIgnore, warningsToIgnore.split(","));
+        mErrorsToIgnore = new ArrayList<>();
+        Collections.addAll(mErrorsToIgnore, errorsToIgnore.replace(" ", "").split(","));
+        mWarningsToIgnore = new ArrayList<>();
+        Collections.addAll(mWarningsToIgnore, warningsToIgnore.replace(" ", "").split(","));
     }
 
     /**
@@ -61,7 +63,7 @@ public class ResultsAnalyzer {
         subFolders.remove(0);
         ObjectMapper mapper = new ObjectMapper();
         ErrorListHelperModel[] allErrorLists;
-        OutputData output = new OutputData();
+        AnalysisOutput output = new AnalysisOutput();
         List<Agency> agencies = new ArrayList<>();
         Map<String, List<Feed>> errorMap = new HashMap<>();
         Map<String, List<Feed>> warningMap = new HashMap<>();
@@ -99,7 +101,7 @@ public class ResultsAnalyzer {
                     // All rules, including a list of error occurrences for each rule
                     for (ErrorListHelperModel rule : allErrorLists) {
                         if (rule.getErrorMessage().getValidationRule().getSeverity().equals("ERROR") &&
-                                !rulesToIgnore.contains(rule.getErrorMessage().getValidationRule().getErrorId())) {
+                                !mErrorsToIgnore.contains(rule.getErrorMessage().getValidationRule().getErrorId())) {
                             List<Feed> eList;
                             String errorText = " error";
                             errorList.add(rule);
@@ -119,7 +121,7 @@ public class ResultsAnalyzer {
                             for (OccurrenceModel error : rule.getOccurrenceList()) {
                                 System.out.println(error.getPrefix() + " " + rule.getErrorMessage().getValidationRule().getOccurrenceSuffix());
                             }
-                        } else if (!rulesToIgnore.contains(rule.getErrorMessage().getValidationRule().getErrorId())) {
+                        } else if (!mErrorsToIgnore.contains(rule.getErrorMessage().getValidationRule().getErrorId())) {
                             List<Feed> wList;
                             String errorText = " warning";
                             warningList.add(rule);
@@ -146,8 +148,7 @@ public class ResultsAnalyzer {
                 }
             }
         }
-        Iterator agencyIterator = agencies.iterator();
-        TransitFeedResultsExporter exporter = new TransitFeedResultsExporter(output);
+        ExcelExporter exporter = new ExcelExporter(output);
         exporter.createOutputExcel();
     }
 }
