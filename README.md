@@ -44,6 +44,10 @@ This contains the GTFS and GTFS-realtime source files downloaded from the agency
 1. **HART Trip Updates-xxxx.results.json** - The validation results for the above TripUpdates binary 
 1. **HART Vehicle Positions-xxxx.results.json** - The validation results for the above VehiclePositions binary
 
+An Excel spreadsheet file `graphs.xlsx` will be generated in the root folder of the project that contains graphs that summarize all of the analyzed GTFS-realtime feeds - for example:
+
+![image](https://user-images.githubusercontent.com/928045/32021084-52ef90bc-b9a0-11e7-91db-387c3f1f2f50.png)
+
 ## Implementation details
 
 Take a look at the [Main.main()](https://github.com/CUTR-at-USF/transit-feed-quality-calculator/blob/master/src/main/java/edu/usf/cutr/transitfeedqualitycalculator/Main.java) method.
