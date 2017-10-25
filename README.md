@@ -4,7 +4,9 @@ A project that uses the [gtfs-realtime-validator](https://github.com/CUTR-at-USF
 This tool:
 1. Fetches the URLs for all known GTFS-realtime feeds and corresponding GTFS data from the [TransitFeeds.com GetFeeds API](http://transitfeeds.com/api/swagger/#!/default/getFeeds) and downloads them from each agency's server into a subdirectory
 1. Runs the [gtfs-realtime-validator Batch Processor](https://github.com/CUTR-at-USF/gtfs-realtime-validator#batch-processing) on each of the subdirectories
-1. Produces summary statistics and graphs (*In progress - see [Issue #2](https://github.com/CUTR-at-USF/transit-feed-quality-calculator/issues/2) and [WIP Pull Request #3](https://github.com/CUTR-at-USF/transit-feed-quality-calculator/pull/3))*) 
+1. Produces summary statistics and graphs, such as:
+
+![image](https://user-images.githubusercontent.com/928045/32026095-cb7b3c10-b9b0-11e7-9725-def9f867f9ca.png)
 
 ## Running the application
 
