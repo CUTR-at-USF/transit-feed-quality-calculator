@@ -3,11 +3,11 @@ package edu.usf.cutr.transitfeedqualitycalculator;
 import java.io.*;
 import java.util.*;
 
+import edu.usf.cutr.gtfsrtvalidator.api.model.ValidationRule;
+import edu.usf.cutr.gtfsrtvalidator.validation.ValidationRules;
 import edu.usf.cutr.transitfeedqualitycalculator.model.Agency;
 import edu.usf.cutr.transitfeedqualitycalculator.model.Feed;
 import edu.usf.cutr.transitfeedqualitycalculator.model.AnalysisOutput;
-import edu.usf.cutr.transitfeedqualitycalculator.util.ErrorDescription;
-import edu.usf.cutr.transitfeedqualitycalculator.util.WarningDescription;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -196,7 +196,8 @@ public class ExcelExporter {
         int count = 0;
         while (it.hasNext() && count < 7) {
             Map.Entry pair = (Map.Entry) it.next();
-            countMap.put(pair.getKey().toString() + " - " + ErrorDescription.class.getField(pair.getKey().toString()).get(new ErrorDescription()) , ((List) pair.getValue()).size());
+            countMap.put(pair.getKey().toString() + " - " + ((ValidationRule)(ValidationRules.class
+                    .getDeclaredField(pair.getKey().toString()).get(new ValidationRules()))).getErrorDescription(), ((List) pair.getValue()).size());
             count++;
         }
         countMap = sortMap(countMap);
@@ -216,7 +217,8 @@ public class ExcelExporter {
         count = 0;
         while (it.hasNext() && count < 7) {
             Map.Entry pair = (Map.Entry) it.next();
-            countMap.put(pair.getKey().toString() + " - " + WarningDescription.class.getField(pair.getKey().toString()).get(new WarningDescription()), ((List) pair.getValue()).size());
+            countMap.put(pair.getKey().toString() + " - " + ((ValidationRule)(ValidationRules.class
+                    .getDeclaredField(pair.getKey().toString()).get(new ValidationRules()))).getErrorDescription(), ((List) pair.getValue()).size());
             count++;
         }
         countMap = sortMap(countMap);
