@@ -63,10 +63,10 @@ public class ExcelExporter {
             while (i.hasNext()) {
                 Feed f = (Feed) i.next();
                 if (f.getErrorList().size() > 0 && f.getErrorList().size() < HISTOGRAM_WIDTH) {
-                    numberOfErrors[f.getErrorList().size()]++;
+                    numberOfErrors[f.getErrorList().size()-1]++;
                 }
                 if (f.getWarningList().size() > 0 && f.getWarningList().size() < HISTOGRAM_WIDTH) {
-                    numberOfWarnings[f.getWarningList().size()]++;
+                    numberOfWarnings[f.getWarningList().size()-1]++;
                 }
             }
         }
