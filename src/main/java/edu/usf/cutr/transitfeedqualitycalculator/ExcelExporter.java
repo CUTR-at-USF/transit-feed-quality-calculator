@@ -1,15 +1,17 @@
 package edu.usf.cutr.transitfeedqualitycalculator;
 
-import java.io.*;
-import java.util.*;
-
-import edu.usf.cutr.gtfsrtvalidator.api.model.ValidationRule;
-import edu.usf.cutr.gtfsrtvalidator.validation.ValidationRules;
+import edu.usf.cutr.gtfsrtvalidator.lib.model.ValidationRule;
+import edu.usf.cutr.gtfsrtvalidator.lib.validation.ValidationRules;
 import edu.usf.cutr.transitfeedqualitycalculator.model.Agency;
-import edu.usf.cutr.transitfeedqualitycalculator.model.Feed;
 import edu.usf.cutr.transitfeedqualitycalculator.model.AnalysisOutput;
+import edu.usf.cutr.transitfeedqualitycalculator.model.Feed;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.*;
 
 /**
  * Exports a summary of the analysis to an Excel spreadsheet, using the provided tamplate.xlsx for graph formats

@@ -15,7 +15,7 @@
  */
 package edu.usf.cutr.transitfeedqualitycalculator;
 
-import edu.usf.cutr.gtfsrtvalidator.batch.BatchProcessor;
+import edu.usf.cutr.gtfsrtvalidator.lib.batch.BatchProcessor;
 import edu.usf.cutr.transitfeedqualitycalculator.util.FileUtil;
 
 import java.io.File;

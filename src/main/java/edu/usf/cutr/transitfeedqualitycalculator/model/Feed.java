@@ -1,6 +1,6 @@
 package edu.usf.cutr.transitfeedqualitycalculator.model;
 
-import edu.usf.cutr.gtfsrtvalidator.helper.ErrorListHelperModel;
+import edu.usf.cutr.gtfsrtvalidator.lib.model.helper.ErrorListHelperModel;
 
 import java.util.List;
 

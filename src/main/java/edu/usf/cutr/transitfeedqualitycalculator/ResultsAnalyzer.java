@@ -16,12 +16,12 @@
 package edu.usf.cutr.transitfeedqualitycalculator;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import edu.usf.cutr.gtfsrtvalidator.api.model.OccurrenceModel;
-import edu.usf.cutr.gtfsrtvalidator.batch.BatchProcessor;
-import edu.usf.cutr.gtfsrtvalidator.helper.ErrorListHelperModel;
+import edu.usf.cutr.gtfsrtvalidator.lib.batch.BatchProcessor;
+import edu.usf.cutr.gtfsrtvalidator.lib.model.OccurrenceModel;
+import edu.usf.cutr.gtfsrtvalidator.lib.model.helper.ErrorListHelperModel;
 import edu.usf.cutr.transitfeedqualitycalculator.model.Agency;
-import edu.usf.cutr.transitfeedqualitycalculator.model.Feed;
 import edu.usf.cutr.transitfeedqualitycalculator.model.AnalysisOutput;
+import edu.usf.cutr.transitfeedqualitycalculator.model.Feed;
 
 import java.io.IOException;
 import java.nio.file.Files;
