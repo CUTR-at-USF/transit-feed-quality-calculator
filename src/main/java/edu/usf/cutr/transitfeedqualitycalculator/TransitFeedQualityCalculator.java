@@ -27,8 +27,8 @@ public class TransitFeedQualityCalculator {
 
     private Path mPath;
     private String mApiKey;
-    private boolean mDownloadFeeds = true;
-    private boolean mValidateFeeds = true;
+    private boolean mDownloadFeeds = false;
+    private boolean mValidateFeeds = false;
     private String mErrorsToIgnore = "E017"; // Comma separated string of errors to ignore
     private String mWarningsToIgnore = ""; // Comma separated string of warnings to ignore
 
