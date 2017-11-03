@@ -28,10 +28,10 @@ public class ExcelExporter {
     ExcelExporter(AnalysisOutput analysisOutput) throws IOException {
         mAnalysisOutput = analysisOutput;
         mWorkbook = new XSSFWorkbook(new FileInputStream("template.xlsx") );
-        mDataSheet = mWorkbook.getSheet("1-Data");
-        mGraphSheet = mWorkbook.getSheet("1-Error Frequency");
-        mCountSheet = mWorkbook.getSheet("1-Error Count");
-        mHistogramSheet = mWorkbook.getSheet("1-Histogram");
+        mDataSheet = mWorkbook.getSheet("Data");
+        mGraphSheet = mWorkbook.getSheet("Error Frequency");
+        mCountSheet = mWorkbook.getSheet("Error Count");
+        mHistogramSheet = mWorkbook.getSheet("Histogram");
         mCellStyle = mWorkbook.createCellStyle();
         mCellStyle.setFillForegroundColor(IndexedColors.AQUA.getIndex());
         mCellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
