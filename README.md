@@ -3,7 +3,7 @@ A project that uses the [gtfs-realtime-validator](https://github.com/CUTR-at-USF
 
 This tool:
 1. Fetches the URLs for all known GTFS-realtime feeds and corresponding GTFS data from the [TransitFeeds.com GetFeeds API](http://transitfeeds.com/api/swagger/#!/default/getFeeds) and downloads them from each agency's server into a subdirectory
-1. Runs the [gtfs-realtime-validator Batch Processor](https://github.com/CUTR-at-USF/gtfs-realtime-validator#batch-processing) on each of the subdirectories
+1. Runs the [gtfs-realtime-validator Batch Processor](https://github.com/CUTR-at-USF/gtfs-realtime-validator/tree/master/gtfs-realtime-validator-lib#batch-processing) on each of the subdirectories
 1. Produces summary statistics and graphs, such as:
 
 ![image](https://user-images.githubusercontent.com/928045/32026095-cb7b3c10-b9b0-11e7-9725-def9f867f9ca.png)
@@ -42,7 +42,7 @@ This contains the GTFS and GTFS-realtime source files downloaded from the agency
 1. **HART Trip Updates-xxxx.pb.txt** - The plain text version of the above TripUpdates binary
 1. **HART Vehicle Positions-xxxx.pb.txt** - The plain text version of the above VehiclePositions binary
 
-...and the validation results for each GTFS-realtime file (see [gtfs-realtime-validator Batch Processor](https://github.com/CUTR-at-USF/gtfs-realtime-validator#batch-processing) output examples for details):
+...and the validation results for each GTFS-realtime file (see [gtfs-realtime-validator Batch Processor](https://github.com/CUTR-at-USF/gtfs-realtime-validator/tree/master/gtfs-realtime-validator-lib#batch-processing) output examples for details):
 1. **HART Trip Updates-xxxx.results.json** - The validation results for the above TripUpdates binary 
 1. **HART Vehicle Positions-xxxx.results.json** - The validation results for the above VehiclePositions binary
 
