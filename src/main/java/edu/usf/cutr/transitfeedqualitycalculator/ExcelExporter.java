@@ -20,7 +20,7 @@ public class ExcelExporter {
 
     private AnalysisOutput mAnalysisOutput;
     private Workbook mWorkbook;
-    private Sheet mDataSheet, mGraphSheet, mCountSheet, mHistogramSheet;
+    private Sheet mDataSheet, mSummarySheet, mGraphSheet, mCountSheet, mHistogramSheet;
     private Integer mDataSheetRowIndex = 0, mGraphSheetRowIndex = 0, mCountSheetRowIndex = 0, mHistogramSheetRowIndex = 0;
     private Integer mTotalFeeds = 0, mFeedsWithErrors = 0, mFeedsWithWarnings = 0;
     private CellStyle mCellStyle;
@@ -29,6 +29,7 @@ public class ExcelExporter {
         mAnalysisOutput = analysisOutput;
         mWorkbook = new XSSFWorkbook(new FileInputStream("template.xlsx") );
         mDataSheet = mWorkbook.getSheet("Data");
+        mSummarySheet = mWorkbook.getSheet("Summary");
         mGraphSheet = mWorkbook.getSheet("Error Frequency");
         mCountSheet = mWorkbook.getSheet("Error Count");
         mHistogramSheet = mWorkbook.getSheet("Histogram");
@@ -39,6 +40,7 @@ public class ExcelExporter {
 
     public void export() throws java.io.IOException, NoSuchFieldException, IllegalAccessException {
         fillDataSheet();
+        fillSummarySheet();
         fillGraphSheet();
         fillCountSheet();
         fillHistogramSheet();
@@ -291,48 +293,47 @@ public class ExcelExporter {
                 mTotalFeeds++;
             }
         }
-        fillChartData();
         autosizeDataSheet();
     }
 
-    private void fillChartData() {
-        Row row = mDataSheet.createRow(132);
+    private void fillSummarySheet() {
+        Row row = mSummarySheet.createRow(0);
         Cell cell = row.createCell(0);
         cell.setCellValue("Feeds with errors");
         cell = row.createCell(1);
         cell.setCellValue("Feeds without errors");
 
-        row = mDataSheet.createRow(133);
+        row = mSummarySheet.createRow(1);
         cell = row.createCell(0);
         cell.setCellValue(mFeedsWithErrors);
         cell = row.createCell(1);
         cell.setCellValue(mTotalFeeds - mFeedsWithErrors);
 
-        row = mDataSheet.createRow(135);
+        row = mSummarySheet.createRow(3);
         cell = row.createCell(0);
         cell.setCellValue("Feeds with warnings");
         cell = row.createCell(1);
         cell.setCellValue("Feeds without warnings");
 
-        row = mDataSheet.createRow(136);
+        row = mSummarySheet.createRow(4);
         cell = row.createCell(0);
         cell.setCellValue(mFeedsWithWarnings);
         cell = row.createCell(1);
         cell.setCellValue(mTotalFeeds - mFeedsWithWarnings);
 
-        row = mDataSheet.createRow(143);
+        row = mSummarySheet.createRow(12);
         cell = row.createCell(0);
         cell.setCellValue("Total feeds processed");
         cell = row.createCell(1);
         cell.setCellValue(mTotalFeeds);
 
-        row = mDataSheet.createRow(144);
+        row = mSummarySheet.createRow(13);
         cell = row.createCell(0);
         cell.setCellValue("Feeds with errors");
         cell = row.createCell(1);
         cell.setCellValue(mFeedsWithErrors);
 
-        row = mDataSheet.createRow(145);
+        row = mSummarySheet.createRow(14);
         cell = row.createCell(0);
         cell.setCellValue("Feeds with warnings");
         cell = row.createCell(1);
