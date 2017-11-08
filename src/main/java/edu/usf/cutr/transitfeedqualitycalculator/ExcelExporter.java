@@ -321,19 +321,19 @@ public class ExcelExporter {
         cell = row.createCell(1);
         cell.setCellValue(mTotalFeeds - mFeedsWithWarnings);
 
-        row = mSummarySheet.createRow(11);
+        row = mSummarySheet.createRow(12);
         cell = row.createCell(0);
         cell.setCellValue("Total feeds processed");
         cell = row.createCell(1);
         cell.setCellValue(mTotalFeeds);
 
-        row = mSummarySheet.createRow(12);
+        row = mSummarySheet.createRow(13);
         cell = row.createCell(0);
         cell.setCellValue("Feeds with errors");
         cell = row.createCell(1);
         cell.setCellValue(mFeedsWithErrors);
 
-        row = mSummarySheet.createRow(13);
+        row = mSummarySheet.createRow(14);
         cell = row.createCell(0);
         cell.setCellValue("Feeds with warnings");
         cell = row.createCell(1);
