@@ -29,7 +29,7 @@ public class TransitFeedQualityCalculator {
     private String mApiKey;
     private boolean mDownloadFeeds = true;
     private boolean mValidateFeeds = true;
-    private String mErrorsToIgnore = "E017"; // Comma separated string of errors to ignore
+    private String mErrorsToIgnore = "E017,E011,E045,E023,E041,E001,E012,E003,E022,E004,E037,E002"; // Comma separated string of errors to ignore
     private String mWarningsToIgnore = ""; // Comma separated string of warnings to ignore
 
     /**
@@ -66,10 +66,10 @@ public class TransitFeedQualityCalculator {
      * Run the feed quality calculations
      */
     public void calculate() throws IOException, NoSuchAlgorithmException, NoSuchFieldException, IllegalAccessException {
-        if (mDownloadFeeds) {
-            TransitFeedsDownloader downloader = new TransitFeedsDownloader(mPath, mApiKey);
-            downloader.downloadFeeds();
-        }
+//        if (mDownloadFeeds) {
+//            TransitFeedsDownloader downloader = new TransitFeedsDownloader(mPath, mApiKey);
+//            downloader.downloadFeeds();
+//        }
 
         if (mValidateFeeds) {
             BulkFeedValidator validator = new BulkFeedValidator(mPath);
