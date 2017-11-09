@@ -121,7 +121,8 @@ public class ResultsAnalyzer {
                             for (OccurrenceModel error : rule.getOccurrenceList()) {
                                 System.out.println(error.getPrefix() + " " + rule.getErrorMessage().getValidationRule().getOccurrenceSuffix());
                             }
-                        } else if (!mErrorsToIgnore.contains(rule.getErrorMessage().getValidationRule().getErrorId())) {
+                        } else if (rule.getErrorMessage().getValidationRule().getSeverity().equals("WARNING") &&
+                                !mWarningsToIgnore.contains(rule.getErrorMessage().getValidationRule().getErrorId())) {
                             List<Feed> wList;
                             String errorText = " warning";
                             warningList.add(rule);
@@ -129,7 +130,7 @@ public class ResultsAnalyzer {
                             if (warningMap.containsKey(rule.getErrorMessage().getValidationRule().getErrorId())) {
                                 wList = warningMap.get(rule.getErrorMessage().getValidationRule().getErrorId());
                                 wList.add(agencyFeed);
-                                errorMap.replace(rule.getErrorMessage().getValidationRule().getErrorId(), wList);
+                                warningMap.replace(rule.getErrorMessage().getValidationRule().getErrorId(), wList);
                             } else {
                                 wList = new ArrayList<>();
                                 wList.add(agencyFeed);
