@@ -20,8 +20,8 @@ public class ExcelExporter {
 
     private AnalysisOutput mAnalysisOutput;
     private Workbook mWorkbook;
-    private Sheet mDataSheet, mSummarySheet, mGraphSheet, mCountSheet, mHistogramSheet;
-    private Integer mDataSheetRowIndex = 0, mGraphSheetRowIndex = 0, mCountSheetRowIndex = 0, mHistogramSheetRowIndex = 0;
+    private Sheet mDataSheet, mSummarySheet, mGraphSheet, mCountSheet, mHistogramSheet, mRulesSheet;
+    private Integer mDataSheetRowIndex = 0, mGraphSheetRowIndex = 0, mCountSheetRowIndex = 0, mHistogramSheetRowIndex = 0, mRulesSheetRowIndex = 0;
     private Integer mTotalFeeds = 0, mFeedsWithErrors = 0, mFeedsWithWarnings = 0;
     private CellStyle mCellStyle;
 
@@ -33,6 +33,7 @@ public class ExcelExporter {
         mGraphSheet = mWorkbook.getSheet("Error Frequency");
         mCountSheet = mWorkbook.getSheet("Error Count");
         mHistogramSheet = mWorkbook.getSheet("Histogram");
+        mRulesSheet = mWorkbook.getSheet("Rules");
         mCellStyle = mWorkbook.createCellStyle();
         mCellStyle.setFillForegroundColor(IndexedColors.AQUA.getIndex());
         mCellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
@@ -44,7 +45,49 @@ public class ExcelExporter {
         fillGraphSheet();
         fillCountSheet();
         fillHistogramSheet();
+        fillRulesSheet();
         flushOutput();
+    }
+
+    private void fillRulesSheet() {
+        Row row;
+        Cell cell;
+        mRulesSheetRowIndex = 0;
+        row = mRulesSheet.createRow(mRulesSheetRowIndex++);
+        cell = row.createCell(0);
+        cell.setCellStyle(mCellStyle);
+        cell.setCellValue("Error Id");
+        cell = row.createCell(1);
+        cell.setCellStyle(mCellStyle);
+        cell.setCellValue("Error Description");
+
+        for (ValidationRule rule : ValidationRules.getRules()) {
+            if ("ERROR".equals(rule.getSeverity())) {
+                row = mRulesSheet.createRow(mRulesSheetRowIndex++);
+                cell = row.createCell(0);
+                cell.setCellValue(rule.getErrorId());
+                cell = row.createCell(1);
+                cell.setCellValue(rule.getErrorDescription());
+            }
+        }
+        row = mRulesSheet.createRow(mRulesSheetRowIndex++);
+        row = mRulesSheet.createRow(mRulesSheetRowIndex++);
+        cell = row.createCell(0);
+        cell.setCellStyle(mCellStyle);
+        cell.setCellValue("Warning Id");
+        cell = row.createCell(1);
+        cell.setCellStyle(mCellStyle);
+        cell.setCellValue("Warning Description");
+        for (ValidationRule rule : ValidationRules.getRules()) {
+            if ("WARNING".equals(rule.getSeverity())) {
+                row = mRulesSheet.createRow(mRulesSheetRowIndex++);
+                cell = row.createCell(0);
+                cell.setCellValue(rule.getErrorId());
+                cell = row.createCell(1);
+                cell.setCellValue(rule.getErrorDescription());
+            }
+        }
+        autosizeRulesSheet();
     }
 
     private void fillHistogramSheet() {
@@ -388,5 +431,12 @@ public class ExcelExporter {
     private void autosizeHistogramSheet() {
         mHistogramSheet.autoSizeColumn(0);
         mHistogramSheet.autoSizeColumn(1);
+    }
+
+    private void autosizeRulesSheet() {
+        mRulesSheet.autoSizeColumn(0);
+        mRulesSheet.autoSizeColumn(1);
+        mRulesSheet.autoSizeColumn(2);
+        mRulesSheet.autoSizeColumn(3);
     }
 }
