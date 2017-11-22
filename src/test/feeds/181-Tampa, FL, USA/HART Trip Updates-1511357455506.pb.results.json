@@ -1,0 +1,1355 @@
+[ {
+  "errorMessage" : {
+    "messageId" : 0,
+    "gtfsRtFeedIterationModel" : null,
+    "validationRule" : {
+      "errorId" : "W001",
+      "severity" : "WARNING",
+      "title" : "timestamp not populated",
+      "errorDescription" : "Timestamps should be populated for all elements",
+      "occurrenceSuffix" : "does not have a timestamp"
+    },
+    "errorDetails" : null
+  },
+  "occurrenceList" : [ {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 296989"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 296990"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299333"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299334"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299335"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299336"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299408"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299409"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299410"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299411"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299412"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299901"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299981"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299982"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299983"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299984"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300035"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300036"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300037"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300038"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300730"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300769"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300770"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300822"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300841"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300842"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300871"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300872"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300917"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300934"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300971"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300972"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 301001"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 301002"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 301245"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 301246"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 301280"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 301281"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 301315"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 301316"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 302687"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 302718"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 302719"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 302957"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 302958"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 302988"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 302989"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303036"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303037"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303082"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303083"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303128"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303129"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303171"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303172"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303418"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303419"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303420"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303452"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303453"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303521"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303554"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303555"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303721"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303754"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303802"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 304110"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 304141"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 304142"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 304310"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 304344"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 304345"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 304346"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 304788"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 304789"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 304823"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 304925"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 304958"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 304959"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 305025"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 305026"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 305055"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 305056"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 305057"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 305988"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 305989"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 306022"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 306023"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 306024"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 306177"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 306211"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 307325"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 307337"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 307352"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 307353"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 307354"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 307393"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 307394"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 307395"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 308043"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 308044"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 308045"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 308093"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 308094"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 308095"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 308096"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 308241"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 308306"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 308307"
+  } ]
+}, {
+  "errorMessage" : {
+    "messageId" : 0,
+    "gtfsRtFeedIterationModel" : null,
+    "validationRule" : {
+      "errorId" : "E017",
+      "severity" : "ERROR",
+      "title" : "GTFS-rt content changed but has the same header timestamp",
+      "errorDescription" : "The GTFS-rt header timestamp value should always change if the feed contents change - the feed contents must not change without updating the header timestamp",
+      "occurrenceSuffix" : "was the same for this and the previous feed iteration but the feed content was not the same"
+    },
+    "errorDetails" : null
+  },
+  "occurrenceList" : [ {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "header.timestamp of 1511357434"
+  } ]
+}, {
+  "errorMessage" : {
+    "messageId" : 0,
+    "gtfsRtFeedIterationModel" : null,
+    "validationRule" : {
+      "errorId" : "W009",
+      "severity" : "WARNING",
+      "title" : "schedule_relationship not populated",
+      "errorDescription" : "trip.schedule_relationship and stop_time_update.schedule_relationship should be populated",
+      "occurrenceSuffix" : "does not have a schedule_relationship"
+    },
+    "errorDetails" : null
+  },
+  "occurrenceList" : [ {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 296989 stop_sequence 10 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 296989"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 296990 stop_sequence 20 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 296990"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299333 stop_sequence 29 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299333"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299334 stop_sequence 19 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299334"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299335 stop_sequence 9 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299335"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299336 stop_sequence 1 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299336"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299408 stop_sequence 30 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299408"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299409 stop_sequence 21 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299409"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299410 stop_sequence 11 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299410"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299411 stop_sequence 11 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299411"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299412 stop_sequence 1 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299412"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299901 stop_sequence 1 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299901"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299981 stop_sequence 61 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299981"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299982 stop_sequence 61 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299982"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299983 stop_sequence 36 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299983"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299984 stop_sequence 17 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 299984"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300035 stop_sequence 67 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300035"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300036 stop_sequence 54 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300036"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300037 stop_sequence 27 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300037"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300038 stop_sequence 11 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300038"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300730 stop_sequence 33 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300730"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300769 stop_sequence 40 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300769"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300770 stop_sequence 8 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300770"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300822 stop_sequence 1 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300822"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300841 stop_sequence 47 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300841"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300842 stop_sequence 24 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300842"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300871 stop_sequence 45 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300871"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300872 stop_sequence 23 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300872"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300917 stop_sequence 1 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300917"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300934 stop_sequence 26 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300934"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300971 stop_sequence 57 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300971"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300972 stop_sequence 34 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 300972"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 301001 stop_sequence 59 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 301001"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 301002 stop_sequence 33 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 301002"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 301245 stop_sequence 33 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 301245"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 301246 stop_sequence 1 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 301246"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 301280 stop_sequence 49 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 301280"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 301281 stop_sequence 30 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 301281"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 301315 stop_sequence 51 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 301315"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 301316 stop_sequence 30 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 301316"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 302687 stop_sequence 25 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 302687"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 302718 stop_sequence 39 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 302718"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 302719 stop_sequence 1 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 302719"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 302957 stop_sequence 56 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 302957"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 302958 stop_sequence 27 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 302958"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 302988 stop_sequence 49 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 302988"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 302989 stop_sequence 28 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 302989"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303036 stop_sequence 30 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303036"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303037 stop_sequence 1 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303037"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303082 stop_sequence 29 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303082"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303083 stop_sequence 15 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303083"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303128 stop_sequence 19 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303128"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303129 stop_sequence 9 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303129"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303171 stop_sequence 30 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303171"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303172 stop_sequence 8 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303172"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303418 stop_sequence 67 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303418"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303419 stop_sequence 24 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303419"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303420 stop_sequence 11 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303420"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303452 stop_sequence 54 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303452"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303453 stop_sequence 17 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303453"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303521 stop_sequence 1 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303521"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303554 stop_sequence 38 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303554"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303555 stop_sequence 1 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303555"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303721 stop_sequence 7 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303721"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303754 stop_sequence 23 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303754"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303802 stop_sequence 1 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 303802"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 304110 stop_sequence 34 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 304110"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 304141 stop_sequence 51 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 304141"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 304142 stop_sequence 1 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 304142"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 304310 stop_sequence 27 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 304310"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 304344 stop_sequence 43 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 304344"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 304345 stop_sequence 19 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 304345"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 304346 stop_sequence 1 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 304346"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 304788 stop_sequence 42 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 304788"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 304789 stop_sequence 16 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 304789"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 304823 stop_sequence 24 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 304823"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 304925 stop_sequence 23 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 304925"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 304958 stop_sequence 48 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 304958"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 304959 stop_sequence 12 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 304959"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 305025 stop_sequence 60 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 305025"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 305026 stop_sequence 26 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 305026"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 305055 stop_sequence 56 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 305055"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 305056 stop_sequence 32 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 305056"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 305057 stop_sequence 14 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 305057"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 305988 stop_sequence 65 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 305988"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 305989 stop_sequence 21 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 305989"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 306022 stop_sequence 69 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 306022"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 306023 stop_sequence 34 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 306023"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 306024 stop_sequence 16 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 306024"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 306177 stop_sequence 23 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 306177"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 306211 stop_sequence 6 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 306211"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 307325 stop_sequence 69 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 307325"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 307337 stop_sequence 42 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 307337"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 307352 stop_sequence 56 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 307352"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 307353 stop_sequence 30 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 307353"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 307354 stop_sequence 1 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 307354"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 307393 stop_sequence 54 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 307393"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 307394 stop_sequence 27 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 307394"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 307395 stop_sequence 1 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 307395"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 308043 stop_sequence 71 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 308043"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 308044 stop_sequence 36 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 308044"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 308045 stop_sequence 14 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 308045"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 308093 stop_sequence 73 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 308093"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 308094 stop_sequence 59 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 308094"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 308095 stop_sequence 22 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 308095"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 308096 stop_sequence 1 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 308096"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 308241 stop_sequence 23 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 308241"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 308306 stop_sequence 21 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 308306"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 308307 stop_sequence 11 (and potentially more for this trip)"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 308307"
+  } ]
+} ]

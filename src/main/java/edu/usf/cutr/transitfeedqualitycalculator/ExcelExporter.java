@@ -20,7 +20,7 @@ public class ExcelExporter {
 
     private AnalysisOutput mAnalysisOutput;
     private Workbook mWorkbook;
-    private Sheet mDataSheet, mSummarySheet, mGraphSheet, mCountSheet, mHistogramSheet, mRulesSheet;
+    private Sheet mDataSheet, mSummarySheet, mFrequencySheet, mCountSheet, mHistogramSheet, mRulesSheet;
     private Integer mDataSheetRowIndex = 0, mGraphSheetRowIndex = 0, mCountSheetRowIndex = 0, mHistogramSheetRowIndex = 0, mRulesSheetRowIndex = 0;
     private Integer mTotalFeeds = 0, mFeedsWithErrors = 0, mFeedsWithWarnings = 0;
     private CellStyle mCellStyle;
@@ -30,7 +30,7 @@ public class ExcelExporter {
         mWorkbook = new XSSFWorkbook(new FileInputStream("template.xlsx") );
         mDataSheet = mWorkbook.getSheet("Data");
         mSummarySheet = mWorkbook.getSheet("Summary");
-        mGraphSheet = mWorkbook.getSheet("Error Frequency");
+        mFrequencySheet = mWorkbook.getSheet("Error Frequency");
         mCountSheet = mWorkbook.getSheet("Error Count");
         mHistogramSheet = mWorkbook.getSheet("Histogram");
         mRulesSheet = mWorkbook.getSheet("Rules");
@@ -67,7 +67,7 @@ public class ExcelExporter {
                 cell = row.createCell(0);
                 cell.setCellValue(rule.getErrorId());
                 cell = row.createCell(1);
-                cell.setCellValue(rule.getErrorDescription());
+                cell.setCellValue(rule.getTitle());
             }
         }
         row = mRulesSheet.createRow(mRulesSheetRowIndex++);
@@ -84,7 +84,7 @@ public class ExcelExporter {
                 cell = row.createCell(0);
                 cell.setCellValue(rule.getErrorId());
                 cell = row.createCell(1);
-                cell.setCellValue(rule.getErrorDescription());
+                cell.setCellValue(rule.getTitle());
             }
         }
         autosizeRulesSheet();
@@ -231,7 +231,7 @@ public class ExcelExporter {
         Cell cell;
         Map<String, Integer> countMap;
 
-        row = mGraphSheet.createRow(mGraphSheetRowIndex++);
+        row = mFrequencySheet.createRow(mGraphSheetRowIndex++);
         cell = row.createCell(0);
         cell.setCellStyle(mCellStyle);
         cell.setCellValue("Most Frequent");
@@ -244,7 +244,7 @@ public class ExcelExporter {
         while (it.hasNext() && count < 7) {
             Map.Entry pair = (Map.Entry) it.next();
             countMap.put(pair.getKey().toString() + " - " + ((ValidationRule)(ValidationRules.class
-                    .getDeclaredField(pair.getKey().toString()).get(new ValidationRules()))).getErrorDescription(), ((List) pair.getValue()).size());
+                    .getDeclaredField(pair.getKey().toString()).get(new ValidationRules()))).getTitle(), ((List) pair.getValue()).size());
             count++;
         }
         countMap = sortMap(countMap);
@@ -252,7 +252,7 @@ public class ExcelExporter {
         while (it.hasNext()) {
             int cellIndex = 0;
             Map.Entry pair = (Map.Entry) it.next();
-            row = mGraphSheet.createRow(mGraphSheetRowIndex++);
+            row = mFrequencySheet.createRow(mGraphSheetRowIndex++);
             cell = row.createCell(cellIndex++);
             cell.setCellValue(pair.getKey().toString());
             cell = row.createCell(cellIndex++);
@@ -265,7 +265,7 @@ public class ExcelExporter {
         while (it.hasNext() && count < 7) {
             Map.Entry pair = (Map.Entry) it.next();
             countMap.put(pair.getKey().toString() + " - " + ((ValidationRule)(ValidationRules.class
-                    .getDeclaredField(pair.getKey().toString()).get(new ValidationRules()))).getErrorDescription(), ((List) pair.getValue()).size());
+                    .getDeclaredField(pair.getKey().toString()).get(new ValidationRules()))).getTitle(), ((List) pair.getValue()).size());
             count++;
         }
         countMap = sortMap(countMap);
@@ -273,7 +273,7 @@ public class ExcelExporter {
         while (it.hasNext()) {
             int cellIndex = 0;
             Map.Entry pair = (Map.Entry) it.next();
-            row = mGraphSheet.createRow(mGraphSheetRowIndex++);
+            row = mFrequencySheet.createRow(mGraphSheetRowIndex++);
             cell = row.createCell(cellIndex++);
             cell.setCellValue(pair.getKey().toString());
             cell = row.createCell(cellIndex++);
@@ -417,8 +417,8 @@ public class ExcelExporter {
     }
 
     private void autosizeGraphSheet() {
-        mGraphSheet.autoSizeColumn(0);
-        mGraphSheet.autoSizeColumn(1);
+        mFrequencySheet.autoSizeColumn(0);
+        mFrequencySheet.autoSizeColumn(1);
     }
 
     private void autosizeColumnSheet() {

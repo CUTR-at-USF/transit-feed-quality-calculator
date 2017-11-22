@@ -1,0 +1,631 @@
+[ {
+  "errorMessage" : {
+    "messageId" : 0,
+    "gtfsRtFeedIterationModel" : null,
+    "validationRule" : {
+      "errorId" : "E029",
+      "severity" : "ERROR",
+      "title" : "Vehicle position far from trip shape",
+      "errorDescription" : "The vehicle position should be within a certain distance of the GTFS shapes.txt data for the current trip unless there is a Service Alert with the Effect of DETOUR for this trip_id.",
+      "occurrenceSuffix" : "- vehicle should be near trip shape or on DETOUR"
+    },
+    "errorDetails" : null
+  },
+  "occurrenceList" : [ {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 2527 trip_id 15973395 at (44.652363,-63.598095) is more than 200.0 meters (0.12 mile(s)) from the GTFS trip shape"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 2746 trip_id 15971943 at (44.649235,-63.572567) is more than 200.0 meters (0.12 mile(s)) from the GTFS trip shape"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 3158 trip_id 15971194 at (44.635853,-63.626995) is more than 200.0 meters (0.12 mile(s)) from the GTFS trip shape"
+  } ]
+}, {
+  "errorMessage" : {
+    "messageId" : 0,
+    "gtfsRtFeedIterationModel" : null,
+    "validationRule" : {
+      "errorId" : "E017",
+      "severity" : "ERROR",
+      "title" : "GTFS-rt content changed but has the same header timestamp",
+      "errorDescription" : "The GTFS-rt header timestamp value should always change if the feed contents change - the feed contents must not change without updating the header timestamp",
+      "occurrenceSuffix" : "was the same for this and the previous feed iteration but the feed content was not the same"
+    },
+    "errorDetails" : null
+  },
+  "occurrenceList" : [ {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "header.timestamp of 1511357424"
+  } ]
+}, {
+  "errorMessage" : {
+    "messageId" : 0,
+    "gtfsRtFeedIterationModel" : null,
+    "validationRule" : {
+      "errorId" : "W009",
+      "severity" : "WARNING",
+      "title" : "schedule_relationship not populated",
+      "errorDescription" : "trip.schedule_relationship and stop_time_update.schedule_relationship should be populated",
+      "occurrenceSuffix" : "does not have a schedule_relationship"
+    },
+    "errorDetails" : null
+  },
+  "occurrenceList" : [ {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973396"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973395"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973376"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15971514"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15971515"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15971806"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972865"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15974282"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15974264"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973782"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15974474"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972786"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972784"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15974484"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15974336"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972822"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973780"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973842"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973950"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15974530"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973892"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972860"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973903"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972785"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15971943"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973949"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15971964"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973878"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973918"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15974006"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973861"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15971920"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15971955"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15971633"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972705"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972963"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973704"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972350"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15974426"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15971716"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972307"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15970740"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972980"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972029"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972254"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973460"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973316"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973768"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973786"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972398"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973767"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973469"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15971074"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15970872"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15971060"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973051"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972294"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15970752"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15970754"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15970969"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15971425"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972400"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972741"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973317"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972994"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15971075"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15974090"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15970743"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973215"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973295"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15971871"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15971259"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973595"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973148"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15971359"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972584"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973518"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973098"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973296"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15971194"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973081"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972152"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972823"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15971993"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972478"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15970942"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15974332"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15970741"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973517"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15970983"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972765"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973179"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973652"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15971386"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15974106"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972930"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972422"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973050"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972721"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973024"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972585"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15971286"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972507"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15971186"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15971296"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973708"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973616"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15971236"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972093"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15971695"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15970753"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15971360"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973709"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15971237"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972094"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972176"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973663"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15971387"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973615"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15971211"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15971311"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972055"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15971307"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973651"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972213"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15971898"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15971643"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972742"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15970888"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15974089"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15974626"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15970742"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972522"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972613"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972012"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973541"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972474"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15973091"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972536"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15971106"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972606"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15971686"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 15972485"
+  } ]
+} ]
