@@ -66,10 +66,10 @@ public class TransitFeedQualityCalculator {
      * Run the feed quality calculations
      */
     public void calculate() throws IOException, NoSuchAlgorithmException, NoSuchFieldException, IllegalAccessException {
-        if (mDownloadFeeds) {
-            TransitFeedsDownloader downloader = new TransitFeedsDownloader(mPath, mApiKey);
-            downloader.downloadFeeds();
-        }
+//        if (mDownloadFeeds) {
+//            TransitFeedsDownloader downloader = new TransitFeedsDownloader(mPath, mApiKey);
+//            downloader.downloadFeeds();
+//        }
 
         if (mValidateFeeds) {
             BulkFeedValidator validator = new BulkFeedValidator(mPath);
