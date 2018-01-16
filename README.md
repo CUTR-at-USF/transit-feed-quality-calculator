@@ -14,6 +14,8 @@ You'll need [JDK 7 or higher](http://www.oracle.com/technetwork/java/javase/down
 
 This project was created in [IntelliJ](https://www.jetbrains.com/idea/).  You can also compile it from the command line using [Maven](https://maven.apache.org/).
 
+If you're downloading GTFS or GTFS-rt from secure HTTPS URLs, you may need to install the [Java Cryptography Extension (JCE)](http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html).  You will need to replace the `US_export_policy.jar` and `local_policy.jar` files in your JVM `/security` directory, such as `C:\Program Files\Java\jdk1.8.0_73\jre\lib\security`, with the JAR files in the JCE Extension download.  Alternately, you can add `-Djsse.enableSNIExtension=false` to the command line when running the application. 
+
 ### IntelliJ
 
 Run the [Main.main()](https://github.com/CUTR-at-USF/transit-feed-quality-calculator/blob/master/src/main/java/edu/usf/cutr/transitfeedqualitycalculator/Main.java) method.
@@ -21,7 +23,7 @@ Run the [Main.main()](https://github.com/CUTR-at-USF/transit-feed-quality-calcul
 ### Command line 
 
 1. `mvn package`
-1. `java -jar target/transit-feed-quality-calculator-1.0.0-SNAPSHOT.jar`
+1. `java -Djsse.enableSNIExtension=false -jar target/transit-feed-quality-calculator-1.0.0-SNAPSHOT.jar`
 
 ## Sample output
 

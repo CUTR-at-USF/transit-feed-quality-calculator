@@ -16,14 +16,19 @@
 package edu.usf.cutr.transitfeedqualitycalculator.util;
 
 import edu.usf.cutr.transitfeeds.model.Feed;
+import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 
+import javax.net.ssl.SSLHandshakeException;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.net.URLConnection;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
+import java.util.regex.Matcher;
 
 public class FileUtil {
 
@@ -37,7 +42,23 @@ public class FileUtil {
      * @param fileName name of file to write the information to
      */
     public static void writeUrlToFile(URL url, String fileName) throws IOException {
-        InputStream in = url.openStream();
+        // Check for HTTP 301 redirect
+        URLConnection urlConnection = url.openConnection();
+        String redirect = urlConnection.getHeaderField("Location");
+        if (redirect != null) {
+            System.out.println("Redirecting to " + redirect);
+            urlConnection = new URL(redirect).openConnection();
+        }
+
+        // Opens input stream from the HTTP(S) connection
+        InputStream in;
+        try {
+            in = urlConnection.getInputStream();
+        } catch (SSLHandshakeException sslEx) {
+            System.err.println("SSL handshake failed.  Try installing the JCE Extension or adding `-Djsse.enableSNIExtension=false` when running the application - see https://github.com/CUTR-at-USF/transit-feed-quality-calculator#running-the-application: " + sslEx);
+            return;
+        }
+
         byte[] gtfsRtProtobuf = IOUtils.toByteArray(in);
         ByteBuffer buffer = ByteBuffer.wrap(gtfsRtProtobuf);
 
@@ -59,13 +80,19 @@ public class FileUtil {
     }
 
     /**
-     * Returns the file name to use for a GTFS-realtime feed
+     * Returns the file name to use for a GTFS-realtime feed.
+     *
+     * This method will replace any path separators ("/", "\") with the character "-" to avoid creating invalid
+     * file names.  The process first converts all path separators to the system separator, and then replaces
+     * occurrences of the system separator with "-".
      *
      * @param feed GTFS-realtime feed that is being saved to file
      * @return the file name to use for a GTFS-realtime file
      */
     public static String getGtfsRtFileName(Feed feed) {
-        return feed.getTitle() + "-" + System.currentTimeMillis() + GTFS_RT_FILE_EXTENSION;
+        return FilenameUtils.separatorsToSystem(
+                feed.getTitle()).replaceAll(Matcher.quoteReplacement(File.separator), "-")
+                + "-" + System.currentTimeMillis() + GTFS_RT_FILE_EXTENSION;
     }
 
     /**
