@@ -13,18 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package edu.usf.cutr.transitfeedqualitycalculator;
+package edu.usf.cutr.transitfeedqualitycalculator.downloaders;
 
 import edu.usf.cutr.transitfeedqualitycalculator.util.FileUtil;
 import edu.usf.cutr.transitfeeds.GetFeedsRequest;
 import edu.usf.cutr.transitfeeds.GetFeedsResponse;
 import edu.usf.cutr.transitfeeds.model.Feed;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashSet;
 import java.util.List;
@@ -34,12 +32,11 @@ import java.util.Set;
 /**
  * Downloads GTFS and GTFS-realtime files using URLs from TransitFeeds.com
  */
-public class TransitFeedsDownloader {
+public class TransitFeedsDownloader extends BaseDownloader {
 
     private Set<Integer> mGtfsRtLocationIds = new HashSet<>();
     private int mNumGtfsRtFeeds = 0;
 
-    private Path mPath;
     private String mApiKey;
 
     /**
@@ -49,8 +46,7 @@ public class TransitFeedsDownloader {
      * @param apiKey API key to use with TransitFeeds.com API
      */
     public TransitFeedsDownloader(Path path, String apiKey) throws IOException {
-        mPath = path;
-        Files.createDirectories(mPath);
+        super(path);
         mApiKey = apiKey;
     }
 
@@ -130,7 +126,7 @@ public class TransitFeedsDownloader {
                 }
 
                 try {
-                    writeGtfsRtToFile(gtfsRtFeedUrl, feed);
+                    writeFeedToFile(gtfsRtFeedUrl, FileUtil.getFolderName(feed), FileUtil.getGtfsRtFileName(feed));
 
                     // Save the location ID of this GTFS-rt feed, so we know to download the GTFS for it later
                     mGtfsRtLocationIds.add(feed.getLocation().getId());
@@ -141,14 +137,6 @@ public class TransitFeedsDownloader {
                 }
             }
         }
-    }
-
-    private void writeGtfsRtToFile(URL gtfsRtFeedUrl, Feed feed) throws IOException {
-        String folderName = FileUtil.getFolderName(feed);
-        String fileName = mPath.resolve(folderName) + File.separator + FileUtil.getGtfsRtFileName(feed);
-
-        Files.createDirectories(mPath.resolve(folderName));
-        FileUtil.writeUrlToFile(gtfsRtFeedUrl, fileName);
     }
 
     private void downloadGtfsFeeds(List<Feed> gtfsFeeds) {
@@ -174,20 +162,12 @@ public class TransitFeedsDownloader {
                 }
 
                 try {
-                    writeGtfsToFile(gtfsFeedUrl, feed);
+                    writeFeedToFile(gtfsFeedUrl, FileUtil.getFolderName(feed), FileUtil.getGtfsFileName(feed));
                 } catch (IOException e) {
                     System.err.println("Error reading GTFS feed '" + urlString + "' - " + e);
                     continue;
                 }
             }
         }
-    }
-
-    private void writeGtfsToFile(URL gtfsFeedUrl, Feed feed) throws IOException {
-        String folderName = FileUtil.getFolderName(feed);
-        String fileName = mPath.resolve(folderName) + File.separator + FileUtil.getGtfsFileName(feed);
-
-        Files.createDirectories(mPath.resolve(folderName));
-        FileUtil.writeUrlToFile(gtfsFeedUrl, fileName);
     }
 }

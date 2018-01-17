@@ -15,6 +15,8 @@
  */
 package edu.usf.cutr.transitfeedqualitycalculator;
 
+import edu.usf.cutr.transitfeedqualitycalculator.downloaders.TransitFeedsDownloader;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
