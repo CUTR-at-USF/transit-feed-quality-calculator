@@ -13,7 +13,7 @@
         <!-- CUTR Snapshots -->
         <repository>
             <id>cutr-snapshots</id>
-            <url>https://github.com/CUTR-at-USF/cutr-mvn-repo/raw/master/snapshots</url>
+            <url>https://raw.githubusercontent.com/CUTR-at-USF/cutr-mvn-repo/master/snapshots</url>
         </repository>
     </repositories>
 
