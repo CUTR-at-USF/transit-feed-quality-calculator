@@ -16,11 +16,9 @@
 package edu.usf.cutr.transitfeedqualitycalculator.util;
 
 import edu.usf.cutr.transitfeeds.model.Feed;
-import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 
 import javax.net.ssl.SSLHandshakeException;
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -28,12 +26,38 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
-import java.util.regex.Matcher;
+import java.util.Arrays;
 
 public class FileUtil {
 
     private static final String GTFS_RT_FILE_EXTENSION = ".pb";
     public static final String GTFS_FILE_NAME = "gtfs.zip";
+
+    // From https://stackoverflow.com/a/26420820/937715
+    final static int[] ILLEGAL_CHARS = {34, 60, 62, 124, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 58, 42, 63, 92, 47};
+    static {
+        Arrays.sort(ILLEGAL_CHARS);
+    }
+
+    /**
+     * Returns a new String that is the same as the input String except that all characters that cannot occur in Windows or Unix file names have been removed
+     *
+     * From https://stackoverflow.com/a/26420820/937715
+     *
+     * @param input String to examine
+     * @return a new String that is the same as the input but without any characters that cannot occur in Windows or Unix file names
+     */
+    public static String removeIllegalFileCharacters(String input) {
+        StringBuilder output = new StringBuilder();
+        int length = input.codePointCount(0, input.length());
+        for (int i = 0; i < length; i++) {
+            int c = input.codePointAt(i);
+            if (Arrays.binarySearch(ILLEGAL_CHARS, c) < 0) {
+                output.appendCodePoint(c);
+            }
+        }
+        return output.toString();
+    }
 
     /**
      * Writes the information from the provided URL to the provided fileName
@@ -76,7 +100,7 @@ public class FileUtil {
      * @return
      */
     public static String getFolderName(Feed feed) {
-        return feed.getLocation().getId() + "-" + feed.getLocation().getTitleWithRegion();
+        return feed.getLocation().getId() + "-" + removeIllegalFileCharacters(feed.getLocation().getTitleWithRegion());
     }
 
     /**
@@ -90,9 +114,7 @@ public class FileUtil {
      * @return the file name to use for a GTFS-realtime file
      */
     public static String getGtfsRtFileName(Feed feed) {
-        return FilenameUtils.separatorsToSystem(
-                feed.getTitle()).replaceAll(Matcher.quoteReplacement(File.separator), "-")
-                + "-" + System.currentTimeMillis() + GTFS_RT_FILE_EXTENSION;
+        return removeIllegalFileCharacters(feed.getTitle()) + "-" + System.currentTimeMillis() + GTFS_RT_FILE_EXTENSION;
     }
 
     /**
