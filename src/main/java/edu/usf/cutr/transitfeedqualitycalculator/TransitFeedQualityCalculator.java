@@ -15,8 +15,10 @@
  */
 package edu.usf.cutr.transitfeedqualitycalculator;
 
+import edu.usf.cutr.transitfeedqualitycalculator.downloaders.CsvDownloader;
 import edu.usf.cutr.transitfeedqualitycalculator.downloaders.TransitFeedsDownloader;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -28,7 +30,8 @@ import java.security.NoSuchAlgorithmException;
 public class TransitFeedQualityCalculator {
 
     private Path mPath;
-    private String mApiKey;
+    private String mTransitFeedsApiKey = null;
+    private String mCsvDownloaderFile = null;
     private boolean mDownloadFeeds = true;
     private boolean mValidateFeeds = true;
     private String mErrorsToIgnore = "E017"; // Comma separated string of errors to ignore
@@ -38,12 +41,19 @@ public class TransitFeedQualityCalculator {
      * Creates the feed quality calculated with the path to write the output files
      *
      * @param path path in which to write the output files
-     * @param apiKey API key to use with TransitFeeds.com API
      */
-    public TransitFeedQualityCalculator(Path path, String apiKey) throws IOException {
+    public TransitFeedQualityCalculator(Path path) throws IOException {
         mPath = path;
         Files.createDirectories(path);
-        mApiKey = apiKey;
+    }
+
+    /**
+     * Sets the API key to be used for retrieving feed URLs from the TransitFeeds.com API
+     *
+     * @param apiKey the API key to be used for retrieving feed URLs from the TransitFeeds.com API
+     */
+    public void setTransitFeedsApiKey(String apiKey) {
+        mTransitFeedsApiKey = apiKey;
     }
 
     /**
@@ -65,12 +75,32 @@ public class TransitFeedQualityCalculator {
     }
 
     /**
+     * The path to a CSV file containing id,title,gtfs_url,gtfs_rt_url for feeds to download, if feeds should be downloaded from a CSV file
+     *
+     * @param csvDownloaderFile path to a CSV file containing id,title,gtfs_url,gtfs_rt_url for feeds to download
+     */
+    public void setCsvDownloaderFile(String csvDownloaderFile) {
+        mCsvDownloaderFile = csvDownloaderFile;
+    }
+
+    /**
      * Run the feed quality calculations
      */
     public void calculate() throws IOException, NoSuchAlgorithmException, NoSuchFieldException, IllegalAccessException {
-        if (mDownloadFeeds) {
-            TransitFeedsDownloader downloader = new TransitFeedsDownloader(mPath, mApiKey);
-            downloader.downloadFeeds();
+        if (mCsvDownloaderFile == null && mTransitFeedsApiKey == null) {
+            System.out.println("No TransitFeeds.com API key or CSV file provided - no feeds will be downloaded");
+        } else {
+            if (mDownloadFeeds) {
+                if (mCsvDownloaderFile != null) {
+                    CsvDownloader csvDownloader = new CsvDownloader(mPath, new File(mCsvDownloaderFile));
+                    csvDownloader.downloadFeeds();
+                }
+
+                if (mTransitFeedsApiKey != null) {
+                    TransitFeedsDownloader transitFeedsDownloader = new TransitFeedsDownloader(mPath, mTransitFeedsApiKey);
+                    transitFeedsDownloader.downloadFeeds();
+                }
+            }
         }
 
         if (mValidateFeeds) {

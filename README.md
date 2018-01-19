@@ -2,7 +2,7 @@
 A project that uses the [gtfs-realtime-validator](https://github.com/CUTR-at-USF/gtfs-realtime-validator) to assess the quality of a large number of transit feeds.
 
 This tool:
-1. Fetches the URLs for all known GTFS-realtime feeds and corresponding GTFS data from the [TransitFeeds.com GetFeeds API](http://transitfeeds.com/api/swagger/#!/default/getFeeds) and downloads them from each agency's server into a subdirectory
+1. Fetches the URLs for GTFS-realtime feeds and corresponding GTFS data from either the [TransitFeeds.com GetFeeds API](http://transitfeeds.com/api/swagger/#!/default/getFeeds) or a specified `.csv` file, and downloads them from each agency's server into a subdirectory
 1. Runs the [gtfs-realtime-validator Batch Processor](https://github.com/CUTR-at-USF/gtfs-realtime-validator/tree/master/gtfs-realtime-validator-lib#batch-processing) on each of the subdirectories
 1. Produces summary statistics and graphs, such as:
 
@@ -16,18 +16,46 @@ This project was created in [IntelliJ](https://www.jetbrains.com/idea/).  You ca
 
 If you're downloading GTFS or GTFS-rt from secure HTTPS URLs, you may need to install the [Java Cryptography Extension (JCE)](http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html).  You will need to replace the `US_export_policy.jar` and `local_policy.jar` files in your JVM `/security` directory, such as `C:\Program Files\Java\jdk1.8.0_73\jre\lib\security`, with the JAR files in the JCE Extension download.  Alternately, you can add `-Djsse.enableSNIExtension=false` to the command line when running the application. 
 
-### IntelliJ
-
-Run the [Main.main()](https://github.com/CUTR-at-USF/transit-feed-quality-calculator/blob/master/src/main/java/edu/usf/cutr/transitfeedqualitycalculator/Main.java) method.
+To download feeds, you'll also need a [TransitFeeds.com API](http://transitfeeds.com/api/) key or a `.csv` file that includes feed information (see below).
 
 ### Command line 
 
 1. `mvn package`
-1. `java -Djsse.enableSNIExtension=false -jar target/transit-feed-quality-calculator-1.0.0-SNAPSHOT.jar`
+1. `java -Djsse.enableSNIExtension=false -jar target/transit-feed-quality-calculator-1.0.0-SNAPSHOT.jar -directory output -transitfeedsapikey 1234567689 -csv feeds.csv`
+
+Note that to download feeds, you'll need to provide an API key for TransitFeeds.com or a `.csv` file that includes feed information.
+
+See the below [command-line options](README.md#command-line-options) section for a description.
+
+### IntelliJ
+
+Run the [Main.main()](https://github.com/CUTR-at-USF/transit-feed-quality-calculator/blob/master/src/main/java/edu/usf/cutr/transitfeedqualitycalculator/Main.java) method, and provide the [command-line options](README.md#command-line-options) via the ["Run configurations->Program arguments" feature](https://www.jetbrains.com/help/idea/run-debug-configuration-application.html).
+
+#### Command line options
+
+* `-directory "output"` - **Required** - The directory to which feeds will be downloaded (in this case `output`), and to which validation and analysis files will be output
+* `-transitfeedsapikey YOUR_API_KEY` - *(Optional)* - Your [TransitFeeds.com API](http://transitfeeds.com/api/) key (in this case, `YOUR_API_KEY`)
+* `-csv "feeds.csv"` - *(Optional)* - A CSV file holding feed information (in this case, `feeds.csv` - you can name it whatever you want)
+
+If you want to download feeds, either `-transitfeedsapikey` or `-csv` parameters must be provided.  If these are missing, this tool will proceed to validate and analyze the feeds currently in `-directory` without downloading any new files.
+
+The `feeds.csv` file should be formatted as follows:
+
+~~~
+id,title,gtfs_url,gtfs_rt_url
+"-1-Portland, OR, USA","TriMet Trip Update",https://developer.trimet.org/schedule/gtfs.zip,http://developer.trimet.org/ws/V1/TripUpdate&appID=1234567890
+"-2-Oakland, CA, USA","AC Transit Trip Update",http://www.actransit.org/wp-content/uploads/GTFSWinter17B.zip,http://api.actransit.org/transit/gtfsrt/tripupdates?token=1234567890
+~~~
+
+Tips:
+* You can use anything as the `id` field as long at it's unique - that's the name of the subdirectory under `-directory` that feed files will be saved.  We recommend prefixing it with negative digits if you following the region pattern of TransitFeeds.com, to avoid collisions with downloads from TransitFeeds.com.
+* The `title` field will be the file name of the downloaded protocol buffer file
+* `gtfs_url` and `gtfs_url_url` can contain API keys if needed (e.g., `http://developer.trimet.org/ws/V1/TripUpdate&appID=1234567890`)
+* Be sure to surrounding any fields that contains spaces with `"`
 
 ## Sample output
 
-You'll see a lot of folders within the "feeds" directory, one for each transit agency:
+You'll see a lot of folders within the `output` directory, one for each transit agency:
 
 ![image](https://user-images.githubusercontent.com/928045/31410882-d16ea5b4-addd-11e7-9c9e-89b9d724a200.png)
 
@@ -56,17 +84,25 @@ An Excel spreadsheet file `graphs.xlsx` will be generated in the root folder of 
 
 Take a look at the [Main.main()](https://github.com/CUTR-at-USF/transit-feed-quality-calculator/blob/master/src/main/java/edu/usf/cutr/transitfeedqualitycalculator/Main.java) method.
 
-Here's what it looks like:
+Here's a simplified version of what it looks like:
 
 ~~~
-String transitFeedsApiKey = "YOUR_API_KEY_HERE";
-String directoryName = "feeds"; // New directory where feed subdirectories will be created
-TransitFeedQualityCalculator calculator = new TransitFeedQualityCalculator(Paths.get(directoryName), transitFeedsApiKey);
+String directoryName = "your-directory";
+String transitFeedsApiKey = "YOUR_TRANSIT_FEEDS.COM_API_HERE";
+String csvFile = "feed-file.csv";
+
+TransitFeedQualityCalculator calculator = new TransitFeedQualityCalculator(Paths.get(directoryName));
+if (transitFeedsApiKey != null) {
+    calculator.setTransitFeedsApiKey(transitFeedsApiKey);
+}
+if (csvFile != null) {
+    calculator.setCsvDownloaderFile(csvFile);
+}
 calculator.calculate();
 ~~~
 
 This demonstrates the usage of the [`TransitFeedQualityCalculator`](https://github.com/CUTR-at-USF/transit-feed-quality-calculator/blob/master/src/main/java/edu/usf/cutr/transitfeedqualitycalculator/TransitFeedQualityCalculator.java), which performs the 3 steps outlined above:
-1. **Download** - Via [`TransitFeedsDownloader`](https://github.com/CUTR-at-USF/transit-feed-quality-calculator/blob/master/src/main/java/edu/usf/cutr/transitfeedqualitycalculator/TransitFeedsDownloader.java)
+1. **Download** - Via [`TransitFeedsDownloader`](https://github.com/CUTR-at-USF/transit-feed-quality-calculator/blob/master/src/main/java/edu/usf/cutr/transitfeedqualitycalculator/downloaders/TransitFeedsDownloader.java) and [`CsvDownloader`](https://github.com/CUTR-at-USF/transit-feed-quality-calculator/blob/master/src/main/java/edu/usf/cutr/transitfeedqualitycalculator/downloaders/CsvDownloader.java)
 1. **Validate** - Via [`BulkFeedValidator`](https://github.com/CUTR-at-USF/transit-feed-quality-calculator/blob/master/src/main/java/edu/usf/cutr/transitfeedqualitycalculator/BulkFeedValidator.java)
 1. **Analyze** - Via [`ResultsAnalyzer`](https://github.com/CUTR-at-USF/transit-feed-quality-calculator/blob/master/src/main/java/edu/usf/cutr/transitfeedqualitycalculator/ResultsAnalyzer.java)
 

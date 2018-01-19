@@ -57,6 +57,7 @@ public class TransitFeedsDownloader extends BaseDownloader {
      * @throws IOException if TransitFeeds.com API can't be reached, or if writing to the path provided in the constructor fails
      */
     public void downloadFeeds() throws IOException {
+        System.out.println("Downloading feeds using TransitFeeds.com API...");
         // Loop through all GTFS-realtime feeds and download them
         GetFeedsResponse response = new GetFeedsRequest.Builder(mApiKey)
                 .setType("gtfsrealtime")
@@ -64,7 +65,7 @@ public class TransitFeedsDownloader extends BaseDownloader {
                 .call();
         int currentPage = response.getResults().getPage();
         int totalPages = response.getResults().getNumPages();
-        System.out.println("total GTFS-realtime pages = " + totalPages);
+        System.out.println("Total GTFS-realtime pages = " + totalPages);
 
         while (currentPage <= totalPages) {
             downloadGtfsRtFeeds(response.getResults().getFeeds());
@@ -87,7 +88,7 @@ public class TransitFeedsDownloader extends BaseDownloader {
                 .call();
         currentPage = response.getResults().getPage();
         totalPages = response.getResults().getNumPages();
-        System.out.println("total GTFS pages = " + totalPages);
+        System.out.println("Total GTFS pages = " + totalPages);
 
         while (currentPage <= totalPages) {
             downloadGtfsFeeds(response.getResults().getFeeds());
@@ -103,9 +104,9 @@ public class TransitFeedsDownloader extends BaseDownloader {
             currentPage++;
         }
 
-        System.out.println("Location Ids for GTFS-rt feeds - " + mGtfsRtLocationIds.toString());
-        System.out.println("Total number of GTFS-rt feeds - " + mNumGtfsRtFeeds);
-        System.out.println("Total number of agencies with GTFS-rt feeds - " + mGtfsRtLocationIds.size());
+        System.out.println("TransitFeeds.com - Location Ids for GTFS-rt feeds - " + mGtfsRtLocationIds.toString());
+        System.out.println("TransitFeeds.com - Total number of GTFS-rt feeds downloaded - " + mNumGtfsRtFeeds);
+        System.out.println("TransitFeeds.com -Total number of agencies with GTFS-rt feeds - " + mGtfsRtLocationIds.size());
     }
 
     private void downloadGtfsRtFeeds(List<Feed> gtfsRtFeeds) {
@@ -126,13 +127,13 @@ public class TransitFeedsDownloader extends BaseDownloader {
                 }
 
                 try {
-                    writeFeedToFile(gtfsRtFeedUrl, FileUtil.getFolderName(feed), FileUtil.getGtfsRtFileName(feed));
+                    writeFeedToFile(gtfsRtFeedUrl, FileUtil.getFolderName(feed), FileUtil.getGtfsRtFileName(feed.getTitle()));
 
                     // Save the location ID of this GTFS-rt feed, so we know to download the GTFS for it later
                     mGtfsRtLocationIds.add(feed.getLocation().getId());
                     mNumGtfsRtFeeds++;
                 } catch (IOException e) {
-                    System.err.println("Error reading GTFS-realtime feed '" + urlString + "' - " + e);
+                    System.err.println("Error downloading GTFS-realtime feed '" + urlString + "' - " + e);
                     continue;
                 }
             }
@@ -162,9 +163,9 @@ public class TransitFeedsDownloader extends BaseDownloader {
                 }
 
                 try {
-                    writeFeedToFile(gtfsFeedUrl, FileUtil.getFolderName(feed), FileUtil.getGtfsFileName(feed));
+                    writeFeedToFile(gtfsFeedUrl, FileUtil.getFolderName(feed), FileUtil.getGtfsFileName());
                 } catch (IOException e) {
-                    System.err.println("Error reading GTFS feed '" + urlString + "' - " + e);
+                    System.err.println("Error downloading GTFS feed '" + urlString + "' - " + e);
                     continue;
                 }
             }

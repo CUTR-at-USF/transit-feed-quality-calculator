@@ -48,6 +48,9 @@ public class FileUtil {
      * @return a new String that is the same as the input but without any characters that cannot occur in Windows or Unix file names
      */
     public static String removeIllegalFileCharacters(String input) {
+        if (input == null) {
+            return null;
+        }
         StringBuilder output = new StringBuilder();
         int length = input.codePointCount(0, input.length());
         for (int i = 0; i < length; i++) {
@@ -96,11 +99,26 @@ public class FileUtil {
     /**
      * Returns the folder name that should be used to store GTFS, GTFS-realtime, and validation files for the provided TransitFeeds.com feed
      *
-     * @param feed
-     * @return
+     * @param feed feed from TransitFeeds.com
+     * @return the folder name that should be used to store GTFS, GTFS-realtime, and validation files for the provided TransitFeeds.com feed
      */
     public static String getFolderName(Feed feed) {
-        return feed.getLocation().getId() + "-" + removeIllegalFileCharacters(feed.getLocation().getTitleWithRegion());
+        return getFolderName(Integer.toString(feed.getLocation().getId()), feed.getLocation().getTitleWithRegion());
+    }
+
+    /**
+     * Returns the folder name that should be used to store GTFS, GTFS-realtime, and validation files for the provided feed ID and region
+     *
+     * @param id     id for this feed
+     * @param region region for this feed
+     * @return the folder name that should be used to store GTFS, GTFS-realtime, and validation files for the provided feed ID and region
+     */
+    public static String getFolderName(String id, String region) {
+        if (region == null) {
+            return id;
+        } else {
+            return id + "-" + removeIllegalFileCharacters(region);
+        }
     }
 
     /**
@@ -110,20 +128,19 @@ public class FileUtil {
      * file names.  The process first converts all path separators to the system separator, and then replaces
      * occurrences of the system separator with "-".
      *
-     * @param feed GTFS-realtime feed that is being saved to file
+     * @param feedTitle GTFS-realtime feed title that is being saved to file
      * @return the file name to use for a GTFS-realtime file
      */
-    public static String getGtfsRtFileName(Feed feed) {
-        return removeIllegalFileCharacters(feed.getTitle()) + "-" + System.currentTimeMillis() + GTFS_RT_FILE_EXTENSION;
+    public static String getGtfsRtFileName(String feedTitle) {
+        return removeIllegalFileCharacters(feedTitle) + "-" + System.currentTimeMillis() + GTFS_RT_FILE_EXTENSION;
     }
 
     /**
      * Returns the file name to use for a GTFS feed
      *
-     * @param feed GTFS feed that is being saved to file
      * @return the file name to use for a GTFS file
      */
-    public static String getGtfsFileName(Feed feed) {
+    public static String getGtfsFileName() {
         return GTFS_FILE_NAME;
     }
 }

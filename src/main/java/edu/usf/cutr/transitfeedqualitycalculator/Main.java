@@ -15,20 +15,96 @@
  */
 package edu.usf.cutr.transitfeedqualitycalculator;
 
+import org.apache.commons.cli.*;
+
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.security.NoSuchAlgorithmException;
 
 public class Main {
+    private final static String DIRECTORY = "directory";
+    private final static String TRANSIT_FEEDS_API_KEY = "transitfeedsapikey";
+    private final static String CSV_PATH_AND_FILE = "csv";
+
     /**
      * Downloads, validates, and analyzes all GTFS-realtime feeds from TransitFeeds.com and outputs to the provided directory
      *
      * @param args
      */
-    public static void main(String[] args) throws IOException, NoSuchAlgorithmException, NoSuchFieldException, IllegalAccessException {
-        String transitFeedsApiKey = "76edc18d-54d4-4132-9f53-e8e25be976e7";
-        String directoryName = "feeds";
-        TransitFeedQualityCalculator calculator = new TransitFeedQualityCalculator(Paths.get(directoryName), transitFeedsApiKey);
+    public static void main(String[] args) throws IOException, NoSuchAlgorithmException, NoSuchFieldException, IllegalAccessException, ParseException {
+        // Parse command line parameters
+        Options options = setupCommandLineOptions();
+
+        String directoryName = getDirectoryFromArgs(options, args);
+        String transitFeedsApiKey = getTransitFeedsApiKeyFromArgs(options, args);
+        String csvFile = getCsvPathAndFileFromArgs(options, args);
+
+        if (directoryName == null) {
+            System.err.println("You must provide a directory such as `-directory output`");
+            return;
+        }
+
+        TransitFeedQualityCalculator calculator = new TransitFeedQualityCalculator(Paths.get(directoryName));
+        if (transitFeedsApiKey != null) {
+            calculator.setTransitFeedsApiKey(transitFeedsApiKey);
+        }
+        if (csvFile != null) {
+            calculator.setCsvDownloaderFile(csvFile);
+        }
         calculator.calculate();
+    }
+
+    /**
+     * Sets up the command-line options that this application supports
+     */
+    private static Options setupCommandLineOptions() {
+        Options options = new Options();
+        Option downloadDirectory = Option.builder(DIRECTORY)
+                .hasArg()
+                .desc("The path to the directory to which the feeds should be downloaded and the analysis output written")
+                .build();
+        Option transitFeedsApiKey = Option.builder(TRANSIT_FEEDS_API_KEY)
+                .hasArg()
+                .desc("The API key that should be used to retrieve feed URLs from TransitFeeeds.com")
+                .build();
+        Option csvPath = Option.builder(CSV_PATH_AND_FILE)
+                .hasArg()
+                .desc("The path and file name of the CSV file that contains feeds to be downloaded")
+                .build();
+
+        options.addOption(downloadDirectory);
+        options.addOption(transitFeedsApiKey);
+        options.addOption(csvPath);
+        return options;
+    }
+
+    private static String getDirectoryFromArgs(Options options, String[] args) throws ParseException {
+        String directory = null;
+        CommandLineParser parser = new DefaultParser();
+        CommandLine cmd = parser.parse(options, args);
+        if (cmd.hasOption(DIRECTORY)) {
+            directory = cmd.getOptionValue(DIRECTORY);
+        }
+        return directory;
+    }
+
+    private static String getTransitFeedsApiKeyFromArgs(Options options, String[] args) throws ParseException {
+        String apiKey = null;
+        CommandLineParser parser = new DefaultParser();
+        CommandLine cmd = parser.parse(options, args);
+        if (cmd.hasOption(TRANSIT_FEEDS_API_KEY)) {
+            apiKey = cmd.getOptionValue(TRANSIT_FEEDS_API_KEY);
+        }
+        return apiKey;
+    }
+
+    private static String getCsvPathAndFileFromArgs(Options options, String[] args) throws ParseException {
+        String pathAndFile = null;
+        CommandLineParser parser = new DefaultParser();
+        CommandLine cmd = parser.parse(options, args);
+        if (cmd.hasOption(CSV_PATH_AND_FILE)) {
+            pathAndFile = cmd.getOptionValue(CSV_PATH_AND_FILE);
+        }
+        return pathAndFile;
     }
 }
