@@ -42,13 +42,15 @@ If you want to download feeds, either `-transitfeedsapikey` or `-csv` parameters
 The `feeds.csv` file should be formatted as follows:
 
 ~~~
-id,title,gtfs_url,gtfs_rt_url
-"-1-Portland, OR, USA","TriMet Trip Update",https://developer.trimet.org/schedule/gtfs.zip,http://developer.trimet.org/ws/V1/TripUpdate&appID=1234567890
-"-2-Oakland, CA, USA","AC Transit Trip Update",http://www.actransit.org/wp-content/uploads/GTFSWinter17B.zip,http://api.actransit.org/transit/gtfsrt/tripupdates?token=1234567890
+region_id,title,gtfs_url,gtfs_rt_url
+"-1-Portland, OR, USA","TriMet Trip Update",https://developer.trimet.org/schedule/gtfs.zip,http://developer.trimet.org/ws/V1/TripUpdate&appID=225D5601E7729B9ED863DCA39
+"-1-Portland, OR, USA","TriMet Alerts",https://developer.trimet.org/schedule/gtfs.zip,http://developer.trimet.org/ws/V1/FeedSpecAlerts&appID=225D5601E7729B9ED863DCA39
+"-2-Oakland, CA, USA","AC Transit Trip Update",http://www.actransit.org/wp-content/uploads/GTFSWinter17B.zip,http://api.actransit.org/transit/gtfsrt/tripupdates?token=9A6257A021F944E7BE0AD32702DF23CE
 ~~~
 
 Tips:
-* You can use anything as the `id` field as long at it's unique - that's the name of the subdirectory under `-directory` that feed files will be saved.  We recommend prefixing it with negative digits if you following the region pattern of TransitFeeds.com, to avoid collisions with downloads from TransitFeeds.com.
+* You can use anything as the `region_id` field as long at it's unique - that's the name of the subdirectory under `-directory` that feed files will be saved.  We recommend prefixing it with negative digits if you following the region pattern of TransitFeeds.com, to avoid collisions with downloads from TransitFeeds.com.
+* If you have more than one GTFS-rt feed (e.g., VehiclePositions and TripUpdates), use the same `region_id` for each.  This way the GTFS data will only get downloaded once for that feed, and both GTFS-rt feeds will be downloaded to the same directory.
 * The `title` field will be the file name of the downloaded protocol buffer file
 * `gtfs_url` and `gtfs_url_url` can contain API keys if needed (e.g., `http://developer.trimet.org/ws/V1/TripUpdate&appID=1234567890`)
 * Be sure to surrounding any fields that contains spaces with `"`

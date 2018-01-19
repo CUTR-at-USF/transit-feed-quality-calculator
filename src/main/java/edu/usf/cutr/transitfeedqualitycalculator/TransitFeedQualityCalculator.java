@@ -75,9 +75,9 @@ public class TransitFeedQualityCalculator {
     }
 
     /**
-     * The path to a CSV file containing id,title,gtfs_url,gtfs_rt_url for feeds to download, if feeds should be downloaded from a CSV file
+     * The path to a CSV file containing region_id,title,gtfs_url,gtfs_rt_url for feeds to download, if feeds should be downloaded from a CSV file
      *
-     * @param csvDownloaderFile path to a CSV file containing id,title,gtfs_url,gtfs_rt_url for feeds to download
+     * @param csvDownloaderFile path to a CSV file containing region_id,title,gtfs_url,gtfs_rt_url for feeds to download
      */
     public void setCsvDownloaderFile(String csvDownloaderFile) {
         mCsvDownloaderFile = csvDownloaderFile;

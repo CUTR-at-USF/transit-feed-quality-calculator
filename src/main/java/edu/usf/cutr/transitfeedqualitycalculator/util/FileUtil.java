@@ -114,8 +114,8 @@ public class FileUtil {
      * @return the folder name that should be used to store GTFS, GTFS-realtime, and validation files for the provided feed ID and region
      */
     public static String getFolderName(String id, String region) {
-        if (region == null) {
-            return id;
+        if (id == null) {
+            return removeIllegalFileCharacters(region);
         } else {
             return id + "-" + removeIllegalFileCharacters(region);
         }

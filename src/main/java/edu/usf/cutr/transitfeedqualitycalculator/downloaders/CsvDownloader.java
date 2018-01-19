@@ -27,6 +27,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Path;
+import java.util.HashSet;
 
 /**
  * Downloads feeds using GTFS and GTFS-realtime URLs retrived from a CSV file, which may include API keys
@@ -35,6 +36,7 @@ public class CsvDownloader extends BaseDownloader {
 
     private File mCsvFile;
     private int mNumGtfsRtFeeds = 0;
+    private HashSet<String> mGtfsUrls = new HashSet<>();
 
     /**
      * Downloads GTFS and GTFS-realtime files using URLs from the provided csvFile to the provided Path when downloadFeeds() is called
@@ -49,6 +51,7 @@ public class CsvDownloader extends BaseDownloader {
 
     @Override
     public void downloadFeeds() throws IOException {
+        mGtfsUrls.clear();
         CsvMapper mapper = new CsvMapper();
         CsvSchema schema = mapper.schemaFor(CsvFeed.class).withHeader();
         MappingIterator<CsvFeed> it = mapper.readerFor(CsvFeed.class).with(schema)
@@ -66,7 +69,7 @@ public class CsvDownloader extends BaseDownloader {
             try {
                 gtfsRtFeedUrl = new URL(feed.getGtfsRtUrl());
                 writeFeedToFile(gtfsRtFeedUrl,
-                        FileUtil.getFolderName(feed.getId(), null),
+                        FileUtil.getFolderName(null, feed.getRegionId()),
                         FileUtil.getGtfsRtFileName(feed.getTitle()));
                 mNumGtfsRtFeeds++;
             } catch (MalformedURLException e) {
@@ -78,10 +81,18 @@ public class CsvDownloader extends BaseDownloader {
             }
             // Download GTFS feed
             try {
+                if (mGtfsUrls.contains(feed.getGtfsUrl())) {
+                    // We've already downloaded this GTFS data for another GTFS-rt URL record in the CSV file - skip to next record
+                    System.out.println("Already downloaded " + feed.getGtfsUrl() + " from another GTFS-rt feed in the CSV, skipping download");
+                    System.out.println("Downloaded GTFS-realtime for " + feed.getTitle() + " (GTFS already downloaded from " + feed.getGtfsUrl() + " for another CSV record)");
+                    continue;
+                }
+
                 gtfsFeedUrl = new URL(feed.getGtfsUrl());
                 writeFeedToFile(gtfsFeedUrl,
-                        FileUtil.getFolderName(feed.getId(), null),
+                        FileUtil.getFolderName(null, feed.getRegionId()),
                         FileUtil.getGtfsFileName());
+                mGtfsUrls.add(feed.getGtfsUrl());
             } catch (MalformedURLException e) {
                 System.err.println("Malformed Url '" + feed.getGtfsUrl() + "' - " + e);
                 continue;
@@ -98,10 +109,10 @@ public class CsvDownloader extends BaseDownloader {
     /**
      * A model class used to parse the feed information from a CSV file
      */
-    @JsonPropertyOrder({"id", "title", "gtfs_url", "gtfs_rt_url"})
+    @JsonPropertyOrder({"region_id", "title", "gtfs_url", "gtfs_rt_url"})
     static class CsvFeed {
 
-        String id;
+        String regionId;
         String title;
         String gtfsUrl;
         String gtfsRtUrl;
@@ -109,13 +120,13 @@ public class CsvDownloader extends BaseDownloader {
         public CsvFeed() {
         }
 
-        @JsonProperty("id")
-        public String getId() {
-            return id;
+        @JsonProperty("region_id")
+        public String getRegionId() {
+            return regionId;
         }
 
-        public void setId(String id) {
-            this.id = id;
+        public void setRegionId(String regionId) {
+            this.regionId = regionId;
         }
 
         @JsonProperty("title")
@@ -148,7 +159,7 @@ public class CsvDownloader extends BaseDownloader {
         @Override
         public String toString() {
             return "Feed{" +
-                    "id='" + id + '\'' +
+                    "regionId='" + regionId + '\'' +
                     ", title='" + title + '\'' +
                     ", gtfsUrl='" + gtfsUrl + '\'' +
                     ", gtfsRtUrl='" + gtfsRtUrl + '\'' +
