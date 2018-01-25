@@ -1,0 +1,1699 @@
+[ {
+  "errorMessage" : {
+    "messageId" : 0,
+    "gtfsRtFeedIterationModel" : null,
+    "validationRule" : {
+      "errorId" : "E028",
+      "severity" : "ERROR",
+      "title" : "Vehicle position outside agency coverage area",
+      "errorDescription" : "The vehicle position should be inside the agency coverage area.  This is defined as within roughly 1/8 of a mile (200 meters) of the GTFS shapes.txt data, or stops.txt locations if the GTFS feed doesn't include shapes.txt.",
+      "occurrenceSuffix" : "- vehicle should be within area"
+    },
+    "errorDetails" : null
+  },
+  "occurrenceList" : [ {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 4023 at (39.368,-76.634) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 4026 at (39.362,-76.646) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 4062 at (39.29,-76.55) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 4071 at (0.0,0.0) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 4077 at (39.334,-76.564) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 4079 at (39.367,-76.652) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 4080 at (39.344,-76.692) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 4085 at (39.398,-76.727) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 4086 at (39.357,-76.581) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 4088 at (39.306,-76.734) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 4094 at (39.36,-76.721) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 4098 at (39.309,-76.672) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 4103 at (39.32,-76.62) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 4105 at (39.333,-76.619) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 4111 at (39.351,-76.66) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 4122 at (39.315,-76.763) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 5001 at (39.315,-76.763) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 5006 at (39.349,-76.659) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 5012 at (39.325,-76.759) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 5016 at (39.318,-76.604) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 5020 at (39.341,-76.621) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 5023 at (39.314,-76.617) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 5026 at (39.332,-76.598) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 5031 at (39.391,-76.528) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 5032 at (39.405,-76.598) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 5035 at (39.502,-76.664) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 5038 at (39.35,-76.563) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 5040 at (39.312,-76.599) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 5045 at (39.315,-76.45) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 5046 at (39.32,-76.57) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 5057 at (39.326,-76.594) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 5062 at (39.306,-76.591) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 5064 at (39.318,-76.653) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 5067 at (39.303,-76.547) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 5081 at (39.335,-76.564) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 5084 at (39.318,-76.454) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 5086 at (39.266,-76.514) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 6001 at (39.288,-76.539) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 6006 at (39.317,-76.659) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 8001 at (0.0,0.0) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 8005 at (39.399,-76.603) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 8006 at (39.313,-76.637) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 8017 at (39.309,-76.675) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 8024 at (39.344,-76.73) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 8025 at (39.315,-76.763) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 9003 at (39.316,-76.649) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 9005 at (39.408,-76.78) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 9009 at (39.345,-76.671) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 9013 at (39.346,-76.587) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 9015 at (39.369,-76.718) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 9020 at (39.345,-76.647) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 9028 at (39.351,-76.706) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 9031 at (39.289,-76.553) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 9034 at (39.316,-76.542) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 9037 at (39.337,-76.633) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 9039 at (39.34,-76.485) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 9041 at (39.354,-76.463) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 9042 at (39.319,-76.454) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 9047 at (39.24,-76.506) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 9048 at (39.35,-76.481) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 9056 at (39.385,-76.576) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 9058 at (39.3,-76.553) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 9059 at (39.386,-76.578) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 9068 at (39.342,-76.568) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 9069 at (39.317,-76.691) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 9070 at (39.325,-76.579) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 9078 at (39.315,-76.643) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 9080 at (39.314,-76.626) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 9083 at (39.384,-76.578) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 9087 at (39.317,-76.621) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 9088 at (39.311,-76.615) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 9094 at (39.362,-76.625) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle.id 9095 at (39.367,-76.581) is more than 1609.0 meters (1.00 mile(s)) outside entire GTFS shapes.txt coverage area"
+  } ]
+}, {
+  "errorMessage" : {
+    "messageId" : 0,
+    "gtfsRtFeedIterationModel" : null,
+    "validationRule" : {
+      "errorId" : "E017",
+      "severity" : "ERROR",
+      "title" : "GTFS-rt content changed but has the same header timestamp",
+      "errorDescription" : "The GTFS-rt header timestamp value should always change if the feed contents change - the feed contents must not change without updating the header timestamp",
+      "occurrenceSuffix" : "was the same for this and the previous feed iteration but the feed content was not the same"
+    },
+    "errorDetails" : null
+  },
+  "occurrenceList" : [ {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "header.timestamp of 1511357421"
+  } ]
+}, {
+  "errorMessage" : {
+    "messageId" : 0,
+    "gtfsRtFeedIterationModel" : null,
+    "validationRule" : {
+      "errorId" : "E003",
+      "severity" : "ERROR",
+      "title" : "GTFS-rt trip_id does not exist in GTFS data and does not have schedule_relationship of ADDED",
+      "errorDescription" : "All trip_ids provided in the GTFS-rt feed must exist in the GTFS data, unless the schedule_relationship is ADDED",
+      "occurrenceSuffix" : "does not exist in the GTFS data and does not have schedule_relationship of ADDED"
+    },
+    "errorDetails" : null
+  },
+  "occurrenceList" : [ {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 1301 trip_id 2069574"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4008 trip_id 2060959"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4011 trip_id 2057838"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4016 trip_id 2060822"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4023 trip_id 2060960"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4024 trip_id 2058005"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4026 trip_id 2060790"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4032 trip_id 2060979"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4033 trip_id 2058051"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4038 trip_id 2057783"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4039 trip_id 2058231"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4062 trip_id 2053221"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4071 trip_id 2053737"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4076 trip_id 2075598"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4077 trip_id 2053738"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4079 trip_id 2054886"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4080 trip_id 2058775"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4083 trip_id 2058684"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4085 trip_id 2060615"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4086 trip_id 2054153"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4088 trip_id 2055203"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4094 trip_id 2059742"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4098 trip_id 2058773"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4103 trip_id 2052906"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4105 trip_id 2053226"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4111 trip_id 2054495"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4122 trip_id 2058537"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5001 trip_id 2058290"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5002 trip_id 2060801"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5006 trip_id 2060429"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5009 trip_id 2075604"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5012 trip_id 2055202"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5014 trip_id 2072318"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5015 trip_id 2058230"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5016 trip_id 2054154"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5020 trip_id 2055365"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5023 trip_id 2055398"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5026 trip_id 2055593"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5031 trip_id 2075472"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5032 trip_id 2060672"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5035 trip_id 2060640"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5038 trip_id 2055990"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5040 trip_id 2076208"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5045 trip_id 2071514"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5046 trip_id 2056443"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5054 trip_id 2055985"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5057 trip_id 2055661"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5058 trip_id 2056222"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5062 trip_id 2052941"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5063 trip_id 2056220"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5064 trip_id 2053227"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5067 trip_id 2075596"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5070 trip_id 2053223"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5075 trip_id 2053222"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5081 trip_id 2053736"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5084 trip_id 2056517"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5086 trip_id 2056782"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5094 trip_id 2056742"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 6001 trip_id 2071516"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 6004 trip_id 2057497"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 6006 trip_id 2053568"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 6007 trip_id 2056925"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 8001 trip_id 2072615"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 8005 trip_id 2072616"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 8006 trip_id 2073440"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 8010 trip_id 2072750"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 8011 trip_id 2072751"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 8016 trip_id 2069924"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 8017 trip_id 2070029"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 8024 trip_id 2070706"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 8025 trip_id 2069063"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 8026 trip_id 2071439"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 8028 trip_id 2071518"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9003 trip_id 2059739"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9005 trip_id 2060144"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9009 trip_id 2059807"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9013 trip_id 2053793"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9015 trip_id 2059741"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9016 trip_id 2053224"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9020 trip_id 2053734"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9021 trip_id 2055158"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9022 trip_id 2058771"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9027 trip_id 2067404"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9028 trip_id 2059313"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9031 trip_id 2053144"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9033 trip_id 2056781"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9034 trip_id 2056518"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9036 trip_id 2056221"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9037 trip_id 2053138"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9039 trip_id 2055031"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9041 trip_id 2056243"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9042 trip_id 2056642"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9047 trip_id 2056644"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9048 trip_id 2056642"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9049 trip_id 2053142"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9056 trip_id 2055030"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9058 trip_id 2056274"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9059 trip_id 2055048"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9068 trip_id 2053735"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9069 trip_id 2058536"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9070 trip_id 2053225"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9078 trip_id 2059808"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9079 trip_id 2055991"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9080 trip_id 2055632"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9082 trip_id 2055986"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9083 trip_id 2055864"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9085 trip_id 2067470"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9087 trip_id 2054154"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9088 trip_id 2055668"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9094 trip_id 2054799"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9095 trip_id 2054770"
+  } ]
+}, {
+  "errorMessage" : {
+    "messageId" : 0,
+    "gtfsRtFeedIterationModel" : null,
+    "validationRule" : {
+      "errorId" : "E004",
+      "severity" : "ERROR",
+      "title" : "GTFS-rt route_id does not exist in GTFS data",
+      "errorDescription" : "All route_ids provided in the GTFS-rt feed must exist in the GTFS data",
+      "occurrenceSuffix" : "does not exist in the GTFS data routes.txt"
+    },
+    "errorDetails" : null
+  },
+  "occurrenceList" : [ {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 1301 route_id 10027"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4008 route_id 9969"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4011 route_id 9954"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4016 route_id 9968"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4023 route_id 9969"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4024 route_id 9955"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4026 route_id 9968"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4032 route_id 9969"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4033 route_id 9955"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4038 route_id 9954"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4039 route_id 9956"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4062 route_id 9929"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4071 route_id 9931"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4076 route_id 10031"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4077 route_id 9931"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4079 route_id 9936"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4080 route_id 9958"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4083 route_id 9958"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4085 route_id 9966"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4086 route_id 9933"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4088 route_id 9938"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4094 route_id 9962"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4098 route_id 9958"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4103 route_id 9928"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4105 route_id 9929"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4111 route_id 9934"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 4122 route_id 9957"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5001 route_id 9956"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5002 route_id 9968"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5006 route_id 9965"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5009 route_id 10032"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5012 route_id 9938"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5014 route_id 10034"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5015 route_id 9956"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5016 route_id 9933"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5020 route_id 9939"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5023 route_id 9939"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5026 route_id 9941"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5031 route_id 9942"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5032 route_id 9967"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5035 route_id 9967"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5038 route_id 9942"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5040 route_id 9942"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5045 route_id 10032"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5046 route_id 9944"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5054 route_id 9942"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5057 route_id 9941"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5058 route_id 9943"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5062 route_id 9928"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5063 route_id 9943"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5064 route_id 9929"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5067 route_id 9945"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5070 route_id 9929"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5075 route_id 9929"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5081 route_id 9931"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5084 route_id 9945"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5086 route_id 9947"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 5094 route_id 9947"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 6001 route_id 10032"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 6004 route_id 9952"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 6006 route_id 9930"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 6007 route_id 9948"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 8001 route_id 10035"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 8005 route_id 10035"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 8006 route_id 10037"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 8010 route_id 10035"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 8011 route_id 10035"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 8016 route_id 10028"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 8017 route_id 10028"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 8024 route_id 10030"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 8025 route_id 10026"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 8026 route_id 10032"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 8028 route_id 10032"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9003 route_id 9962"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9005 route_id 9963"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9009 route_id 9962"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9013 route_id 9931"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9015 route_id 9962"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9016 route_id 9929"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9020 route_id 9931"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9021 route_id 9938"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9022 route_id 9958"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9027 route_id 9976"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9028 route_id 9960"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9031 route_id 9929"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9033 route_id 9947"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9034 route_id 9945"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9036 route_id 9943"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9037 route_id 9929"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9039 route_id 9937"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9041 route_id 9943"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9042 route_id 9946"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9047 route_id 9946"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9048 route_id 9946"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9049 route_id 9929"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9056 route_id 9937"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9058 route_id 9943"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9059 route_id 9937"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9068 route_id 9931"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9069 route_id 9957"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9070 route_id 9929"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9078 route_id 9962"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9079 route_id 9942"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9080 route_id 9941"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9082 route_id 9942"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9083 route_id 9942"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9085 route_id 9980"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9087 route_id 9933"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9088 route_id 9941"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9094 route_id 9935"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "vehicle_id 9095 route_id 9935"
+  } ]
+}, {
+  "errorMessage" : {
+    "messageId" : 0,
+    "gtfsRtFeedIterationModel" : null,
+    "validationRule" : {
+      "errorId" : "W009",
+      "severity" : "WARNING",
+      "title" : "schedule_relationship not populated",
+      "errorDescription" : "trip.schedule_relationship and stop_time_update.schedule_relationship should be populated",
+      "occurrenceSuffix" : "does not have a schedule_relationship"
+    },
+    "errorDetails" : null
+  },
+  "occurrenceList" : [ {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2069574"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2060959"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2057838"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2060822"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2060960"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2058005"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2060790"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2060979"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2058051"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2057783"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2058231"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2053221"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2053737"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2075598"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2053738"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2054886"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2058775"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2058684"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2060615"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2054153"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2055203"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2059742"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2058773"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2052906"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2053226"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2054495"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2058537"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2058290"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2060801"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2060429"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2075604"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2055202"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2072318"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2058230"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2054154"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2055365"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2055398"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2055593"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2075472"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2060672"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2060640"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2055990"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2076208"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2071514"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2056443"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2055985"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2055661"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2056222"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2052941"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2056220"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2053227"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2075596"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2053223"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2053222"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2053736"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2056517"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2056782"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2056742"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2071516"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2057497"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2053568"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2056925"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2072615"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2072616"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2073440"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2072750"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2072751"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2069924"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2070029"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2070706"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2069063"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2071439"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2071518"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2059739"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2060144"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2059807"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2053793"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2059741"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2053224"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2053734"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2055158"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2058771"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2067404"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2059313"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2053144"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2056781"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2056518"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2056221"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2053138"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2055031"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2056243"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2056642"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2056644"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2056642"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2053142"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2055030"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2056274"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2055048"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2053735"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2058536"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2053225"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2059808"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2055991"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2055632"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2055986"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2055864"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2067470"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2054154"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2055668"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2054799"
+  }, {
+    "occurrenceId" : 0,
+    "messageLogModel" : null,
+    "prefix" : "trip_id 2054770"
+  } ]
+} ]
