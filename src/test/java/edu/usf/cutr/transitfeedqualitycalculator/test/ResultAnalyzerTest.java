@@ -1,4 +1,4 @@
-package edu.usf.cutr.test;
+package edu.usf.cutr.transitfeedqualitycalculator.test;
 
 import edu.usf.cutr.gtfsrtvalidator.lib.validation.ValidationRules;
 import edu.usf.cutr.transitfeedqualitycalculator.ResultsAnalyzer;
@@ -7,7 +7,6 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.junit.Test;
 
 import java.io.FileInputStream;
 import java.nio.file.Paths;
@@ -16,7 +15,7 @@ import static org.junit.Assert.assertEquals;
 
 public class ResultAnalyzerTest {
 
-    @Test
+    @org.junit.jupiter.api.Test
     public void resultAnalyzerTest() throws java.io.IOException, java.lang.NoSuchFieldException, java.lang.IllegalAccessException {
         String directoryName = "src/test/feeds";
         String workbookName = "graphs.xlsx";
