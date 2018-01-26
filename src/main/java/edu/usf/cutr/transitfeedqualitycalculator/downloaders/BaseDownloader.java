@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 
 /**
  * A class that defines common actions for a downloader of GTFS feeds but leaves some implementation to extending classes
@@ -52,10 +53,16 @@ public abstract class BaseDownloader {
      * @param feedUrl full URL (including any API key) to the provided GTFS or GTFS-realtime file
      * @param folderName
      * @param fileName
+     * @param forceOverwrite true if the file should be downloaded again even if it already exists on disk at the provided fileName, or false if the file should not be downloaded if it already exists at fileName
      * @throws IOException
      */
-    protected void writeFeedToFile(URL feedUrl, String folderName, String fileName) throws IOException {
+    protected void writeFeedToFile(URL feedUrl, String folderName, String fileName, boolean forceOverwrite) throws IOException {
         String fullPath = mPath.resolve(folderName) + File.separator + fileName;
+
+        if (!forceOverwrite && Files.exists(Paths.get(fullPath))) {
+            System.out.println(fullPath + " already exists, skipping the download from " + feedUrl.toString());
+            return;
+        }
 
         Files.createDirectories(mPath.resolve(folderName));
         FileUtil.writeUrlToFile(feedUrl, fullPath);

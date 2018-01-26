@@ -127,7 +127,7 @@ public class TransitFeedsDownloader extends BaseDownloader {
                 }
 
                 try {
-                    writeFeedToFile(gtfsRtFeedUrl, FileUtil.getFolderName(feed), FileUtil.getGtfsRtFileName(feed.getTitle()));
+                    writeFeedToFile(gtfsRtFeedUrl, FileUtil.getFolderName(feed), FileUtil.getGtfsRtFileName(feed.getTitle()), true);
 
                     // Save the location ID of this GTFS-rt feed, so we know to download the GTFS for it later
                     mGtfsRtLocationIds.add(feed.getLocation().getId());
@@ -163,7 +163,7 @@ public class TransitFeedsDownloader extends BaseDownloader {
                 }
 
                 try {
-                    writeFeedToFile(gtfsFeedUrl, FileUtil.getFolderName(feed), FileUtil.getGtfsFileName());
+                    writeFeedToFile(gtfsFeedUrl, FileUtil.getFolderName(feed), FileUtil.getGtfsFileName(), false);
                 } catch (IOException e) {
                     System.err.println("Error downloading GTFS feed '" + urlString + "' - " + e);
                     continue;
