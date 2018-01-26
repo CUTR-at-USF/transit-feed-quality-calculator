@@ -17,7 +17,7 @@ public class ResultAnalyzerTest {
 
     @org.junit.jupiter.api.Test
     public void resultAnalyzerTest() throws java.io.IOException, java.lang.NoSuchFieldException, java.lang.IllegalAccessException {
-        String directoryName = "src/test/feeds";
+        String directoryName = "src/test/resources/feeds";
         String workbookName = "graphs.xlsx";
         ResultsAnalyzer analyzer = new ResultsAnalyzer(Paths.get(directoryName), "", "");
         analyzer.analyzeResults();
