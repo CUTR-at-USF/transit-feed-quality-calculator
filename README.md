@@ -44,9 +44,9 @@ The `feeds.csv` file should be formatted as follows:
 
 ~~~
 region_id,title,gtfs_url,gtfs_rt_url
-"-10000-Portland, OR, USA","TriMet Trip Update",https://developer.trimet.org/schedule/gtfs.zip,http://developer.trimet.org/ws/V1/TripUpdate&appID=225D5601E7729B9ED863DCA39
-"-10000-Portland, OR, USA","TriMet Alerts",https://developer.trimet.org/schedule/gtfs.zip,http://developer.trimet.org/ws/V1/FeedSpecAlerts&appID=225D5601E7729B9ED863DCA39
-"-20000-Oakland, CA, USA","AC Transit Trip Update",http://www.actransit.org/wp-content/uploads/GTFSWinter17B.zip,http://api.actransit.org/transit/gtfsrt/tripupdates?token=9A6257A021F944E7BE0AD32702DF23CE
+"10000-Portland, OR, USA","TriMet Trip Update",https://developer.trimet.org/schedule/gtfs.zip,http://developer.trimet.org/ws/V1/TripUpdate&appID=225D5601E7729B9ED863DCA39
+"10000-Portland, OR, USA","TriMet Alerts",https://developer.trimet.org/schedule/gtfs.zip,http://developer.trimet.org/ws/V1/FeedSpecAlerts&appID=225D5601E7729B9ED863DCA39
+"20000-Oakland, CA, USA","AC Transit Trip Update",http://www.actransit.org/wp-content/uploads/GTFSWinter17B.zip,http://api.actransit.org/transit/gtfsrt/tripupdates?token=9A6257A021F944E7BE0AD32702DF23CE
 ~~~
 
 Tips:
