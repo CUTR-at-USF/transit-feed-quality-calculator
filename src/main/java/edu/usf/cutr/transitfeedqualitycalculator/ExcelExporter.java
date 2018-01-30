@@ -226,7 +226,7 @@ public class ExcelExporter {
         autosizeColumnSheet();
     }
 
-    private void fillGraphSheet() throws java.io.IOException, NoSuchFieldException, IllegalAccessException {
+    private void fillGraphSheet() throws NoSuchFieldException, IllegalAccessException {
         Row row;
         Cell cell;
         Map<String, Integer> countMap;
