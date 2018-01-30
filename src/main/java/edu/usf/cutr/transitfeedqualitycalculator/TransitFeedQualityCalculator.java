@@ -93,6 +93,24 @@ public class TransitFeedQualityCalculator {
     }
 
     /**
+     * Sets a comma-separated list of errors from the gtfs-realtime-validator to ignore when calculating summary error results and generating the Excel file, like:
+     * E017,E018
+     * @param errorsToIgnore a comma-separated list of errors from the gtfs-realtime-validator to ignore when calculating summary error results and generating the Excel file, like E017,E018
+     */
+    public void setErrorsToIgnore(String errorsToIgnore) {
+        mErrorsToIgnore = errorsToIgnore;
+    }
+
+    /**
+     * Sets a comma-separated list of warnings from the gtfs-realtime-validator to ignore when calculating summary warning results and generating the Excel file, like:
+     * W007,W008
+     * @param warningsToIgnore a comma-separated list of warnings from the gtfs-realtime-validator to ignore when calculating summary warning results and generating the Excel file, like W007,W008
+     */
+    public void setWarningsToIgnore(String warningsToIgnore) {
+        mWarningsToIgnore = warningsToIgnore;
+    }
+
+    /**
      * Run the feed quality calculations
      */
     public void calculate() throws IOException, NoSuchAlgorithmException, NoSuchFieldException, IllegalAccessException {

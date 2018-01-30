@@ -26,11 +26,13 @@ public class Main {
     private final static String TRANSIT_FEEDS_API_KEY = "transitfeedsapikey";
     private final static String CSV_PATH_AND_FILE = "csv";
     private final static String FORCE_GTFS_DOWNLOAD = "forcegtfsdownload";
+    private final static String ERRORS_TO_IGNORE = "errorstoignore";
+    private final static String WARNINGS_TO_IGNORE = "warningstoignore";
 
     /**
      * Downloads, validates, and analyzes all GTFS-realtime feeds from TransitFeeds.com and outputs to the provided directory
      *
-     * @param args
+     * @param args see README "Command line options" for supported arguments
      */
     public static void main(String[] args) throws IOException, NoSuchAlgorithmException, NoSuchFieldException, IllegalAccessException, ParseException {
         // Parse command line parameters
@@ -40,6 +42,8 @@ public class Main {
         String transitFeedsApiKey = getTransitFeedsApiKeyFromArgs(options, args);
         String csvFile = getCsvPathAndFileFromArgs(options, args);
         String forceGtfsDownload = getForceGtfsDownloadFromArgs(options, args);
+        String errorsToIgnore = getErrorsToIgnoreFromArgs(options, args);
+        String warningsToIgnore = getWarningsToIgnoreFromArgs(options, args);
 
         if (directoryName == null) {
             System.err.println("You must provide a directory such as `-directory output`");
@@ -55,6 +59,12 @@ public class Main {
         }
         if (forceGtfsDownload != null && (forceGtfsDownload.contains("false") || forceGtfsDownload.contains("no"))) {
             calculator.setForceDownloadGtfs(false);
+        }
+        if (errorsToIgnore != null) {
+            calculator.setErrorsToIgnore(errorsToIgnore);
+        }
+        if (warningsToIgnore != null) {
+            calculator.setWarningsToIgnore(warningsToIgnore);
         }
         calculator.calculate();
     }
@@ -80,11 +90,21 @@ public class Main {
                 .hasArg()
                 .desc("True if the GTFS zip file should be downloaded even if it already exists on disk, false if it should not")
                 .build();
+        Option errorsToIgnore = Option.builder(ERRORS_TO_IGNORE)
+                .hasArg()
+                .desc("A comma-deliminted list of errors to ignore when analyzing errors and producing Excel output, like `E017,E018`")
+                .build();
+        Option warningsToIgnore = Option.builder(WARNINGS_TO_IGNORE)
+                .hasArg()
+                .desc("A comma-deliminted list of warnings to ignore when analyzing warnings and producing Excel output, like `W007,W008`")
+                .build();
 
         options.addOption(downloadDirectory);
         options.addOption(transitFeedsApiKey);
         options.addOption(csvPath);
         options.addOption(forceGtfsDownload);
+        options.addOption(errorsToIgnore);
+        options.addOption(warningsToIgnore);
         return options;
     }
 
@@ -126,5 +146,25 @@ public class Main {
             force = cmd.getOptionValue(FORCE_GTFS_DOWNLOAD);
         }
         return force;
+    }
+
+    private static String getErrorsToIgnoreFromArgs(Options options, String[] args) throws ParseException {
+        String errors = null;
+        CommandLineParser parser = new DefaultParser();
+        CommandLine cmd = parser.parse(options, args);
+        if (cmd.hasOption(ERRORS_TO_IGNORE)) {
+            errors = cmd.getOptionValue(ERRORS_TO_IGNORE);
+        }
+        return errors;
+    }
+
+    private static String getWarningsToIgnoreFromArgs(Options options, String[] args) throws ParseException {
+        String warnings = null;
+        CommandLineParser parser = new DefaultParser();
+        CommandLine cmd = parser.parse(options, args);
+        if (cmd.hasOption(WARNINGS_TO_IGNORE)) {
+            warnings = cmd.getOptionValue(WARNINGS_TO_IGNORE);
+        }
+        return warnings;
     }
 }
