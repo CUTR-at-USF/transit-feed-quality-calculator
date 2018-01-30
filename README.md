@@ -36,6 +36,7 @@ Run the [Main.main()](https://github.com/CUTR-at-USF/transit-feed-quality-calcul
 * `-directory "output"` - **Required** - The directory to which feeds will be downloaded (in this case `output`), and to which validation and analysis files will be output
 * `-transitfeedsapikey YOUR_API_KEY` - *(Optional)* - Your [TransitFeeds.com API](http://transitfeeds.com/api/) key (in this case, `YOUR_API_KEY`)
 * `-csv "feeds.csv"` - *(Optional)* - A CSV file holding feed information (in this case, `feeds.csv` - you can name it whatever you want)
+* `-forcegtfsdownload false` - *(Optional)* - If `false`, if there is already a GTFS file on disk for a feed it will not download a new GTFS file.  If `true` or if the command-line option is omitted, then a new GTFS file will always be downloaded and overwrite any current GTFS file for each feed.
 
 If you want to download feeds, either `-transitfeedsapikey` or `-csv` parameters must be provided.  If these are missing, this tool will proceed to validate and analyze the feeds currently in `-directory` without downloading any new files.
 
