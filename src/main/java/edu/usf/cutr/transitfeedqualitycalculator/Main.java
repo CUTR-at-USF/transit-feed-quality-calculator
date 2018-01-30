@@ -25,6 +25,7 @@ public class Main {
     private final static String DIRECTORY = "directory";
     private final static String TRANSIT_FEEDS_API_KEY = "transitfeedsapikey";
     private final static String CSV_PATH_AND_FILE = "csv";
+    private final static String FORCE_GTFS_DOWNLOAD = "forcegtfsdownload";
 
     /**
      * Downloads, validates, and analyzes all GTFS-realtime feeds from TransitFeeds.com and outputs to the provided directory
@@ -38,6 +39,7 @@ public class Main {
         String directoryName = getDirectoryFromArgs(options, args);
         String transitFeedsApiKey = getTransitFeedsApiKeyFromArgs(options, args);
         String csvFile = getCsvPathAndFileFromArgs(options, args);
+        String forceGtfsDownload = getForceGtfsDownloadFromArgs(options, args);
 
         if (directoryName == null) {
             System.err.println("You must provide a directory such as `-directory output`");
@@ -50,6 +52,9 @@ public class Main {
         }
         if (csvFile != null) {
             calculator.setCsvDownloaderFile(csvFile);
+        }
+        if (forceGtfsDownload != null && (forceGtfsDownload.contains("false") || forceGtfsDownload.contains("no"))) {
+            calculator.setForceDownloadGtfs(false);
         }
         calculator.calculate();
     }
@@ -71,10 +76,15 @@ public class Main {
                 .hasArg()
                 .desc("The path and file name of the CSV file that contains feeds to be downloaded")
                 .build();
+        Option forceGtfsDownload = Option.builder(FORCE_GTFS_DOWNLOAD)
+                .hasArg()
+                .desc("True if the GTFS zip file should be downloaded even if it already exists on disk, false if it should not")
+                .build();
 
         options.addOption(downloadDirectory);
         options.addOption(transitFeedsApiKey);
         options.addOption(csvPath);
+        options.addOption(forceGtfsDownload);
         return options;
     }
 
@@ -106,5 +116,15 @@ public class Main {
             pathAndFile = cmd.getOptionValue(CSV_PATH_AND_FILE);
         }
         return pathAndFile;
+    }
+
+    private static String getForceGtfsDownloadFromArgs(Options options, String[] args) throws ParseException {
+        String force = null;
+        CommandLineParser parser = new DefaultParser();
+        CommandLine cmd = parser.parse(options, args);
+        if (cmd.hasOption(FORCE_GTFS_DOWNLOAD)) {
+            force = cmd.getOptionValue(FORCE_GTFS_DOWNLOAD);
+        }
+        return force;
     }
 }

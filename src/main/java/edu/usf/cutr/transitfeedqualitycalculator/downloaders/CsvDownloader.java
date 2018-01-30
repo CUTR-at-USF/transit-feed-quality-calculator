@@ -49,8 +49,13 @@ public class CsvDownloader extends BaseDownloader {
         mCsvFile = csvFile;
     }
 
+    /**
+     * Downloads GTFS feeds from the source specified in the extending classes
+     * @param forceOverwriteGtfs true if the GTFS file should be downloaded again even if it already exists on disk for each feed, or false if the file should not be downloaded if it already exists
+     * @throws IOException if writing the files to the path provided in the constructor fails
+     */
     @Override
-    public void downloadFeeds() throws IOException {
+    public void downloadFeeds(boolean forceOverwriteGtfs) throws IOException {
         mGtfsUrls.clear();
         CsvMapper mapper = new CsvMapper();
         CsvSchema schema = mapper.schemaFor(CsvFeed.class).withHeader();
@@ -70,7 +75,8 @@ public class CsvDownloader extends BaseDownloader {
                 gtfsRtFeedUrl = new URL(feed.getGtfsRtUrl());
                 writeFeedToFile(gtfsRtFeedUrl,
                         FileUtil.getFolderName(null, feed.getRegionId()),
-                        FileUtil.getGtfsRtFileName(feed.getTitle()));
+                        FileUtil.getGtfsRtFileName(feed.getTitle()),
+                        true);
                 mNumGtfsRtFeeds++;
             } catch (MalformedURLException e) {
                 System.err.println("Malformed Url '" + feed.getGtfsRtUrl() + "' - " + e);
@@ -80,18 +86,18 @@ public class CsvDownloader extends BaseDownloader {
                 continue;
             }
             // Download GTFS feed
+            boolean downloadedGtfs;
             try {
                 if (mGtfsUrls.contains(feed.getGtfsUrl())) {
                     // We've already downloaded this GTFS data for another GTFS-rt URL record in the CSV file - skip to next record
-                    System.out.println("Already downloaded " + feed.getGtfsUrl() + " from another GTFS-rt feed in the CSV, skipping download");
                     System.out.println("Downloaded GTFS-realtime for " + feed.getTitle() + " (GTFS already downloaded from " + feed.getGtfsUrl() + " for another CSV record)");
                     continue;
                 }
 
                 gtfsFeedUrl = new URL(feed.getGtfsUrl());
-                writeFeedToFile(gtfsFeedUrl,
+                downloadedGtfs = writeFeedToFile(gtfsFeedUrl,
                         FileUtil.getFolderName(null, feed.getRegionId()),
-                        FileUtil.getGtfsFileName());
+                        FileUtil.getGtfsFileName(), forceOverwriteGtfs);
                 mGtfsUrls.add(feed.getGtfsUrl());
             } catch (MalformedURLException e) {
                 System.err.println("Malformed Url '" + feed.getGtfsUrl() + "' - " + e);
@@ -100,7 +106,11 @@ public class CsvDownloader extends BaseDownloader {
                 System.err.println("Error downloading GTFS feed '" + feed.getGtfsUrl() + "' - " + e);
                 continue;
             }
-            System.out.println("Downloaded GTFS and GTFS-realtime for " + feed.getTitle());
+            if (downloadedGtfs) {
+                System.out.println("Downloaded GTFS and GTFS-realtime for " + feed.getTitle());
+            } else {
+                System.out.println("Downloaded GTFS-realtime for " + feed.getTitle());
+            }
         }
 
         System.out.println("CSVDownloader - Total number of GTFS-rt feeds downloaded - " + mNumGtfsRtFeeds);
