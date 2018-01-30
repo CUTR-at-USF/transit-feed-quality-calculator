@@ -67,8 +67,9 @@ public class FileUtil {
      *
      * @param url      URL to retrieve
      * @param fileName name of file to write the information to
+     * @return true if the file was downloaded, false if it was not
      */
-    public static void writeUrlToFile(URL url, String fileName) throws IOException {
+    public static boolean writeUrlToFile(URL url, String fileName) throws IOException {
         // Check for HTTP 301 redirect
         URLConnection urlConnection = url.openConnection();
         String redirect = urlConnection.getHeaderField("Location");
@@ -83,7 +84,7 @@ public class FileUtil {
             in = urlConnection.getInputStream();
         } catch (SSLHandshakeException sslEx) {
             System.err.println("SSL handshake failed.  Try installing the JCE Extension or adding `-Djsse.enableSNIExtension=false` when running the application - see https://github.com/CUTR-at-USF/transit-feed-quality-calculator#running-the-application: " + sslEx);
-            return;
+            return false;
         }
 
         byte[] gtfsRtProtobuf = IOUtils.toByteArray(in);
@@ -94,6 +95,7 @@ public class FileUtil {
         fileChannel.write(buffer);
         fileChannel.close();
         fos.close();
+        return true;
     }
 
     /**

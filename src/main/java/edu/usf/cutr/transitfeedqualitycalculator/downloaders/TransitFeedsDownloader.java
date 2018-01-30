@@ -53,10 +53,11 @@ public class TransitFeedsDownloader extends BaseDownloader {
     /**
      * Downloads feeds from TransitFeeds.com.  This method is synchronous and will return when all the GTFS-realtime
      * and their corresponding GTFS feeds have been downloaded
-     *
+     * @param forceOverwriteGtfs true if the GTFS file should be downloaded again even if it already exists on disk for each feed, or false if the file should not be downloaded if it already exists
      * @throws IOException if TransitFeeds.com API can't be reached, or if writing to the path provided in the constructor fails
      */
-    public void downloadFeeds() throws IOException {
+    @Override
+    public void downloadFeeds(boolean forceOverwriteGtfs) throws IOException {
         System.out.println("Downloading feeds using TransitFeeds.com API...");
         // Loop through all GTFS-realtime feeds and download them
         GetFeedsResponse response = new GetFeedsRequest.Builder(mApiKey)
@@ -91,7 +92,7 @@ public class TransitFeedsDownloader extends BaseDownloader {
         System.out.println("Total GTFS pages = " + totalPages);
 
         while (currentPage <= totalPages) {
-            downloadGtfsFeeds(response.getResults().getFeeds());
+            downloadGtfsFeeds(response.getResults().getFeeds(), forceOverwriteGtfs);
             System.out.println("Downloaded GTFS page = " + currentPage);
 
             if (currentPage < totalPages) {
@@ -140,7 +141,12 @@ public class TransitFeedsDownloader extends BaseDownloader {
         }
     }
 
-    private void downloadGtfsFeeds(List<Feed> gtfsFeeds) {
+    /**
+     * Download the provided list of GTFS feeds
+     * @param gtfsFeeds list of GTFS feeds to be downloaded
+     * @param forceOverwrite true if the GTFS file should be downloaded again even if it already exists on disk for each feed, or false if the file should not be downloaded if it already exists
+     */
+    private void downloadGtfsFeeds(List<Feed> gtfsFeeds, boolean forceOverwrite) {
         URL gtfsFeedUrl;
 
         for (Feed feed : gtfsFeeds) {
@@ -163,7 +169,7 @@ public class TransitFeedsDownloader extends BaseDownloader {
                 }
 
                 try {
-                    writeFeedToFile(gtfsFeedUrl, FileUtil.getFolderName(feed), FileUtil.getGtfsFileName(), false);
+                    writeFeedToFile(gtfsFeedUrl, FileUtil.getFolderName(feed), FileUtil.getGtfsFileName(), forceOverwrite);
                 } catch (IOException e) {
                     System.err.println("Error downloading GTFS feed '" + urlString + "' - " + e);
                     continue;

@@ -33,6 +33,7 @@ public class TransitFeedQualityCalculator {
     private String mTransitFeedsApiKey = null;
     private String mCsvDownloaderFile = null;
     private boolean mDownloadFeeds = true;
+    private boolean mForceDownloadGtfs = true;
     private boolean mValidateFeeds = true;
     private String mErrorsToIgnore = "E017"; // Comma separated string of errors to ignore
     private String mWarningsToIgnore = ""; // Comma separated string of warnings to ignore
@@ -66,6 +67,14 @@ public class TransitFeedQualityCalculator {
     }
 
     /**
+     * Set to true if the GTFS file should be downloaded again even if it already exists on disk for each feed, or false if the file should not be downloaded if it already exists
+     * @param forceDownloadGtfs true if the GTFS file should be downloaded again even if it already exists on disk for each feed, or false if the file should not be downloaded if it already exists
+     */
+    public void setForceDownloadGtfs(boolean forceDownloadGtfs) {
+        mForceDownloadGtfs = forceDownloadGtfs;
+    }
+
+    /**
      * Sets if the validator should validate feeds (default), or if it should just analyze the feeds that have already been validated on disk
      *
      * @param validateFeeds true to validate the feeds, or false if feeds should not be validated
@@ -93,12 +102,12 @@ public class TransitFeedQualityCalculator {
             if (mDownloadFeeds) {
                 if (mCsvDownloaderFile != null) {
                     CsvDownloader csvDownloader = new CsvDownloader(mPath, new File(mCsvDownloaderFile));
-                    csvDownloader.downloadFeeds();
+                    csvDownloader.downloadFeeds(mForceDownloadGtfs);
                 }
 
                 if (mTransitFeedsApiKey != null) {
                     TransitFeedsDownloader transitFeedsDownloader = new TransitFeedsDownloader(mPath, mTransitFeedsApiKey);
-                    transitFeedsDownloader.downloadFeeds();
+                    transitFeedsDownloader.downloadFeeds(mForceDownloadGtfs);
                 }
             }
         }

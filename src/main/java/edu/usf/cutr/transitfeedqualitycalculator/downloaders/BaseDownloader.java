@@ -44,9 +44,10 @@ public abstract class BaseDownloader {
 
     /**
      * Downloads GTFS feeds from the source specified in the extending classes
+     * @param forceOverwriteGtfs true if the GTFS file should be downloaded again even if it already exists on disk for each feed, or false if the file should not be downloaded if it already exists
      * @throws IOException
      */
-    abstract public void downloadFeeds() throws IOException;
+    abstract public void downloadFeeds(boolean forceOverwriteGtfs) throws IOException;
 
     /**
      * Writes the GTFS or GTFS-realtime feed at the provided feedUrl to the provided folderName and fileName
@@ -54,17 +55,18 @@ public abstract class BaseDownloader {
      * @param folderName
      * @param fileName
      * @param forceOverwrite true if the file should be downloaded again even if it already exists on disk at the provided fileName, or false if the file should not be downloaded if it already exists at fileName
+     * @return true if the file was downloaded, false if it was not
      * @throws IOException
      */
-    protected void writeFeedToFile(URL feedUrl, String folderName, String fileName, boolean forceOverwrite) throws IOException {
+    protected boolean writeFeedToFile(URL feedUrl, String folderName, String fileName, boolean forceOverwrite) throws IOException {
         String fullPath = mPath.resolve(folderName) + File.separator + fileName;
 
         if (!forceOverwrite && Files.exists(Paths.get(fullPath))) {
-            System.out.println(fullPath + " already exists, skipping the download from " + feedUrl.toString());
-            return;
+            System.out.println("Skipping the download from " + feedUrl.toString() + ", " + fullPath + " already exists");
+            return false;
         }
 
         Files.createDirectories(mPath.resolve(folderName));
-        FileUtil.writeUrlToFile(feedUrl, fullPath);
+        return FileUtil.writeUrlToFile(feedUrl, fullPath);
     }
 }
