@@ -67,7 +67,7 @@ public class TransitFeedQualityCalculator {
     }
 
     /**
-     * Set to true if the GTFS file should be downloaded again even if it already exists on disk for each feed, or false if the file should not be downloaded if it already exists
+     * Set to true if the GTFS file should be downloaded again even if it already exists on disk for each feed, or false if the file should not be downloaded if it already exists.  This parameter is ignored if `setDownloadFeeds()` is set to false.
      * @param forceDownloadGtfs true if the GTFS file should be downloaded again even if it already exists on disk for each feed, or false if the file should not be downloaded if it already exists
      */
     public void setForceDownloadGtfs(boolean forceDownloadGtfs) {
