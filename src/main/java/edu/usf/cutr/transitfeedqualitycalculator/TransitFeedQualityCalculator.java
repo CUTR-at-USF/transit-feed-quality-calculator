@@ -38,8 +38,8 @@ public class TransitFeedQualityCalculator {
     private boolean mDownloadFeeds = true;
     private boolean mForceDownloadGtfs = true;
     private boolean mValidateFeeds = true;
-    private String mErrorsToIgnore = "E017"; // Comma separated string of errors to ignore
-    private String mWarningsToIgnore = ""; // Comma separated string of warnings to ignore
+    private String mErrorsToIgnore = "E017,E018"; // Comma separated string of errors to ignore
+    private String mWarningsToIgnore = "W007,W008"; // Comma separated string of warnings to ignore
 
     /**
      * Creates the feed quality calculated with the path to write the output files
