@@ -19,6 +19,8 @@ import java.util.*;
 public class ExcelExporter {
 
     private AnalysisOutput mAnalysisOutput;
+    private final String TEMPLATE_FILE_NAME = "template.xlsx";
+    private final String OUTPUT_FILE_NAME = "graphs.xlsx";
     private Workbook mWorkbook;
     private Sheet mDataSheet, mSummarySheet, mFrequencySheet, mCountSheet, mHistogramSheet, mRulesSheet;
     private Integer mDataSheetRowIndex = 0, mGraphSheetRowIndex = 0, mCountSheetRowIndex = 0, mHistogramSheetRowIndex = 0, mRulesSheetRowIndex = 0;
@@ -27,7 +29,7 @@ public class ExcelExporter {
 
     ExcelExporter(AnalysisOutput analysisOutput) throws IOException {
         mAnalysisOutput = analysisOutput;
-        mWorkbook = new XSSFWorkbook(new FileInputStream("template.xlsx") );
+        mWorkbook = new XSSFWorkbook(new FileInputStream(TEMPLATE_FILE_NAME) );
         mDataSheet = mWorkbook.getSheet("Data");
         mSummarySheet = mWorkbook.getSheet("Summary");
         mFrequencySheet = mWorkbook.getSheet("Error Frequency");
@@ -403,7 +405,7 @@ public class ExcelExporter {
     }
 
     private void flushOutput() throws java.io.IOException {
-        FileOutputStream fileOut = new FileOutputStream("graphs.xlsx");
+        FileOutputStream fileOut = new FileOutputStream(OUTPUT_FILE_NAME);
         mWorkbook.write(fileOut);
         fileOut.flush();
         fileOut.close();
