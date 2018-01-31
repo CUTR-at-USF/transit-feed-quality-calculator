@@ -1,7 +1,9 @@
 package edu.usf.cutr.transitfeedqualitycalculator.test;
 
 import edu.usf.cutr.gtfsrtvalidator.lib.validation.ValidationRules;
+import edu.usf.cutr.transitfeedqualitycalculator.ExcelExporter;
 import edu.usf.cutr.transitfeedqualitycalculator.ResultsAnalyzer;
+import edu.usf.cutr.transitfeedqualitycalculator.model.AnalysisOutput;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -18,10 +20,15 @@ public class ResultAnalyzerTest {
     @org.junit.jupiter.api.Test
     public void resultAnalyzerTest() throws java.io.IOException, java.lang.NoSuchFieldException, java.lang.IllegalAccessException {
         String directoryName = "src/test/resources/feeds";
-        String workbookName = "graphs.xlsx";
+
+        // Analysis and export results to Excel
         ResultsAnalyzer analyzer = new ResultsAnalyzer(Paths.get(directoryName), "", "");
-        analyzer.analyzeResults();
-        Workbook workbook = new XSSFWorkbook(new FileInputStream(workbookName));
+        AnalysisOutput output = analyzer.analyzeResults();
+        ExcelExporter exporter = new ExcelExporter(output);
+        exporter.export();
+
+        // Test contents of Excel output graph file
+        Workbook workbook = new XSSFWorkbook(new FileInputStream(exporter.getOutputFileName()));
         testDataSheet(workbook);
         testSummarySheet(workbook);
         testFrequencySheet(workbook);

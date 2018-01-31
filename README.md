@@ -81,9 +81,11 @@ This contains the GTFS and GTFS-realtime source files downloaded from the agency
 1. **HART Trip Updates-xxxx.results.json** - The validation results for the above TripUpdates binary 
 1. **HART Vehicle Positions-xxxx.results.json** - The validation results for the above VehiclePositions binary
 
-An Excel spreadsheet file `graphs.xlsx` will be generated in the root folder of the project that contains graphs that summarize all of the analyzed GTFS-realtime feeds - for example:
+An Excel spreadsheet file `analysis-graphs.xlsx` will be generated in the root folder of the project that contains graphs that summarize all of the analyzed GTFS-realtime feeds - for example:
 
 ![image](https://user-images.githubusercontent.com/928045/32021084-52ef90bc-b9a0-11e7-91db-387c3f1f2f50.png)
+
+The analysis results are also output to a JSON file, `analysis-summary.json`.
 
 ## Implementation details
 
@@ -106,14 +108,15 @@ if (csvFile != null) {
 calculator.calculate();
 ~~~
 
-This demonstrates the usage of the [`TransitFeedQualityCalculator`](https://github.com/CUTR-at-USF/transit-feed-quality-calculator/blob/master/src/main/java/edu/usf/cutr/transitfeedqualitycalculator/TransitFeedQualityCalculator.java), which performs the 3 steps outlined above:
+This demonstrates the usage of the [`TransitFeedQualityCalculator`](https://github.com/CUTR-at-USF/transit-feed-quality-calculator/blob/master/src/main/java/edu/usf/cutr/transitfeedqualitycalculator/TransitFeedQualityCalculator.java), which performs the following steps:
 1. **Download** - Via [`TransitFeedsDownloader`](https://github.com/CUTR-at-USF/transit-feed-quality-calculator/blob/master/src/main/java/edu/usf/cutr/transitfeedqualitycalculator/downloaders/TransitFeedsDownloader.java) and [`CsvDownloader`](https://github.com/CUTR-at-USF/transit-feed-quality-calculator/blob/master/src/main/java/edu/usf/cutr/transitfeedqualitycalculator/downloaders/CsvDownloader.java)
 1. **Validate** - Via [`BulkFeedValidator`](https://github.com/CUTR-at-USF/transit-feed-quality-calculator/blob/master/src/main/java/edu/usf/cutr/transitfeedqualitycalculator/BulkFeedValidator.java)
 1. **Analyze** - Via [`ResultsAnalyzer`](https://github.com/CUTR-at-USF/transit-feed-quality-calculator/blob/master/src/main/java/edu/usf/cutr/transitfeedqualitycalculator/ResultsAnalyzer.java)
+1. **Export** - To Excel file via [`ExcelExporter`](https://github.com/CUTR-at-USF/transit-feed-quality-calculator/blob/master/src/main/java/edu/usf/cutr/transitfeedqualitycalculator/ExcelExporter.java) to JSON file via [Jackson](https://github.com/FasterXML/jackson)
 
 ## Dependencies
 
 Managed via Maven:
 
 * [**TransitFeeds.com Client Library**](https://github.com/CUTR-at-USF/transitfeeds-client-library) - For calling the [TransitFeeds.com GetFeeds API](http://transitfeeds.com/api/swagger/#!/default/getFeeds)
-* [**GTFS-realtime Validator**](https://github.com/CUTR-at-USF/gtfs-realtime-validator) - For identifying warnings and errors in GTFS-relatime feeds
+* [**GTFS-realtime Validator**](https://github.com/CUTR-at-USF/gtfs-realtime-validator) - For identifying warnings and errors in GTFS-realtime feeds

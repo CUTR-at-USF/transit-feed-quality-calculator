@@ -19,15 +19,15 @@ import java.util.*;
 public class ExcelExporter {
 
     private AnalysisOutput mAnalysisOutput;
-    private final String TEMPLATE_FILE_NAME = "template.xlsx";
-    private final String OUTPUT_FILE_NAME = "graphs.xlsx";
+    private final static String TEMPLATE_FILE_NAME = "template.xlsx";
+    private String mOutputFileName = "analysis-graphs.xlsx";
     private Workbook mWorkbook;
     private Sheet mDataSheet, mSummarySheet, mFrequencySheet, mCountSheet, mHistogramSheet, mRulesSheet;
     private Integer mDataSheetRowIndex = 0, mGraphSheetRowIndex = 0, mCountSheetRowIndex = 0, mHistogramSheetRowIndex = 0, mRulesSheetRowIndex = 0;
     private Integer mTotalFeeds = 0, mFeedsWithErrors = 0, mFeedsWithWarnings = 0;
     private CellStyle mCellStyle;
 
-    ExcelExporter(AnalysisOutput analysisOutput) throws IOException {
+    public ExcelExporter(AnalysisOutput analysisOutput) throws IOException {
         mAnalysisOutput = analysisOutput;
         mWorkbook = new XSSFWorkbook(new FileInputStream(TEMPLATE_FILE_NAME) );
         mDataSheet = mWorkbook.getSheet("Data");
@@ -49,6 +49,22 @@ public class ExcelExporter {
         fillHistogramSheet();
         fillRulesSheet();
         flushOutput();
+    }
+
+    /**
+     * Gets the Excel output file name
+     * @return the Excel output file name
+     */
+    public String getOutputFileName() {
+        return mOutputFileName;
+    }
+
+    /**
+     * Sets the Excel output file name
+     * @param outputFileName the Excel output file name
+     */
+    public void setOutputFileName(String outputFileName) {
+        mOutputFileName = outputFileName;
     }
 
     private void fillRulesSheet() {
@@ -405,7 +421,7 @@ public class ExcelExporter {
     }
 
     private void flushOutput() throws java.io.IOException {
-        FileOutputStream fileOut = new FileOutputStream(OUTPUT_FILE_NAME);
+        FileOutputStream fileOut = new FileOutputStream(mOutputFileName);
         mWorkbook.write(fileOut);
         fileOut.flush();
         fileOut.close();

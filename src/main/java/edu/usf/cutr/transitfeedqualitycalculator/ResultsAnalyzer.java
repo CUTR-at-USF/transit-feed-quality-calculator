@@ -52,9 +52,10 @@ public class ResultsAnalyzer {
     /**
      * Analyzes the results files of the GTFS validator for all subfolders of the path provided in the constructor
      *
+     * @return the results of the analysis
      * @throws IOException if reading from or writing to the path provided in the constructor fails
      */
-    public void analyzeResults() throws IOException, NoSuchFieldException, IllegalAccessException {
+    public AnalysisOutput analyzeResults() throws IOException {
         // Get all the subfolders of mPath
         List<Path> subFolders = Files.walk(mPath, 1)
                 .filter(Files::isDirectory)
@@ -149,7 +150,6 @@ public class ResultsAnalyzer {
                 }
             }
         }
-        ExcelExporter exporter = new ExcelExporter(output);
-        exporter.export();
+        return output;
     }
 }

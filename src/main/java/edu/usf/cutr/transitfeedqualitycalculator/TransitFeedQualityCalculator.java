@@ -15,8 +15,11 @@
  */
 package edu.usf.cutr.transitfeedqualitycalculator;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import edu.usf.cutr.transitfeedqualitycalculator.downloaders.CsvDownloader;
 import edu.usf.cutr.transitfeedqualitycalculator.downloaders.TransitFeedsDownloader;
+import edu.usf.cutr.transitfeedqualitycalculator.model.AnalysisOutput;
 
 import java.io.File;
 import java.io.IOException;
@@ -136,6 +139,15 @@ public class TransitFeedQualityCalculator {
         }
 
         ResultsAnalyzer analyzer = new ResultsAnalyzer(mPath, mErrorsToIgnore, mWarningsToIgnore);
-        analyzer.analyzeResults();
+        AnalysisOutput output = analyzer.analyzeResults();
+
+        // Export output to Excel file
+        ExcelExporter exporter = new ExcelExporter(output);
+        exporter.export();
+
+        // Write output to JSON
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
+        mapper.writeValue(new File("analysis-summary.json"), output);
     }
 }
