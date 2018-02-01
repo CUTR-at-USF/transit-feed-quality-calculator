@@ -23,11 +23,11 @@ import java.security.NoSuchAlgorithmException;
 
 public class Main {
     private final static String DIRECTORY = "directory";
-    private final static String TRANSIT_FEEDS_API_KEY = "transitfeedsapikey";
+    private final static String TRANSIT_FEEDS_API_KEY = "transitFeedsApiKey";
     private final static String CSV_PATH_AND_FILE = "csv";
-    private final static String FORCE_GTFS_DOWNLOAD = "forcegtfsdownload";
-    private final static String ERRORS_TO_IGNORE = "errorstoignore";
-    private final static String WARNINGS_TO_IGNORE = "warningstoignore";
+    private final static String FORCE_GTFS_DOWNLOAD = "forceGtfsDownload";
+    private final static String ERRORS_TO_IGNORE = "errorsToIgnore";
+    private final static String WARNINGS_TO_IGNORE = "warningsToIgnore";
 
     /**
      * Downloads, validates, and analyzes all GTFS-realtime feeds from TransitFeeds.com and outputs to the provided directory

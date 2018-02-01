@@ -21,7 +21,7 @@ To download feeds, you'll also need a [TransitFeeds.com API](http://transitfeeds
 ### Command line 
 
 1. `mvn package`
-1. `java -Djsse.enableSNIExtension=false -jar target/transit-feed-quality-calculator-1.0.0-SNAPSHOT.jar -directory output -transitfeedsapikey 1234567689 -csv feeds.csv`
+1. `java -Djsse.enableSNIExtension=false -jar target/transit-feed-quality-calculator-1.0.0-SNAPSHOT.jar -directory output -transitFeedsApiKey 1234567689 -csv feeds.csv`
 
 Note that to download feeds, you'll need to provide an API key for TransitFeeds.com or a `.csv` file that includes feed information.
 
@@ -34,13 +34,13 @@ Run the [Main.main()](https://github.com/CUTR-at-USF/transit-feed-quality-calcul
 #### Command line options
 
 * `-directory "output"` - **Required** - The directory to which feeds will be downloaded (in this case `output`), and to which validation and analysis files will be output
-* `-transitfeedsapikey YOUR_API_KEY` - *(Optional)* - Your [TransitFeeds.com API](http://transitfeeds.com/api/) key (in this case, `YOUR_API_KEY`)
+* `-transitFeedsApiKey YOUR_API_KEY` - *(Optional)* - Your [TransitFeeds.com API](http://transitfeeds.com/api/) key (in this case, `YOUR_API_KEY`)
 * `-csv "feeds.csv"` - *(Optional)* - A CSV file holding feed information (in this case, `feeds.csv` - you can name it whatever you want)
-* `-forcegtfsdownload false` - *(Optional)* - If `false`, if there is already a GTFS file on disk for a feed it will not download a new GTFS file.  If `true` or if the command-line option is omitted, then a new GTFS file will always be downloaded and overwrite any current GTFS file for each feed.
-* `-errorstoignore "E017,E018"` - *(Optional)* - A comma-delimited list of errors to ignore when calculating summary error results and generating the Excel file.  By default errors that examine sequential feed iterations (`E017, E018`) are ignored (as archived files may not have been collected iteratively) (see [`TransitFeedQualityCalculator.java`](https://github.com/CUTR-at-USF/transit-feed-quality-calculator/blob/master/src/main/java/edu/usf/cutr/transitfeedqualitycalculator/TransitFeedQualityCalculator.java), but setting a value via the command-line parameter will overwrite the default value. 
-* `-warningstoignore "W007,W008"` - *(Optional)* - A comma-delimited list of warnings to ignore when calculating summary warnings results and generating the Excel file.  By default warnings that examine sequential feed iterations (`W007, W008`) are ignored (as archived files may not have been collected iteratively) (see [`TransitFeedQualityCalculator.java`(https://github.com/CUTR-at-USF/transit-feed-quality-calculator/blob/master/src/main/java/edu/usf/cutr/transitfeedqualitycalculator/TransitFeedQualityCalculator.java), but setting a value via the command-line parameter will overwrite the default value.
+* `-forceGtfsDownload false` - *(Optional)* - If `false`, if there is already a GTFS file on disk for a feed it will not download a new GTFS file.  If `true` or if the command-line option is omitted, then a new GTFS file will always be downloaded and overwrite any current GTFS file for each feed.
+* `-errorsToIgnore "E017,E018"` - *(Optional)* - A comma-delimited list of errors to ignore when calculating summary error results and generating the Excel file.  By default errors that examine sequential feed iterations (`E017, E018`) are ignored (as archived files may not have been collected iteratively) (see [`TransitFeedQualityCalculator.java`](https://github.com/CUTR-at-USF/transit-feed-quality-calculator/blob/master/src/main/java/edu/usf/cutr/transitfeedqualitycalculator/TransitFeedQualityCalculator.java), but setting a value via the command-line parameter will overwrite the default value. 
+* `-warningsToIgnore "W007,W008"` - *(Optional)* - A comma-delimited list of warnings to ignore when calculating summary warnings results and generating the Excel file.  By default warnings that examine sequential feed iterations (`W007, W008`) are ignored (as archived files may not have been collected iteratively) (see [`TransitFeedQualityCalculator.java`(https://github.com/CUTR-at-USF/transit-feed-quality-calculator/blob/master/src/main/java/edu/usf/cutr/transitfeedqualitycalculator/TransitFeedQualityCalculator.java), but setting a value via the command-line parameter will overwrite the default value.
 
-If you want to download feeds, either `-transitfeedsapikey` or `-csv` parameters must be provided.  If these are missing, this tool will proceed to validate and analyze the feeds currently in `-directory` without downloading any new files.
+If you want to download feeds, either `-transitFeedsApiKey` or `-csv` parameters must be provided.  If these are missing, this tool will proceed to validate and analyze the feeds currently in `-directory` without downloading any new files.
 
 The `feeds.csv` file should be formatted as follows:
 
