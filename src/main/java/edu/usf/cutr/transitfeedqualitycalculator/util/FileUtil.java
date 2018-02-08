@@ -83,7 +83,7 @@ public class FileUtil {
         try {
             in = urlConnection.getInputStream();
         } catch (SSLHandshakeException sslEx) {
-            System.err.println("SSL handshake failed.  Try installing the JCE Extension or adding `-Djsse.enableSNIExtension=false` when running the application - see https://github.com/CUTR-at-USF/transit-feed-quality-calculator#running-the-application: " + sslEx);
+            System.err.println("SSL handshake failed for " + url.toString() + ".  Try installing the JCE Extension or adding `-Djsse.enableSNIExtension=false` when running the application - see https://github.com/CUTR-at-USF/transit-feed-quality-calculator#running-the-application: " + sslEx);
             return false;
         }
 
