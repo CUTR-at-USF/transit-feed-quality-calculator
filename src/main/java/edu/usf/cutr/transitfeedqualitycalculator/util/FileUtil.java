@@ -70,8 +70,10 @@ public class FileUtil {
      * @return true if the file was downloaded, false if it was not
      */
     public static boolean writeUrlToFile(URL url, String fileName) throws IOException {
-        // Check for HTTP 301 redirect
         URLConnection urlConnection = url.openConnection();
+        // Set user agent (required by some servers, otherwise you get a HTTP 403 - #30)
+        urlConnection.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.95 Safari/537.11");
+        // Check for HTTP 301 redirect
         String redirect = urlConnection.getHeaderField("Location");
         if (redirect != null) {
             System.out.println("Redirecting to " + redirect);
