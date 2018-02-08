@@ -35,6 +35,8 @@ public class TransitFeedQualityCalculator {
     private Path mPath;
     private String mTransitFeedsApiKey = null;
     private String mCsvDownloaderFile = null;
+    private String mJsonOutputFileName = "analysis-summary.json";
+    private String mExcelOutputFileName = null;
     private boolean mDownloadFeeds = true;
     private boolean mForceDownloadGtfs = true;
     private boolean mValidateFeeds = true;
@@ -114,6 +116,30 @@ public class TransitFeedQualityCalculator {
     }
 
     /**
+     * Gets the file name for the JSON output of results
+     * @return the file name for the JSON output of results
+     */
+    public String getJsonOutputFileName() {
+        return mJsonOutputFileName;
+    }
+
+    /**
+     * Sets the file name for the JSON output of results
+     * @param jsonOutputFileName the file name for the JSON output of results
+     */
+    public void setJsonOutputFileName(String jsonOutputFileName) {
+        mJsonOutputFileName = jsonOutputFileName;
+    }
+
+    /**
+     * Sets the Excel output file name
+     * @param excelOutputFileName the Excel output file name
+     */
+    public void setExcelOutputFileName(String excelOutputFileName) {
+        mExcelOutputFileName = excelOutputFileName;
+    }
+
+    /**
      * Run the feed quality calculations
      */
     public void calculate() throws IOException, NoSuchAlgorithmException, NoSuchFieldException, IllegalAccessException {
@@ -143,11 +169,14 @@ public class TransitFeedQualityCalculator {
 
         // Export output to Excel file
         ExcelExporter exporter = new ExcelExporter(output);
+        if (mExcelOutputFileName !=  null) {
+            exporter.setOutputFileName(mExcelOutputFileName);
+        }
         exporter.export();
 
         // Write output to JSON
         ObjectMapper mapper = new ObjectMapper();
         mapper.enable(SerializationFeature.INDENT_OUTPUT);
-        mapper.writeValue(new File("analysis-summary.json"), output);
+        mapper.writeValue(new File(mJsonOutputFileName), output);
     }
 }

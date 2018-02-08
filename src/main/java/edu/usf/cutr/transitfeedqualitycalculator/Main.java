@@ -28,6 +28,8 @@ public class Main {
     private final static String FORCE_GTFS_DOWNLOAD = "forceGtfsDownload";
     private final static String ERRORS_TO_IGNORE = "errorsToIgnore";
     private final static String WARNINGS_TO_IGNORE = "warningsToIgnore";
+    private final static String JSON_OUTPUT_FILE_NAME = "jsonOutputFileName";
+    private final static String EXCEL_OUTPUT_FILE_NAME = "excelOutputFileName";
 
     /**
      * Downloads, validates, and analyzes all GTFS-realtime feeds from TransitFeeds.com and outputs to the provided directory
@@ -44,6 +46,8 @@ public class Main {
         String forceGtfsDownload = getForceGtfsDownloadFromArgs(options, args);
         String errorsToIgnore = getErrorsToIgnoreFromArgs(options, args);
         String warningsToIgnore = getWarningsToIgnoreFromArgs(options, args);
+        String jsonOutputFileName = getJsonOutputFileNameFromArgs(options, args);
+        String excelOutputFileName = getExcelOutputFileNameFromArgs(options, args);
 
         if (directoryName == null) {
             System.err.println("You must provide a directory such as `-directory output`");
@@ -65,6 +69,12 @@ public class Main {
         }
         if (warningsToIgnore != null) {
             calculator.setWarningsToIgnore(warningsToIgnore);
+        }
+        if (jsonOutputFileName != null) {
+            calculator.setJsonOutputFileName(jsonOutputFileName);
+        }
+        if (excelOutputFileName != null) {
+            calculator.setExcelOutputFileName(excelOutputFileName);
         }
         calculator.calculate();
     }
@@ -98,6 +108,14 @@ public class Main {
                 .hasArg()
                 .desc("A comma-deliminted list of warnings to ignore when analyzing warnings and producing Excel output, like `W007,W008`")
                 .build();
+        Option jsonOutput = Option.builder(JSON_OUTPUT_FILE_NAME)
+                .hasArg()
+                .desc("The JSON output file name")
+                .build();
+        Option excelOutput = Option.builder(EXCEL_OUTPUT_FILE_NAME)
+                .hasArg()
+                .desc("The Excel output file name")
+                .build();
 
         options.addOption(downloadDirectory);
         options.addOption(transitFeedsApiKey);
@@ -105,6 +123,8 @@ public class Main {
         options.addOption(forceGtfsDownload);
         options.addOption(errorsToIgnore);
         options.addOption(warningsToIgnore);
+        options.addOption(jsonOutput);
+        options.addOption(excelOutput);
         return options;
     }
 
@@ -166,5 +186,25 @@ public class Main {
             warnings = cmd.getOptionValue(WARNINGS_TO_IGNORE);
         }
         return warnings;
+    }
+
+    private static String getJsonOutputFileNameFromArgs(Options options, String[] args) throws ParseException {
+        String output = null;
+        CommandLineParser parser = new DefaultParser();
+        CommandLine cmd = parser.parse(options, args);
+        if (cmd.hasOption(JSON_OUTPUT_FILE_NAME)) {
+            output = cmd.getOptionValue(JSON_OUTPUT_FILE_NAME);
+        }
+        return output;
+    }
+
+    private static String getExcelOutputFileNameFromArgs(Options options, String[] args) throws ParseException {
+        String output = null;
+        CommandLineParser parser = new DefaultParser();
+        CommandLine cmd = parser.parse(options, args);
+        if (cmd.hasOption(EXCEL_OUTPUT_FILE_NAME)) {
+            output = cmd.getOptionValue(EXCEL_OUTPUT_FILE_NAME);
+        }
+        return output;
     }
 }
