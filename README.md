@@ -8,6 +8,8 @@ This tool:
 
 ![image](https://user-images.githubusercontent.com/928045/32026095-cb7b3c10-b9b0-11e7-9725-def9f867f9ca.png)
 
+Read more in [this Medium article](https://medium.com/@sjbarbeau/introducing-the-gtfs-realtime-validator-e1aae3185439).
+
 ## Running the application
 
 You'll need [JDK 7 or higher](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
