@@ -317,74 +317,68 @@ public class ResultAnalyzerTest {
 
     private void testDataSheet(Workbook workbook) {
         Sheet dataSheet = workbook.getSheet("Data");
-        Row row = dataSheet.getRow(1);
-        Cell cell = row.getCell(0);
-        assertEquals("MTA Maryland Trip Updates", cell.getStringCellValue());
-        cell = row.getCell(1);
-        assertEquals("Maryland, USA", cell.getStringCellValue());
-        cell = row.getCell(2);
-        assertEquals("E022, E037, E041, E003, E004, E011", cell.getStringCellValue());
-        cell = row.getCell(3);
-        assertEquals("W001, W009", cell.getStringCellValue());
-
-        row = dataSheet.getRow(2);
-        cell = row.getCell(0);
-        assertEquals("MTA Maryland Vehicle Locations", cell.getStringCellValue());
-        cell = row.getCell(1);
-        assertEquals("Maryland, USA", cell.getStringCellValue());
-        cell = row.getCell(2);
-        assertEquals("E028, E017, E003, E004", cell.getStringCellValue());
-        cell = row.getCell(3);
-        assertEquals("W009", cell.getStringCellValue());
-
-        row = dataSheet.getRow(3);
-        cell = row.getCell(0);
-        assertEquals("HART Trip Updates", cell.getStringCellValue());
-        cell = row.getCell(1);
-        assertEquals("Tampa, FL, USA", cell.getStringCellValue() );
-        cell = row.getCell(2);
-        assertEquals("E017", cell.getStringCellValue());
-        cell = row.getCell(3);
-        assertEquals("W001, W009", cell.getStringCellValue());
-
-        row = dataSheet.getRow(4);
-        cell = row.getCell(0);
-        assertEquals("HART Vehicle Positions", cell.getStringCellValue());
-        cell = row.getCell(1);
-        assertEquals("Tampa, FL, USA", cell.getStringCellValue());
-        cell = row.getCell(2);
-        assertEquals("", cell.getStringCellValue());
-        cell = row.getCell(3);
-        assertEquals("W004, W001, W009", cell.getStringCellValue());
-
-        row = dataSheet.getRow(5);
-        cell = row.getCell(0);
-        assertEquals("MetroTransit Service Alerts", cell.getStringCellValue());
-        cell = row.getCell(1);
-        assertEquals("Halifax, NS, Canada", cell.getStringCellValue());
-        cell = row.getCell(2);
-        assertEquals("", cell.getStringCellValue());
-        cell = row.getCell(3);
-        assertEquals("", cell.getStringCellValue());
-
-        row = dataSheet.getRow(6);
-        cell = row.getCell(0);
-        assertEquals("MetroTransit Trip Updates", cell.getStringCellValue());
-        cell = row.getCell(1);
-        assertEquals("Halifax, NS, Canada", cell.getStringCellValue());
-        cell = row.getCell(2);
-        assertEquals("E017, E022", cell.getStringCellValue());
-        cell = row.getCell(3);
-        assertEquals("W001, W009", cell.getStringCellValue());
-
-        row = dataSheet.getRow(7);
-        cell = row.getCell(0);
-        assertEquals("MetroTransit Vehicle Positions", cell.getStringCellValue());
-        cell = row.getCell(1);
-        assertEquals("Halifax, NS, Canada", cell.getStringCellValue());
-        cell = row.getCell(2);
-        assertEquals("E029, E017", cell.getStringCellValue());
-        cell = row.getCell(3);
-        assertEquals("W009", cell.getStringCellValue());
+        for (int rowIndex = 1; rowIndex < 8; rowIndex++) {
+            Row row = dataSheet.getRow(rowIndex);
+            Cell cell = row.getCell(0);
+            // We can't assume hard-coded row entries because on Travis it outputs in different order than Windows
+            switch (cell.getStringCellValue()) {
+                case "MTA Maryland Trip Updates":
+                    cell = row.getCell(1);
+                    assertEquals("Maryland, USA", cell.getStringCellValue());
+                    cell = row.getCell(2);
+                    assertEquals("E022, E037, E041, E003, E004, E011", cell.getStringCellValue());
+                    cell = row.getCell(3);
+                    assertEquals("W001, W009", cell.getStringCellValue());
+                    break;
+                case "MTA Maryland Vehicle Locations":
+                    cell = row.getCell(1);
+                    assertEquals("Maryland, USA", cell.getStringCellValue());
+                    cell = row.getCell(2);
+                    assertEquals("E028, E017, E003, E004", cell.getStringCellValue());
+                    cell = row.getCell(3);
+                    assertEquals("W009", cell.getStringCellValue());
+                    break;
+                case "HART Trip Updates":
+                    cell = row.getCell(1);
+                    assertEquals("Tampa, FL, USA", cell.getStringCellValue());
+                    cell = row.getCell(2);
+                    assertEquals("E017", cell.getStringCellValue());
+                    cell = row.getCell(3);
+                    assertEquals("W001, W009", cell.getStringCellValue());
+                    break;
+                case "HART Vehicle Positions":
+                    cell = row.getCell(1);
+                    assertEquals("Tampa, FL, USA", cell.getStringCellValue());
+                    cell = row.getCell(2);
+                    assertEquals("", cell.getStringCellValue());
+                    cell = row.getCell(3);
+                    assertEquals("W004, W001, W009", cell.getStringCellValue());
+                    break;
+                case "MetroTransit Service Alerts":
+                    cell = row.getCell(1);
+                    assertEquals("Halifax, NS, Canada", cell.getStringCellValue());
+                    cell = row.getCell(2);
+                    assertEquals("", cell.getStringCellValue());
+                    cell = row.getCell(3);
+                    assertEquals("", cell.getStringCellValue());
+                    break;
+                case "MetroTransit Trip Updates":
+                    cell = row.getCell(1);
+                    assertEquals("Halifax, NS, Canada", cell.getStringCellValue());
+                    cell = row.getCell(2);
+                    assertEquals("E017, E022", cell.getStringCellValue());
+                    cell = row.getCell(3);
+                    assertEquals("W001, W009", cell.getStringCellValue());
+                    break;
+                case "MetroTransit Vehicle Positions":
+                    cell = row.getCell(1);
+                    assertEquals("Halifax, NS, Canada", cell.getStringCellValue());
+                    cell = row.getCell(2);
+                    assertEquals("E029, E017", cell.getStringCellValue());
+                    cell = row.getCell(3);
+                    assertEquals("W009", cell.getStringCellValue());
+                    break;
+            }
+        }
     }
 }
